@@ -65,6 +65,7 @@ body {
 .btn-lg  { padding: 13px 26px; font-size: 16px; border-radius: 10px; }
 .btn-sm  { padding: 6px 13px; font-size: 12.5px; border-radius: 6px; }
 .btn:disabled { opacity: .5; cursor: not-allowed !important; transform: none !important; box-shadow: none !important; }
+.w-full { width: 100%; justify-content: center; }
 
 /* ---- Cards ---- */
 .card { background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); }
