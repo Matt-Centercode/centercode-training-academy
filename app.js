@@ -657,7 +657,7 @@ function renderQuizView() {
   }).join('');
 
   document.getElementById('quiz-title').textContent = q.isRoleTestOut
-    ? `⚡ Full Track Assessment — ${getRoleTitles(S.currentUser)}`
+    ? `⚡ Full Track Assessment: ${getRoleTitles(S.currentUser)}`
     : `${q.isTestOut ? '⚡ Test-Out Assessment' : '📝 Module Quiz'} — ${m.title}`;
   document.getElementById('quiz-counter').textContent = `Question ${q.qIdx+1} of ${q.questions.length}`;
 
@@ -772,7 +772,7 @@ function renderQuizResult() {
 
     const testedOutHtml = testedOut.length
       ? `<div class="diag-section">
-          <div class="diag-section-head pass">⚡ Tested out — ${testedOut.length} module${testedOut.length !== 1 ? 's' : ''}</div>
+          <div class="diag-section-head pass">⚡ Tested out (${testedOut.length} module${testedOut.length !== 1 ? 's' : ''})</div>
           ${testedOut.map(r => `
             <div class="diag-row pass">
               <span>${r.mod.icon} ${r.mod.title}</span>
@@ -783,7 +783,7 @@ function renderQuizResult() {
 
     const needsStudyHtml = needsStudy.length
       ? `<div class="diag-section">
-          <div class="diag-section-head fail">📚 Modules to study — ${needsStudy.length} module${needsStudy.length !== 1 ? 's' : ''}</div>
+          <div class="diag-section-head fail">📚 To study (${needsStudy.length} module${needsStudy.length !== 1 ? 's' : ''})</div>
           ${needsStudy.map(r => `
             <div class="diag-row fail">
               <span>${r.mod.icon} ${r.mod.title}</span>
@@ -793,9 +793,9 @@ function renderQuizResult() {
       : '';
 
     const summary = needsStudy.length === 0
-      ? `You've tested out of everything. Your entire track is complete!`
+      ? `You tested out of everything. Your track is complete.`
       : testedOut.length === 0
-        ? `Keep going — the modules are ready for you in your learning path.`
+        ? `The modules are in your learning path and ready to go.`
         : `${testedOut.length} module${testedOut.length !== 1 ? 's' : ''} skipped, ${needsStudy.length} to go.`;
 
     document.getElementById('quiz-wrap').innerHTML = `
