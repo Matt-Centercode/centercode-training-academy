@@ -748,8 +748,8 @@ function renderQuizResult() {
       }, []);
       const modCorrect = indices.filter(i => q.answers[i]?.correct).length;
       const modTotal   = indices.length;
-      // Pass threshold: ≥2 out of 3 correct (or all correct if fewer questions)
-      const modPassed  = modTotal > 0 && modCorrect >= Math.max(2, Math.ceil(modTotal * 0.67));
+      // Pass threshold: all questions correct
+      const modPassed  = modTotal > 0 && modCorrect === modTotal;
       moduleResults[mod.id] = { correct: modCorrect, total: modTotal, passed: modPassed, mod };
     });
 
