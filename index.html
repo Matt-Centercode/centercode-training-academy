@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centercode Training Academy</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231F6FEB'/><text y='.9em' font-size='70' x='12'>🎓</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============================================================
+     WELCOME VIEW
+     ============================================================ -->
+<div id="view-welcome">
+  <div class="welcome-inner">
+    <div class="welcome-wordmark">
+      <div class="welcome-mark">🎓</div>
+      <div class="welcome-brand">
+        <strong>Centercode</strong>
+        <span>Training Academy</span>
+      </div>
+    </div>
+    <h1 class="welcome-h1">Beta Testing<br><em>Mastery</em><br>Starts Here</h1>
+    <p class="welcome-sub">Interactive, role-based training on the Centercode platform. Learn at your own pace, test out of topics you already know, and earn a verified certificate.</p>
+    <div class="welcome-ctas">
+      <button id="btn-welcome-continue" class="btn btn-secondary btn-lg hidden">Continue Learning</button>
+      <button id="btn-welcome-start" class="btn btn-primary btn-lg">Get Started →</button>
+    </div>
+    <div style="margin-top:16px">
+      <button id="btn-welcome-admin" style="background:none;border:none;color:rgba(255,255,255,.3);font-size:12px;cursor:pointer;font-family:inherit">Admin Access</button>
+    </div>
+    <div class="welcome-stats">
+      <div><div class="welcome-stat-n">10</div><div class="welcome-stat-l">Modules</div></div>
+      <div><div class="welcome-stat-n">4</div><div class="welcome-stat-l">Role Tracks</div></div>
+      <div><div class="welcome-stat-n">80+</div><div class="welcome-stat-l">Quiz Questions</div></div>
+      <div><div class="welcome-stat-n">AI</div><div class="welcome-stat-l">Knowledge Interview</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     ONBOARDING VIEW
+     ============================================================ -->
+<div id="view-onboarding" class="hidden">
+  <div class="onboard-box">
+
+    <div class="onboard-logo">
+      <div class="onboard-logo-mark">🎓</div>
+      <div class="onboard-logo-text">Centercode Training Academy</div>
+    </div>
+
+    <!-- Step indicators -->
+    <div class="onboard-steps">
+      <div class="step-dot active" id="step-dot-1">1</div>
+      <div class="step-line pending" id="step-line-1"></div>
+      <div class="step-dot pending" id="step-dot-2">2</div>
+      <div class="step-line pending" id="step-line-2"></div>
+      <div class="step-dot pending" id="step-dot-3">3</div>
+    </div>
+
+    <!-- Panel 1: Profile -->
+    <div id="panel-onboard-1" class="card card-body">
+      <h2 class="onboard-h2">Create your account</h2>
+      <p class="onboard-sub">Your progress will be saved and you can pick up where you left off.</p>
+      <div class="form-group">
+        <label class="form-label" for="onboard-name">Full Name</label>
+        <input class="form-input" id="onboard-name" type="text" placeholder="Jane Smith" autocomplete="name">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="onboard-email">Work Email</label>
+        <input class="form-input" id="onboard-email" type="email" placeholder="jane@company.com" autocomplete="email">
+      </div>
+      <button class="btn btn-primary w-full" id="btn-onboard-1" style="justify-content:center">Continue →</button>
+      <div style="margin-top:14px;text-align:center;font-size:13px;color:var(--text-3)">
+        Already have an account? <button id="btn-onboard-login" style="background:none;border:none;color:var(--blue);font-weight:600;cursor:pointer;font-family:inherit;font-size:13px">Sign in</button>
+      </div>
+    </div>
+
+    <!-- Panel 2: Role -->
+    <div id="panel-onboard-2" class="card card-body hidden">
+      <h2 class="onboard-h2">What are your roles?</h2>
+      <p class="onboard-sub">Select all that apply. We'll combine the relevant modules into one learning path.</p>
+      <div class="role-grid">
+        <div class="role-option" data-role="test-manager">
+          <div class="role-option-icon">🎯</div>
+          <div class="role-option-name">Test Manager</div>
+          <div class="role-option-desc">Plan and run end-to-end beta programs</div>
+        </div>
+        <div class="role-option" data-role="product-manager">
+          <div class="role-option-icon">📦</div>
+          <div class="role-option-name">Product Manager</div>
+          <div class="role-option-desc">Use beta insights to drive your roadmap</div>
+        </div>
+        <div class="role-option" data-role="qa-engineer">
+          <div class="role-option-icon">🔬</div>
+          <div class="role-option-name">QA / Engineer</div>
+          <div class="role-option-desc">Integrate bug workflows and triage feedback</div>
+        </div>
+        <div class="role-option" data-role="customer-success">
+          <div class="role-option-icon">🤝</div>
+          <div class="role-option-name">Customer Success</div>
+          <div class="role-option-desc">Support tester communities and report outcomes</div>
+        </div>
+      </div>
+      <div style="font-size:12px;color:var(--text-3);text-align:center;margin-bottom:10px">Click to select or deselect. You can choose more than one.</div>
+      <button class="btn btn-primary w-full" id="btn-onboard-2" style="justify-content:center">See My Learning Path →</button>
+      <button class="btn btn-ghost btn-sm" id="btn-onboard-back" style="width:100%;justify-content:center;margin-top:8px">← Back</button>
+    </div>
+
+    <!-- Panel 3: Path preview -->
+    <div id="panel-onboard-3" class="card card-body hidden">
+      <h2 class="onboard-h2">Your learning path</h2>
+      <p class="onboard-sub">Here's what we'll cover. You can test out of any module you already know.</p>
+      <div id="onboard-path-preview" style="margin-bottom:20px"></div>
+      <div class="callout callout-info">
+        <div class="callout-head">💡 Test Out Feature</div>
+        <div class="callout-text">On any module, you can take a knowledge assessment instead of reading the full content. Score 80%+ and it's marked complete — no time wasted on topics you already know.</div>
+      </div>
+      <button class="btn btn-primary w-full" id="btn-onboard-3" style="justify-content:center;margin-top:16px">Start Learning 🚀</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     APP VIEW
+     ============================================================ -->
+<div id="view-app" class="hidden">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="sb-logo">
+      <div class="sb-logo-text">Centercode Training Academy</div>
+    </div>
+
+    <div class="sb-user">
+      <div class="sb-avatar" id="sb-avatar">CC</div>
+      <div>
+        <div class="sb-user-name" id="sb-user-name">User</div>
+        <div class="sb-user-role" id="sb-user-role">Role</div>
+      </div>
+    </div>
+
+    <div class="sb-progress-wrap">
+      <div class="sb-progress-label">Path Progress</div>
+      <div class="sb-prog-bar"><div class="sb-prog-fill" id="sb-prog-fill" style="width:0%"></div></div>
+      <div class="sb-prog-pct" id="sb-prog-pct">0 of 0 modules</div>
+    </div>
+
+    <div class="sb-nav">
+      <div class="sb-nav-section">Learn</div>
+      <div class="sb-nav-item active" data-page="dashboard">
+        <span class="nav-icon">🏠</span> Dashboard
+      </div>
+      <div class="sb-nav-item" data-page="path">
+        <span class="nav-icon">🗺</span> My Learning Path
+      </div>
+
+      <div class="sb-nav-section" style="margin-top:8px">Achievements</div>
+      <div class="sb-nav-item" data-page="certificate">
+        <span class="nav-icon">🏆</span> My Certificate
+      </div>
+
+      <div class="sb-nav-section" style="margin-top:8px">Admin</div>
+      <div class="sb-nav-item" data-page="admin">
+        <span class="nav-icon">📋</span> Learner Reports
+      </div>
+    </div>
+
+    <div class="sb-footer">
+      <div class="sb-api-key-badge" id="sb-api-key-trigger">
+        <div class="sb-api-status" id="sb-api-status"></div>
+        <span id="sb-api-badge-text">Configure AI Interview</span>
+      </div>
+      <div class="sb-nav-item" id="btn-logout" style="margin-top:4px">
+        <span class="nav-icon">↩</span> Sign Out
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="topbar-title" id="topbar-title">Dashboard</div>
+      <div class="topbar-actions">
+        <span id="topbar-user-name" style="font-size:13px;color:var(--text-2)"></span>
+      </div>
+    </div>
+
+    <!-- ---- DASHBOARD PAGE ---- -->
+    <div class="page active" data-page="dashboard">
+      <div class="page-header">
+        <div id="dash-greeting" style="font-size:22px;font-weight:800;margin-bottom:2px"></div>
+        <div class="page-sub">Here's where you left off.</div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-tile">
+          <div class="stat-tile-lbl">Modules in Path</div>
+          <div class="stat-tile-val" id="stat-total">—</div>
+          <div class="stat-tile-sub">for your role</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-tile-lbl">Completed</div>
+          <div class="stat-tile-val" id="stat-done" style="color:var(--green)">0</div>
+          <div class="stat-tile-sub">modules done</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-tile-lbl">In Progress</div>
+          <div class="stat-tile-val" id="stat-progress" style="color:var(--blue)">0</div>
+          <div class="stat-tile-sub">modules started</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-tile-lbl">Tested Out</div>
+          <div class="stat-tile-val" id="stat-tested" style="color:var(--purple)">0</div>
+          <div class="stat-tile-sub">skipped via assessment</div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <div class="section-title">Your Learning Path</div>
+          <div class="modules-grid" id="modules-grid-dash"></div>
+        </div>
+        <div>
+          <div class="section-title">Up Next</div>
+          <div class="card" id="dash-next"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- LEARNING PATH PAGE ---- -->
+    <div class="page" data-page="path">
+      <div class="page-header">
+        <div class="page-h1">My Learning Path</div>
+        <div class="page-sub" id="path-role-title"></div>
+      </div>
+      <div class="card" style="padding:16px 20px;margin-bottom:22px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+          <span style="font-size:13px;font-weight:600">Overall Progress</span>
+          <span style="font-size:13px;color:var(--text-2)" id="path-progress-text"></span>
+        </div>
+        <div class="progress-bar" style="height:10px">
+          <div class="progress-fill" id="path-progress-fill" style="width:0%"></div>
+        </div>
+      </div>
+      <div class="modules-grid" id="modules-grid-path"></div>
+    </div>
+
+    <!-- ---- MODULE / LESSON PAGE ---- -->
+    <div class="page" data-page="module">
+      <div class="page-header" style="margin-bottom:16px">
+        <button class="btn btn-ghost btn-sm" onclick="showPage('path');renderPath()" style="margin-bottom:8px">← Back to Path</button>
+      </div>
+      <div class="lesson-wrap">
+        <!-- Main lesson area -->
+        <div class="lesson-main">
+          <div class="lesson-hero">
+            <div class="lesson-hero-eyebrow" id="lesson-hero-eyebrow"></div>
+            <div class="lesson-hero-title" id="lesson-hero-title"></div>
+            <div class="lesson-hero-meta" id="lesson-hero-meta"></div>
+          </div>
+          <div class="lesson-body" id="lesson-body"></div>
+          <div class="lesson-foot" id="lesson-foot" style="padding:0 28px 24px"></div>
+        </div>
+        <!-- Lesson sidebar -->
+        <div class="lesson-sidebar">
+          <div class="ls-card">
+            <div class="ls-head">Lessons</div>
+            <div class="ls-list" id="lesson-nav-list"></div>
+            <div class="ls-actions" id="lesson-sidebar-actions"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- QUIZ PAGE ---- -->
+    <div class="page" data-page="quiz">
+      <div class="quiz-wrap" id="quiz-wrap">
+        <div class="quiz-topbar">
+          <div>
+            <div style="font-size:14px;font-weight:700" id="quiz-title">Module Quiz</div>
+            <div style="font-size:12px;color:var(--text-3);margin-top:2px" id="quiz-counter"></div>
+          </div>
+          <div class="quiz-dots" id="quiz-dots"></div>
+        </div>
+        <div class="quiz-card">
+          <div class="quiz-q-num" id="quiz-q-num">Question 1</div>
+          <div class="quiz-q-text" id="quiz-q-text"></div>
+          <div class="quiz-opts" id="quiz-opts"></div>
+          <div class="quiz-feedback" id="quiz-feedback"></div>
+        </div>
+        <div style="display:flex;gap:10px;justify-content:flex-end">
+          <button class="btn btn-secondary" onclick="showPage('module');renderModuleView()">← Back to Module</button>
+          <button class="btn btn-primary" id="quiz-btn-submit" disabled>Submit Answer</button>
+          <button class="btn btn-primary hidden" id="quiz-btn-next">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- AI INTERVIEW PAGE ---- -->
+    <div class="page" data-page="interview">
+      <div class="interview-wrap">
+        <div class="interview-header">
+          <div class="interview-h" id="interview-module-title">AI Knowledge Interview</div>
+          <div class="interview-sub" id="interview-module-desc"></div>
+        </div>
+        <div class="chat-box" id="chat-messages"></div>
+        <div class="chat-input-row">
+          <input class="form-input" id="chat-user-input" type="text" placeholder="Type your answer and press Enter…">
+          <button class="btn btn-primary" id="chat-send-btn">Send</button>
+        </div>
+        <div class="interview-result" id="interview-result"></div>
+        <div style="margin-top:12px;text-align:right">
+          <button class="btn btn-ghost btn-sm" onclick="showPage('module');renderModuleView()">← Back to Module</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- CERTIFICATE PAGE ---- -->
+    <div class="page" data-page="certificate">
+      <div class="page-header">
+        <div class="page-h1">Your Certificate</div>
+        <div class="page-sub">Proof of your Centercode expertise.</div>
+      </div>
+      <div id="cert-wrap"></div>
+    </div>
+
+    <!-- ---- ADMIN PAGE ---- -->
+    <div class="page" data-page="admin">
+      <div class="page-header">
+        <div class="page-h1">Learner Reports</div>
+        <div class="page-sub">Track progress across all registered learners.</div>
+      </div>
+      <div id="admin-wrap"></div>
+    </div>
+
+  </main><!-- /main -->
+
+</div><!-- /view-app -->
+
+<!-- ============================================================
+     API KEY MODAL
+     ============================================================ -->
+<div class="modal-backdrop hidden" id="modal-apikey">
+  <div class="modal">
+    <div class="modal-title">🤖 Configure AI Interview</div>
+    <div class="modal-sub">Enter your Anthropic API key to enable the AI-powered Knowledge Interview for test-out assessments. Your key is stored only in your browser's local storage.</div>
+    <div class="form-group">
+      <label class="form-label" for="apikey-input">Anthropic API Key</label>
+      <input class="form-input" id="apikey-input" type="password" placeholder="sk-ant-api03-…">
+    </div>
+    <div style="font-size:12.5px;color:var(--text-3);margin-bottom:4px">
+      Without an API key, you can still use the standard multiple-choice quiz for assessments.
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-ghost btn-sm" id="apikey-cancel">Cancel</button>
+      <button class="btn btn-primary btn-sm" id="apikey-save">Save Key</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     MANAGE ROLES MODAL
+     ============================================================ -->
+<div class="modal-backdrop hidden" id="modal-roles">
+  <div class="modal" style="max-width:520px">
+    <div class="modal-title">🔀 Manage Roles</div>
+    <div class="modal-sub">Add or remove roles. Your existing module progress is preserved. New modules from added roles will appear in your path.</div>
+    <div class="role-grid" id="modal-roles-grid"></div>
+    <div class="modal-foot">
+      <button class="btn btn-ghost btn-sm" id="modal-roles-cancel">Cancel</button>
+      <button class="btn btn-primary btn-sm" id="modal-roles-save">Save Roles</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast container -->
+<div id="toast-root"></div>
+
+<!-- Scripts -->
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

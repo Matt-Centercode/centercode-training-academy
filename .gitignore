@@ -1,0 +1,11 @@
+# Claude Code dev server config
+.claude/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/settings.json
+*.swp
+*.swo
