@@ -571,6 +571,20 @@ function renderPath() {
   document.getElementById('path-progress-fill').style.width = stats.pct + '%';
   document.getElementById('path-progress-text').textContent = `${stats.done} of ${stats.total} modules complete · ${stats.pct}%`;
 
+  const testoutEl = document.getElementById('path-testout-section');
+  if (stats.pct < 100) {
+    testoutEl.innerHTML = `
+      <div class="callout callout-info" style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px">
+        <div>
+          <div class="callout-head">⚡ Already know this material?</div>
+          <div class="callout-text">Take the full track assessment. Score 80%+ and your entire path is marked complete.</div>
+        </div>
+        <button class="btn btn-primary" style="white-space:nowrap;flex-shrink:0" onclick="startRoleTestOut()">Take Assessment</button>
+      </div>`;
+  } else {
+    testoutEl.innerHTML = '';
+  }
+
   renderModuleCards('modules-grid-path', path, u);
 }
 
@@ -595,11 +609,41 @@ function startQuiz(moduleId, isTestOut) {
   showPage('quiz');
 }
 
+function startRoleTestOut() {
+  const u    = S.currentUser;
+  const path = getRolePath(u);
+
+  // Sample up to 3 questions per module from the testOut pool (fallback to quiz)
+  const questions = [];
+  path.forEach(mod => {
+    const pool = (mod.testOut && mod.testOut.length > 0) ? mod.testOut : mod.quiz;
+    const shuffled = [...pool].sort(() => Math.random() - 0.5);
+    questions.push(...shuffled.slice(0, Math.min(3, shuffled.length)));
+  });
+
+  // Final shuffle
+  questions.sort(() => Math.random() - 0.5);
+
+  S.quiz = {
+    moduleId: null,
+    questions,
+    qIdx: 0,
+    answers: Array(questions.length).fill(null),
+    isTestOut: false,
+    isRoleTestOut: true,
+    submitted: false,
+    done: false,
+  };
+
+  renderQuizView();
+  showPage('quiz');
+}
+
 function renderQuizView() {
   const q = S.quiz;
   if (q.done) { renderQuizResult(); return; }
 
-  const m    = MODULES[q.moduleId];
+  const m    = q.moduleId ? MODULES[q.moduleId] : null;
   const curr = q.questions[q.qIdx];
 
   // Dots
@@ -610,7 +654,9 @@ function renderQuizView() {
     return `<div class="${cls}"></div>`;
   }).join('');
 
-  document.getElementById('quiz-title').textContent = `${q.isTestOut ? '⚡ Test-Out Assessment' : '📝 Module Quiz'} — ${m.title}`;
+  document.getElementById('quiz-title').textContent = q.isRoleTestOut
+    ? `⚡ Full Track Assessment — ${getRoleTitles(S.currentUser)}`
+    : `${q.isTestOut ? '⚡ Test-Out Assessment' : '📝 Module Quiz'} — ${m.title}`;
   document.getElementById('quiz-counter').textContent = `Question ${q.qIdx+1} of ${q.questions.length}`;
 
   // Question
@@ -684,11 +730,24 @@ function renderQuizResult() {
   const correct = q.answers.filter(a => a?.correct).length;
   const score   = Math.round((correct / q.questions.length) * 100);
   const passed  = score >= 80;
-  const m       = MODULES[q.moduleId];
+  const m       = q.moduleId ? MODULES[q.moduleId] : null;
   const u       = S.currentUser;
 
   // Save progress
-  if (passed) {
+  if (q.isRoleTestOut) {
+    if (passed) {
+      const path = getRolePath(u);
+      path.forEach(mod => {
+        setModuleProgress(u, mod.id, {
+          status: 'tested-out',
+          quizScore: score,
+          completedAt: Date.now(),
+          lessonsDone: mod.lessons.map(l => l.id),
+        });
+      });
+      S.currentUser = loadUsers()[u.id];
+    }
+  } else if (passed) {
     const status = q.isTestOut ? 'tested-out' : 'completed';
     setModuleProgress(u, q.moduleId, {
       status,
@@ -697,17 +756,21 @@ function renderQuizResult() {
       lessonsDone: m.lessons.map(l => l.id),
     });
     S.currentUser = loadUsers()[u.id];
-  } else {
+  } else if (!q.isRoleTestOut) {
     setModuleProgress(u, q.moduleId, { quizScore: score });
   }
 
-  const icon    = passed ? '🏆' : '📚';
-  const title   = passed ? (q.isTestOut ? 'Knowledge Verified!' : 'Module Complete!') : 'Keep Studying';
+  const icon  = passed ? '🏆' : '📚';
+  const title = passed
+    ? (q.isRoleTestOut ? '⚡ Track Certified!' : q.isTestOut ? 'Knowledge Verified!' : 'Module Complete!')
+    : 'Keep Studying';
   const actions = passed
-    ? `<button class="btn btn-success" onclick="showPage('certificate');renderCertificate('${q.moduleId}')">View Badge 🏅</button>
-       <button class="btn btn-secondary" onclick="showPage('dashboard');renderDashboard()">Back to Dashboard</button>`
-    : `<button class="btn btn-primary" onclick="openModule('${q.moduleId}')">Review Module</button>
-       <button class="btn btn-secondary" onclick="startQuiz('${q.moduleId}',${q.isTestOut})">Retake Quiz</button>`;
+    ? `<button class="btn btn-success" onclick="showPage('dashboard');renderDashboard()">Go to Dashboard 🎓</button>`
+    : (q.isRoleTestOut
+        ? `<button class="btn btn-primary" onclick="showPage('path');renderPath()">Back to Learning Path</button>
+           <button class="btn btn-secondary" onclick="startRoleTestOut()">Retake Assessment</button>`
+        : `<button class="btn btn-primary" onclick="openModule('${q.moduleId}')">Review Module</button>
+           <button class="btn btn-secondary" onclick="startQuiz('${q.moduleId}',${q.isTestOut})">Retake Quiz</button>`);
 
   document.getElementById('quiz-wrap').innerHTML = `
     <div class="quiz-result">
@@ -715,8 +778,8 @@ function renderQuizResult() {
       <div class="qr-title ${passed ? 'pass' : 'fail'}">${title}</div>
       <div class="qr-score ${passed ? 'pass' : 'fail'}">${score}%</div>
       <div class="qr-sub">${correct} of ${q.questions.length} correct · ${passed ? 'Pass (≥80%)' : 'Needs improvement (≥80% to pass)'}</div>
-      ${passed && q.isTestOut ? `<div style="margin-bottom:18px"><span class="badge badge-purple">⚡ Tested Out</span></div>` : ''}
-      ${passed && !q.isTestOut ? `<div style="margin-bottom:18px"><span class="badge badge-green">✓ Completed</span></div>` : ''}
+      ${passed && (q.isRoleTestOut || q.isTestOut) ? `<div style="margin-bottom:18px"><span class="badge badge-purple">⚡ Tested Out</span></div>` : ''}
+      ${passed && !q.isTestOut && !q.isRoleTestOut ? `<div style="margin-bottom:18px"><span class="badge badge-green">✓ Completed</span></div>` : ''}
       <div class="qr-actions">${actions}</div>
     </div>`;
 
