@@ -394,6 +394,20 @@ textarea.form-input  { resize: vertical; min-height: 90px; }
 .qr-sub     { color: var(--text-2); font-size: 15px; margin-bottom: 28px; }
 .qr-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 
+/* Diagnostic results */
+.diag-result { text-align: left; }
+.diag-result .qr-icon { text-align: center; }
+.diag-result .qr-title { text-align: center; }
+.diag-result .qr-sub { text-align: center; }
+.diag-section { margin-bottom: 16px; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.diag-section-head { padding: 10px 14px; font-size: 13px; font-weight: 700; }
+.diag-section-head.pass { background: #ECFDF5; color: #065F46; }
+.diag-section-head.fail { background: #FEF9EC; color: #92400E; }
+.diag-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 14px; font-size: 14px; border-top: 1px solid var(--border); }
+.diag-row.pass { color: var(--text); }
+.diag-row.fail { color: var(--text-2); }
+.diag-score { font-weight: 700; font-size: 13px; color: var(--text-3); }
+
 /* ============================================================
    AI INTERVIEW
    ============================================================ */

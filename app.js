@@ -613,15 +613,17 @@ function startRoleTestOut() {
   const u    = S.currentUser;
   const path = getRolePath(u);
 
-  // Sample up to 3 questions per module from the testOut pool (fallback to quiz)
+  // Sample up to 3 questions per module, tagging each with its source moduleId
   const questions = [];
   path.forEach(mod => {
     const pool = (mod.testOut && mod.testOut.length > 0) ? mod.testOut : mod.quiz;
     const shuffled = [...pool].sort(() => Math.random() - 0.5);
-    questions.push(...shuffled.slice(0, Math.min(3, shuffled.length)));
+    shuffled.slice(0, Math.min(3, shuffled.length)).forEach(q => {
+      questions.push({ ...q, _moduleId: mod.id });
+    });
   });
 
-  // Final shuffle
+  // Shuffle all questions so module grouping isn't obvious
   questions.sort(() => Math.random() - 0.5);
 
   S.quiz = {
@@ -733,21 +735,88 @@ function renderQuizResult() {
   const m       = q.moduleId ? MODULES[q.moduleId] : null;
   const u       = S.currentUser;
 
-  // Save progress
+  // --- Diagnostic role assessment ---
   if (q.isRoleTestOut) {
-    if (passed) {
-      const path = getRolePath(u);
-      path.forEach(mod => {
+    const path = getRolePath(u);
+
+    // Score each module separately
+    const moduleResults = {};
+    path.forEach(mod => {
+      const indices = q.questions.reduce((acc, question, i) => {
+        if (question._moduleId === mod.id) acc.push(i);
+        return acc;
+      }, []);
+      const modCorrect = indices.filter(i => q.answers[i]?.correct).length;
+      const modTotal   = indices.length;
+      // Pass threshold: ≥2 out of 3 correct (or all correct if fewer questions)
+      const modPassed  = modTotal > 0 && modCorrect >= Math.max(2, Math.ceil(modTotal * 0.67));
+      moduleResults[mod.id] = { correct: modCorrect, total: modTotal, passed: modPassed, mod };
+    });
+
+    // Save tested-out modules
+    Object.values(moduleResults).forEach(({ mod, passed: modPassed, correct: modCorrect, total: modTotal }) => {
+      if (modPassed) {
         setModuleProgress(u, mod.id, {
           status: 'tested-out',
-          quizScore: score,
+          quizScore: Math.round((modCorrect / modTotal) * 100),
           completedAt: Date.now(),
           lessonsDone: mod.lessons.map(l => l.id),
         });
-      });
-      S.currentUser = loadUsers()[u.id];
-    }
-  } else if (passed) {
+      }
+    });
+    S.currentUser = loadUsers()[u.id];
+
+    // Build diagnostic results screen
+    const testedOut = Object.values(moduleResults).filter(r => r.passed);
+    const needsStudy = Object.values(moduleResults).filter(r => !r.passed);
+
+    const testedOutHtml = testedOut.length
+      ? `<div class="diag-section">
+          <div class="diag-section-head pass">⚡ Tested out — ${testedOut.length} module${testedOut.length !== 1 ? 's' : ''}</div>
+          ${testedOut.map(r => `
+            <div class="diag-row pass">
+              <span>${r.mod.icon} ${r.mod.title}</span>
+              <span class="diag-score">${r.correct}/${r.total}</span>
+            </div>`).join('')}
+        </div>`
+      : '';
+
+    const needsStudyHtml = needsStudy.length
+      ? `<div class="diag-section">
+          <div class="diag-section-head fail">📚 Modules to study — ${needsStudy.length} module${needsStudy.length !== 1 ? 's' : ''}</div>
+          ${needsStudy.map(r => `
+            <div class="diag-row fail">
+              <span>${r.mod.icon} ${r.mod.title}</span>
+              <span class="diag-score">${r.correct}/${r.total}</span>
+            </div>`).join('')}
+        </div>`
+      : '';
+
+    const summary = needsStudy.length === 0
+      ? `You've tested out of everything. Your entire track is complete!`
+      : testedOut.length === 0
+        ? `Keep going — the modules are ready for you in your learning path.`
+        : `${testedOut.length} module${testedOut.length !== 1 ? 's' : ''} skipped, ${needsStudy.length} to go.`;
+
+    document.getElementById('quiz-wrap').innerHTML = `
+      <div class="quiz-result diag-result">
+        <span class="qr-icon">🔍</span>
+        <div class="qr-title pass">Your Diagnostic Results</div>
+        <div class="qr-sub" style="margin-bottom:20px">${summary}</div>
+        ${testedOutHtml}
+        ${needsStudyHtml}
+        <div class="qr-actions" style="margin-top:24px">
+          <button class="btn btn-primary" onclick="showPage('path');renderPath()">Go to My Learning Path →</button>
+          <button class="btn btn-ghost btn-sm" onclick="startRoleTestOut()">Retake Assessment</button>
+        </div>
+      </div>`;
+
+    renderSidebar();
+    return;
+  }
+
+  // --- Standard module quiz / test-out ---
+  if (passed) {
     const status = q.isTestOut ? 'tested-out' : 'completed';
     setModuleProgress(u, q.moduleId, {
       status,
@@ -756,21 +825,17 @@ function renderQuizResult() {
       lessonsDone: m.lessons.map(l => l.id),
     });
     S.currentUser = loadUsers()[u.id];
-  } else if (!q.isRoleTestOut) {
+  } else {
     setModuleProgress(u, q.moduleId, { quizScore: score });
   }
 
   const icon  = passed ? '🏆' : '📚';
-  const title = passed
-    ? (q.isRoleTestOut ? '⚡ Track Certified!' : q.isTestOut ? 'Knowledge Verified!' : 'Module Complete!')
-    : 'Keep Studying';
+  const title = passed ? (q.isTestOut ? 'Knowledge Verified!' : 'Module Complete!') : 'Keep Studying';
   const actions = passed
-    ? `<button class="btn btn-success" onclick="showPage('dashboard');renderDashboard()">Go to Dashboard 🎓</button>`
-    : (q.isRoleTestOut
-        ? `<button class="btn btn-primary" onclick="showPage('path');renderPath()">Back to Learning Path</button>
-           <button class="btn btn-secondary" onclick="startRoleTestOut()">Retake Assessment</button>`
-        : `<button class="btn btn-primary" onclick="openModule('${q.moduleId}')">Review Module</button>
-           <button class="btn btn-secondary" onclick="startQuiz('${q.moduleId}',${q.isTestOut})">Retake Quiz</button>`);
+    ? `<button class="btn btn-success" onclick="showPage('certificate');renderCertificate('${q.moduleId}')">View Badge 🏅</button>
+       <button class="btn btn-secondary" onclick="showPage('dashboard');renderDashboard()">Back to Dashboard</button>`
+    : `<button class="btn btn-primary" onclick="openModule('${q.moduleId}')">Review Module</button>
+       <button class="btn btn-secondary" onclick="startQuiz('${q.moduleId}',${q.isTestOut})">Retake Quiz</button>`;
 
   document.getElementById('quiz-wrap').innerHTML = `
     <div class="quiz-result">
@@ -778,8 +843,8 @@ function renderQuizResult() {
       <div class="qr-title ${passed ? 'pass' : 'fail'}">${title}</div>
       <div class="qr-score ${passed ? 'pass' : 'fail'}">${score}%</div>
       <div class="qr-sub">${correct} of ${q.questions.length} correct · ${passed ? 'Pass (≥80%)' : 'Needs improvement (≥80% to pass)'}</div>
-      ${passed && (q.isRoleTestOut || q.isTestOut) ? `<div style="margin-bottom:18px"><span class="badge badge-purple">⚡ Tested Out</span></div>` : ''}
-      ${passed && !q.isTestOut && !q.isRoleTestOut ? `<div style="margin-bottom:18px"><span class="badge badge-green">✓ Completed</span></div>` : ''}
+      ${passed && q.isTestOut ? `<div style="margin-bottom:18px"><span class="badge badge-purple">⚡ Tested Out</span></div>` : ''}
+      ${passed && !q.isTestOut ? `<div style="margin-bottom:18px"><span class="badge badge-green">✓ Completed</span></div>` : ''}
       <div class="qr-actions">${actions}</div>
     </div>`;
 
