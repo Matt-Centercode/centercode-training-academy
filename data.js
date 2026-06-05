@@ -42,7 +42,7 @@ const MODULES = {
   fundamentals: {
     id: 'fundamentals',
     title: 'User Testing Fundamentals',
-    icon: '🚀',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 1 7 7c0 2.4-1.2 4.5-3 5.7V17H8v-2.3C6.2 13.5 5 11.4 5 9a7 7 0 0 1 7-7Z"/></svg>',
     duration: '25 min',
     difficulty: 'Beginner',
     description: 'Learn what user testing really is, how Centercode\'s delta testing framework works, and why signal quality beats raw volume every time.',
@@ -55,15 +55,14 @@ const MODULES = {
 <p>User testing puts your product in front of real people in real conditions before release. The goal isn't just to find what's broken. It's to answer a harder question: does this product work the way your actual customers need it to?</p>
 <p>Internal teams can't replicate the diversity, creativity, and occasional chaos of a real user base. You can test your own product for months and still miss the issue a first-time user hits in the first five minutes.</p>
 
-<div class="callout callout-info"><div class="callout-head">Alpha vs. delta testing</div><div class="callout-text">Alpha testing happens internally. Your team finds issues before the product reaches anyone outside the company. Delta testing (Centercode's methodology) goes external, reaching real participants. Both matter, but they answer different questions. Don't confuse them.</div></div>
 
-<h3>Types of User Testing Programs</h3>
+<h3>Types of Delta Testing Programs</h3>
+<p>Centercode supports four distinct program types, each built for a different testing goal:</p>
 <ul>
-  <li><strong>Closed programs</strong>: Invite-only, with screened participants. Best for targeted signal from specific user profiles.</li>
-  <li><strong>Open programs</strong>: Anyone can join. Higher volume, less precision. Common for broad consumer launches.</li>
-  <li><strong>Continuous programs</strong>: Always on, running alongside regular release cycles. The right fit for SaaS products shipping frequently.</li>
-  <li><strong>Dogfooding / Customer Zero</strong>: Internal employees or early customers test the product before external release. Useful for catching basics early.</li>
-  <li><strong>UAT (User Acceptance Testing)</strong>: Confirms a product meets defined requirements before handoff. More structured than delta testing.</li>
+  <li><strong>Product Launch Testing:</strong> Engage your target market to validate new products or major releases before they ship. The most common use case.</li>
+  <li><strong>Continuous User Testing:</strong> Run ongoing programs with existing customers to continuously improve live products. The right fit for SaaS products shipping frequently.</li>
+  <li><strong>Employee Testing:</strong> Gather internal employee feedback to catch issues early and build a product-focused culture before going external.</li>
+  <li><strong>Competitive Testing:</strong> Enlist a competitor's customers to gain direct, actionable intelligence about how your product compares to theirs.</li>
 </ul>
 
 <h3>What Makes a Program Effective</h3>
@@ -71,8 +70,8 @@ const MODULES = {
 
 <div class="key-box"><div class="key-box-title">Key Takeaways</div><ul>
   <li>User testing validates with real people in real conditions, not your internal team</li>
-  <li>Alpha = internal; delta testing = external participants</li>
-  <li>Closed, open, continuous, and dogfooding programs serve different needs</li>
+
+  <li>Four program types: Product Launch, Continuous, Employee Testing, Competitive</li>
   <li>80–90% engagement is achievable with the right structure</li>
 </ul></div>`,
       },
@@ -83,6 +82,14 @@ const MODULES = {
 <h3>Centercode's Proprietary Approach</h3>
 <p>Delta testing is Centercode's own methodology for running user tests. It's not just a platform feature. It's a system combining specific processes, best practices, and automation designed to produce reliable, actionable results every time.</p>
 <p>The structure follows a consistent pattern: <strong>Phases → Features → Activities</strong>. Each phase focuses on a themed set of features. Each feature gets activities that guide participants through specific testing scenarios. That structure keeps feedback organized and tied to what actually matters.</p>
+<p>Every project has three scheduled phase types that run in order:</p>
+<ul>
+  <li><strong>Onboarding:</strong> Feedback submission is disabled. Participants get oriented, receive product access, and set up their environment.</li>
+  <li><strong>Engagement:</strong> The primary testing period. Features and activities live here. Ted — Centercode's intelligent engagement bot — reaches out to participants about progress and gaps. (More on Ted in Module 2.)</li>
+  <li><strong>Closure:</strong> Wraps up the project. Feedback submission stays open. Ted sends final summaries.</li>
+</ul>
+<p>There are also two always-active background phases: New User (for onboarding new participants mid-program) and Regression (for re-testing features across multiple engagement cycles).</p>
+
 
 <h3>The FIPs Feedback Framework</h3>
 <p>Every delta testing program collects three types of feedback, known as FIPs (fixes, improvements, and promotions):</p>
@@ -100,7 +107,7 @@ const MODULES = {
 <p>25 engaged participants with context-rich feedback tell you more than 200 participants with shallow responses. The math feels counterintuitive. The outcomes aren't.</p>
 
 <div class="key-box"><div class="key-box-title">Key Takeaways</div><ul>
-  <li>Delta testing = Phases → Features → Activities, repeated recursively</li>
+  <li>Delta testing = Phases → Features → Activities, repeated each phase</li>
   <li>FIPs = Issues (fixes), Ideas (improvements), Praise (promotions)</li>
   <li>Praise is signal: it tells you what to protect, not just what to fix</li>
   <li>Signal quality beats participant volume every time</li>
@@ -118,10 +125,10 @@ const MODULES = {
 <p>If your program only works because one person holds everything together, it isn't really working. It's a program built on heroics, not structure. Heroics are a design smell: a signal that something upstream needs to be encoded into the platform instead of carried in someone's head.</p>
 <p>This matters practically. People leave. Roles change. A program that can't survive a personnel transition isn't a program. It's a dependency.</p>
 
-<div class="callout callout-warn"><div class="callout-head">Ted handles what shouldn't be manual</div><div class="callout-text">Ted is Centercode's AI engagement engine. He builds a unique behavioral profile for each participant, then optimizes timing, tone, and channel (email or SMS) for every automated communication. If your team is manually nudging every inactive participant, Ted isn't being used correctly.</div></div>
+<div class="callout callout-warn"><div class="callout-head">Ted handles what shouldn't be manual</div><div class="callout-text">If your team is manually nudging every inactive participant, Ted isn't being used correctly. Ted is Centercode's intelligent engagement bot — he automates participant communication based on behavior. Module 2 covers how to set him up and configure him.</div></div>
 
-<h3>The Customer Validation Lifecycle</h3>
-<p>Every effective program moves through the same phases: Plan → Recruit → Activate → Collect → Analyze → Act. Centercode supports all six. The phase teams most often skip or rush is the last one.</p>
+<h3>How Delta Programs Progress</h3>
+<p>Every effective delta program moves through the same stages: Plan → Recruit → Activate → Collect → Analyze → Act. Centercode supports all six. The stage teams most often skip or rush is the last one.</p>
 <p>If participants never see their feedback reflected in decisions (or even acknowledged), engagement drops on the next program. Closing the loop isn't optional. It's what makes participants want to come back.</p>
 
 <div class="key-box"><div class="key-box-title">Key Takeaways</div><ul>
@@ -135,63 +142,63 @@ const MODULES = {
     quiz: [
       {
         q: 'Your program has 300 participants but only 18% have submitted feedback after two weeks. The right response is:',
-        opts: ['Recruit more participants immediately to increase volume','Diagnose why signal is low—the problem is quality, not quantity','Send a manual email blast to all 300 participants','Extend the program timeline to give participants more time'],
+        opts: ['Recruit more participants immediately to increase volume','Diagnose why signal is low — the problem is quality, not quantity','Send a manual email blast to all 300 participants','Extend the program timeline to give participants more time'],
         a: 1,
-        exp: 'Low feedback submission signals a signal quality problem, not a volume problem. Adding more participants to a low-engagement program compounds the noise. The right move is to diagnose what\'s preventing participation before doing anything else.',
+        exp: 'Low feedback submission signals a quality problem, not a volume problem. Adding more participants to a low-engagement program compounds the noise. The right move is to diagnose what\'s preventing participation before doing anything else.',
       },
       {
-        q: 'In the FIPs framework, what does each letter stand for?',
-        opts: ['Features, improvements, priorities','Fixes, improvements, and promotions (Issues, Ideas, Praise)','Feedback, issues, and performance','Functions, inputs, and processes'],
+        q: 'In the FIPs framework, what does Praise specifically drive?',
+        opts: ['Fixes — resolving product defects before release','Improvements — additions to the product roadmap','Promotions — identifying and protecting what already works well','Prioritization — ranking which issues to fix first'],
+        a: 2,
+        exp: 'FIPs stands for fixes, improvements, and promotions. Praise maps to promotions — it tells you what works so you can protect it when shipping pressure builds. Programs that only track Issues and Ideas miss half the picture.',
+      },
+      {
+        q: 'Which two phase types run continuously in the background of every delta project, separate from the three scheduled phases?',
+        opts: ['Kickoff and Closure','New User and Regression','Onboarding and Engagement','Planning and Review'],
         a: 1,
-        exp: 'FIPs stands for fixes, improvements, and promotions: the three types of feedback in a delta testing program: Issues (fixes), Ideas (improvements), and Praise (promotions). Praise is often underused, but it tells you what to protect under shipping pressure.',
+        exp: 'Every delta project has three scheduled phases — Onboarding, Engagement, and Closure — plus two background phases that run continuously: New User (for onboarding participants who join mid-program) and Regression (for re-testing features across multiple engagement cycles).',
       },
       {
         q: 'A program that only works because one experienced person manages everything manually is:',
-        opts: ['Well-run—that\'s what expertise looks like','A sign the program needs more headcount','Fragile—heroics are a design smell that signals structural problems','Normal for programs under a certain size'],
+        opts: ['Well-run — that\'s what expertise looks like','A sign the program needs more headcount','Fragile — heroics are a design smell that signals structural problems','Normal for programs under a certain size'],
         a: 2,
         exp: 'Heroics are a design smell. If the program breaks when that person is away, the system isn\'t finished. The fix is encoding decisions and processes into the platform structure, not relying on individual memory.',
       },
       {
-        q: 'What engagement rate do Centercode programs typically achieve compared to traditional user testing?',
-        opts: ['About the same—30–35%','Slightly higher—40–50%','Significantly higher—80–90% vs. the traditional 20–30%','Lower—Centercode focuses on quality, not participation'],
-        a: 2,
-        exp: 'Traditional user testing programs see 20–30% participant engagement. Centercode programs consistently reach 80–90%. The difference comes from structure, Ted\'s automated engagement, and treating participants as partners.',
-      },
-      {
-        q: 'What is the correct order of phases in the customer validation lifecycle?',
-        opts: ['Recruit → Plan → Collect → Analyze → Activate → Act','Plan → Recruit → Activate → Collect → Analyze → Act','Activate → Recruit → Plan → Collect → Act → Analyze','Analyze → Plan → Recruit → Activate → Collect → Act'],
+        q: 'During the Onboarding phase of a delta project, feedback submission is:',
+        opts: ['Open for all feedback types including Issues and Ideas','Disabled — participants orient, receive product access, and set up their environment','Limited to Praise only','Routed to moderation before participants can see it'],
         a: 1,
-        exp: 'The lifecycle runs Plan → Recruit → Activate → Collect → Analyze → Act. The most commonly skipped phase is the last one. When participants don\'t see feedback acknowledged, engagement drops on your next program.',
+        exp: 'The Onboarding phase disables feedback submission. Its purpose is orientation: participants get set up, receive product access, and complete any required agreements. The Engagement phase is where active testing and feedback collection begin.',
       },
     ],
     testOut: [
       {
         q: 'A PM says: "We ran 300 participants last time and still got bad data. Let\'s do 600 this time." The correct response is:',
-        opts: ['Agree—more participants always improves statistical confidence','Decline—double the participants means double the admin overhead with no signal improvement','Reframe: more participants won\'t fix a signal quality problem. Diagnose what made the first 300 disengaged before recruiting anyone new','Agree, but only if the budget supports it'],
+        opts: ['Agree — more participants always improves statistical confidence','Decline — double the participants means double the admin overhead with no signal improvement','Reframe: more participants won\'t fix a signal quality problem. Diagnose what made the first 300 disengaged before recruiting anyone new.','Agree, but only if the budget supports it'],
         a: 2,
         exp: 'The minimum dose principle applies here. More participants won\'t fix low engagement or poor targeting. The right move is to diagnose the root cause (mismatched profiles, unclear activities, poor communication cadence) before spending more recruiting budget.',
       },
       {
-        q: 'A participant submits feedback saying "I loved the new checkout flow—it was the fastest I\'ve ever seen." In the FIPs framework, this is:',
-        opts: ['Not useful—positive feedback doesn\'t need to be tracked','An Idea—it suggests the checkout flow could be improved further','Praise—it promotes a strength that should be protected','An Issue—it implies the old flow was too slow'],
+        q: 'A participant submits feedback saying "I loved the new checkout flow — it was the fastest I\'ve ever seen." In the FIPs framework, this is:',
+        opts: ['Not useful — positive feedback doesn\'t need to be tracked','An Idea — it suggests the checkout flow could be improved further','Praise — it promotes a strength that should be protected','An Issue — it implies the old flow was too slow'],
         a: 2,
-        exp: 'Praise maps to the P in FIPs (promotions). It\'s real signal: it tells you what works, what to protect when shipping pressure builds, and what to highlight in executive reporting. Programs that only track Issues and Ideas miss half the picture.',
+        exp: 'Praise maps to the P in FIPs (promotions). It\'s real signal: it tells you what works and what to protect when shipping pressure builds. Programs that only track Issues and Ideas miss half the picture.',
+      },
+      {
+        q: 'Your project structure shows Phases → Features → Activities. A new team member asks what the Activity layer specifically accomplishes. The correct answer is:',
+        opts: ['It assigns participants to specific feedback types','It sets the timeline for each program phase','It gives participants specific instructions for how to access and test each feature','It configures Ted\'s engagement cadence per feature'],
+        a: 2,
+        exp: 'Activities provide instructions that describe how participants access and test each feature. They ensure participants understand the full scope of what they\'re testing, which drives more focused and actionable feedback than open-ended exploration alone.',
       },
       {
         q: 'Six months into a continuous program, the test manager leaves. The replacement admin can\'t find documentation for why key settings are configured the way they are. This is an example of:',
-        opts: ['Normal transition friction—this always takes time to resolve','A heroics problem: critical knowledge lived in one person\'s head instead of the platform','A recruiting problem—the right admin wasn\'t hired','A reporting problem—better dashboards would have surfaced the issue'],
+        opts: ['Normal transition friction — this always takes time to resolve','A heroics problem: critical knowledge lived in one person\'s head instead of the platform','A recruiting problem — the right admin wasn\'t hired','A reporting problem — better dashboards would have surfaced the issue'],
         a: 1,
-        exp: 'When institutional knowledge lives in one person\'s head instead of encoded into platform structure, templates, and documentation, the program becomes fragile. Program thinking means designing for handoff, not just for today.',
+        exp: 'When institutional knowledge lives in one person\'s head instead of encoded in platform structure, templates, and documentation, the program becomes fragile. Program thinking means designing for handoff, not just for today.',
       },
       {
-        q: 'Your delta testing program has Phases, Features, and Activities configured. What does the Activity layer specifically accomplish?',
-        opts: ['It assigns participants to specific feedback types','It sets the timeline for each program phase','It gives participants specific instructions for how to access and test each feature','It configures Ted\'s engagement cadence per feature'],
-        a: 2,
-        exp: 'Activities provide instructions describing how participants access and test each feature. They ensure participants understand the full scope of what they\'re testing, which drives more focused, actionable feedback than open-ended exploration alone.',
-      },
-      {
-        q: 'At which stage of the customer validation lifecycle do most program failures actually originate?',
-        opts: ['Collect—teams don\'t capture enough feedback types','Act—teams collect feedback but don\'t close the loop or make decisions','Recruit—teams target the wrong participant profiles','Analyze—teams can\'t process the volume of feedback they receive'],
+        q: 'At which stage of the delta program lifecycle do most program failures actually originate?',
+        opts: ['Collect — teams don\'t capture enough feedback types','Act — teams collect feedback but don\'t close the loop or make decisions','Recruit — teams target the wrong participant profiles','Analyze — teams can\'t process the volume of feedback they receive'],
         a: 1,
         exp: 'The Act phase is where most programs fail silently. When feedback gets collected but decisions aren\'t communicated back to participants, trust erodes. The next program starts with lower engagement, even if the team thinks the previous one went well.',
       },
@@ -204,7 +211,7 @@ const MODULES = {
   platform: {
     id: 'platform',
     title: 'Navigating the Centercode Platform',
-    icon: '🧭',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>',
     duration: '20 min',
     difficulty: 'Beginner',
     description: 'Get oriented on the Centercode Platform: how it\'s structured, who owns what, how Ted fits in, and what your daily workflow looks like.',
@@ -242,7 +249,8 @@ const MODULES = {
 <p>Every project has the same structure: a Dashboard, Activities, Feedback, Members, and Reports. That consistency is intentional. It means you can orient yourself in any project (yours or a colleague's) in under a minute.</p>
 <ul>
   <li><strong>Dashboard</strong>: Your real-time command center. Participation rates, feedback volume, and top-scored items surface here automatically.</li>
-  <li><strong>Activities</strong>: The structured tasks you assign to participants: feature walkthroughs, test scenarios, surveys. Activities drive focused feedback.</li>
+  <li><strong>Activities</strong>: The structured testing tasks tied to Features in your Delta program: feature walkthroughs, test scenarios, guided tests. Activities drive focused feedback.</li>
+  <li><strong>Tasks</strong>: A separate project component for structured work assignments — onboarding checklists, required actions, acceptance workflows. Participants must accept and complete task lists. Tasks can appear in Notice Chains (controlled access sequences covered in Module 3) and have their own status tracking per participant.</li>
   <li><strong>Feedback</strong>: All participant submissions: Issues, Ideas, and Praise. Scored, tracked through a triage workflow, and linked to features.</li>
   <li><strong>Members</strong>: Participants enrolled in this specific project, with engagement scores and individual contribution data.</li>
   <li><strong>Reports</strong>: Configurable dashboards and shareable reports for stakeholders at every level.</li>
@@ -251,11 +259,11 @@ const MODULES = {
 <div class="callout callout-warn"><div class="callout-head">Activities vs. organic feedback</div><div class="callout-text">Activities are what you ask participants to do. Feedback is what they choose to submit on their own. Good programs need both. Activities give you coverage across key features. Organic feedback surfaces issues you never thought to ask about.</div></div>
 
 <h3>The Three KPI Metrics</h3>
-<p>Every Centercode project tracks three proprietary KPIs that update in real time:</p>
+<p>Every Centercode project tracks three KPIs that update in real time:</p>
 <ul>
-  <li><strong>Delta Health</strong>: Participant engagement based on activity completion and feedback submission. Graded A+ to N/A.</li>
-  <li><strong>Delta Success</strong>: Product quality ratio of positive vs. negative feedback. Scores 0–100.</li>
-  <li><strong>Delta Impact</strong>: The improvement in Delta Success attributable to resolved issues and implemented ideas. Expressed as a percentage change.</li>
+  <li><strong>Delta Health</strong>: Participant engagement measured by activity completion and feedback submission rates. Displayed as a letter grade (A+ to N/A). When Health falls below a passing threshold, the Success score shows as a range or N/A rather than a precise number.</li>
+  <li><strong>Delta Success</strong>: Product health based on the balance of issues vs. praise and resolved feedback. Displays as a whole number once Health is strong; shown as a range at lower Health levels. A score of exactly 50 means issues and positive signals are in perfect balance.</li>
+  <li><strong>Delta Impact</strong>: Testing effectiveness — the percentage change in Success attributable to addressed feedback. Feedback counts toward Impact only when its status has an Intent set to one of the Resolved options — Resolved - Verified, Resolved - Other, or Resolved - Exclude. This is the ROI number worth showing an executive.</li>
 </ul>
 <p>Together, these tell you whether your program is healthy, whether your product is improving, and how much your testing actually moved the needle.</p>
 
@@ -270,8 +278,19 @@ const MODULES = {
         title: 'Ted, Communication, and Your Daily Workflow',
         content: `
 <h3>Who Ted Is</h3>
-<p>Ted is Centercode's AI engagement engine. He builds a unique behavioral profile for each participant, learning their preferred communication timing, tone, and channel (email or SMS). He then uses that profile to send automated nudges, reminders, and follow-ups without you having to configure each one manually.</p>
+<p>Ted is Centercode's intelligent bot. He builds a unique behavioral profile for each participant, learning their preferred communication timing, tone, and channel (email or SMS). He then uses that profile to send automated nudges, reminders, and follow-ups without you having to configure each one manually.</p>
 <p>Ted handles behavior-driven communication. If a participant hasn't completed an activity in three days, Ted knows and responds accordingly. If a participant just submitted their fifth piece of feedback, Ted knows that too.</p>
+<p>Ted AI is a separate LLM-powered layer that handles content generation — test plans, surveys, feedback summaries, and more. Same name family, different function. Module 7 covers Ted AI in detail.</p>
+
+<h3>Activating Ted</h3>
+<p>Ted isn't on by default on every project. You activate him from the Management menu under <em>Tester engagement bot settings</em>. The page shows a "Meet Ted" intro and an <em>Activate Ted</em> button. Once active, you configure three areas:</p>
+<ul>
+  <li><strong>Tester messaging:</strong> Toggle whether Ted sends welcome messages, SMS texts, and thank-you summaries with participation stats.</li>
+  <li><strong>Smart engagement:</strong> Three levels — Typical (recommended, max one message per day based on participation), Light (fewer messages, focused on testers falling behind), or None (critical messages only, like phase changes and new features).</li>
+  <li><strong>Admin messaging:</strong> Toggle whether Ted sends you daily scrum updates and phase progress and closure updates.</li>
+</ul>
+<p>Below those settings is <strong>Ted's audience</strong> — a team table where you control which teams receive Tester messages and which receive Management messages. You set each independently per team.</p>
+<p>Ted can be deactivated at any time from the same page. A <em>Ted log</em> button gives you a full history of every message he has sent.</p>
 
 <h3>Communication Ownership</h3>
 <p>Mature programs divide communication responsibility clearly:</p>
@@ -282,7 +301,7 @@ const MODULES = {
 </ul>
 <p>When all three send messages to the same audience at the same time, none of them feel authoritative. More messages don't create more engagement. They create confusion.</p>
 
-<div class="callout callout-success"><div class="callout-head">Video feedback and mobile</div><div class="callout-text">Participants can submit feedback through Centercode's mobile app for iOS and Android, including short video recordings. Video captures facial expressions, vocal tone, and screen interaction simultaneously: context that text can't replicate. If you're testing a mobile product, the mobile app is how participants should engage.</div></div>
+<div class="callout callout-success"><div class="callout-head">Video feedback</div><div class="callout-text">Participants can record and submit video directly in the browser — webcam video, screen recordings, or audio — without installing anything. The Centercode mobile app for iOS and Android supports the same. Video captures facial expressions, vocal tone, and on-screen interaction simultaneously: context that text alone can't replicate. Activity video recording must be enabled per feature in the project configuration.</div></div>
 
 <div class="key-box"><div class="key-box-title">Key Takeaways</div><ul>
   <li>Ted builds a behavioral profile per participant and handles automated engagement</li>
@@ -297,57 +316,57 @@ const MODULES = {
         q: 'A participant can\'t access a project they were just invited to. Before escalating a support ticket, you should:',
         opts: ['Check whether their Community membership is active, their team assignment is correct, and whether any notices are blocking access','Ask them to sign out and back in','Remove and re-add them to the project from scratch','Check whether the project Dashboard is set to public'],
         a: 0,
-        exp: 'Access in Centercode is determined by six layers. The first diagnostic step is checking Community membership, team assignment, and notice/gating conditions, not a full re-enrollment. Most access issues trace to one specific layer once you know where to look.',
+        exp: 'Access in Centercode is determined by six layers. The first diagnostic step is checking Community membership, team assignment, and notice or gating conditions — not a full re-enrollment. Most access issues trace to one specific layer once you know where to look.',
       },
       {
-        q: 'Delta Health is a KPI that measures:',
-        opts: ['The ratio of Issues to Ideas submitted','Participant engagement based on activity completion and feedback submission','The number of resolved issues in a given phase','The average time between feedback submission and triage'],
+        q: 'Delta Health is a KPI displayed as:',
+        opts: ['A percentage between 0% and 100%','A letter grade from A+ to N/A, based on activity completion and feedback submission rates','A numeric score from 1 to 100 that updates weekly','A color-coded status: green, yellow, or red'],
         a: 1,
-        exp: 'Delta Health is a letter-grade KPI (A+ to N/A) measuring engagement: how participants are completing activities and submitting feedback. It\'s the leading indicator of whether your program is on track while there\'s still time to adjust.',
+        exp: 'Delta Health is a letter-grade KPI (A+ to N/A) measuring participant engagement: how participants are completing activities and submitting feedback. It\'s the leading indicator of whether your program is on track while there\'s still time to adjust.',
       },
       {
-        q: 'What is the correct owner for automated, behavior-driven participant nudges in Centercode?',
-        opts: ['Project email, sent manually by the test manager','Community email on a weekly schedule','Ted, using behavioral profiles built for each participant','A notice chain configured by the community admin'],
-        a: 2,
-        exp: 'Ted owns automated, behavior-driven communication. He monitors individual participant activity and responds based on behavioral profiles. If the system already knows the condition (three days without activity, just submitted fifth piece of feedback), Ted should send the message, not a manual email.',
+        q: 'Ted is activated on a project from:',
+        opts: ['The project Dashboard under Program Settings','Management > Tester engagement bot settings, using the Activate Ted button','The Community admin panel under Integrations','The Reports section, once Delta Health reaches a passing grade'],
+        a: 1,
+        exp: 'You activate Ted from Management > Tester engagement bot settings. The page shows a Meet Ted intro and an Activate Ted button. From there you configure Tester messaging, Smart engagement level, Admin messaging, and Ted\'s audience table.',
       },
       {
         q: 'What distinguishes a Community from a Project in Centercode?',
         opts: ['Communities are for paying customers; projects are for free-tier accounts','A Community is your persistent member pool that exists across programs; a Project is a time-bound test that draws from it','Communities are public-facing; projects are internal-only','A Community holds feedback; a Project holds members'],
         a: 1,
-        exp: 'Your Community is persistent infrastructure: member profiles, recruiting history, engagement scores. It outlasts any single test. Projects are time-bound execution instances that draw participants from your Community. Build the Community well and each Project starts with an advantage.',
+        exp: 'Your Community is persistent infrastructure: member profiles, recruiting history, and engagement scores. It outlasts any single test. Projects are time-bound execution instances that draw participants from your Community. Build the Community well and each Project starts with an advantage.',
       },
       {
-        q: 'A participant submits an organic piece of feedback about a feature not covered in any assigned activity. This feedback is:',
-        opts: ['Invalid—it falls outside the defined testing scope and should be archived','Valuable—organic feedback surfaces issues you didn\'t know to ask about','Less reliable than activity-driven feedback and should be scored lower','A sign that your activities aren\'t comprehensive enough'],
+        q: 'A participant wants to record a video of their screen while reproducing a bug and submit it as feedback. Which statement about video feedback is accurate?',
+        opts: ['Video submission requires participants to install a separate screen-recording app','In-browser video recording (webcam and screen capture) is available without installing anything; the Centercode mobile app supports the same','Video feedback is available on all feedback types by default with no licensing requirement','Video submissions are stored externally and linked to feedback items via URL'],
         a: 1,
-        exp: 'Organic feedback (submitted by participants without being prompted by an activity) is one of the most valuable types of input. It surfaces issues, ideas, and praise that no amount of structured activities would have uncovered. Good programs treat it as signal, not noise.',
+        exp: 'Participants can record webcam video, screen recordings, or audio directly in the browser without installing anything. The Centercode mobile app for iOS and Android supports the same. Activity video recording must be enabled per feature in the project configuration.',
       },
     ],
     testOut: [
       {
         q: 'Your Delta Impact score is 12%. This means:',
-        opts: ['Only 12% of participants engaged with the program','12% of feedback has been triaged and resolved','The product\'s Delta Success score improved by 12% as a result of resolved issues and implemented ideas','12% of activities were completed on time'],
+        opts: ['Only 12% of participants engaged with the program','12% of feedback has been triaged and resolved','The product\'s Delta Success score improved by 12% as a result of feedback that reached a resolved status intent','12% of activities were completed on time'],
         a: 2,
-        exp: 'Delta Impact is the percentage improvement in Delta Success attributable to resolved issues and implemented ideas. A 12% Delta Impact means the product measurably improved because of what your program surfaced. That\'s the ROI number worth showing an executive.',
+        exp: 'Delta Impact is the percentage improvement in Delta Success attributable to feedback that reached a resolved status intent. A 12% Delta Impact means the product measurably improved because of what your program surfaced. That\'s the ROI number worth showing an executive.',
       },
       {
-        q: 'Ted sends a reminder to a participant who hasn\'t logged an activity in four days. The next day, an admin also sends a manual project email reminding the same participants to complete activities. The likely outcome is:',
-        opts: ['Higher completion rates—two reminders reinforce urgency','No change—participants don\'t notice or care about message source','Confusion and eroded message authority—when everything is urgent, nothing is','Participants will complete activities faster because they received two touchpoints'],
+        q: 'Ted\'s Smart engagement is set to "Light." What does this mean for participant communication?',
+        opts: ['Ted sends up to three messages per day based on activity patterns','Ted sends messages only once per week on a fixed schedule','Ted focuses messages on participants who are falling behind, with fewer messages overall than the Typical setting','Ted is effectively off — only critical system messages go out'],
         a: 2,
-        exp: 'Communication authority erodes when multiple sources send overlapping messages. Participants stop trusting that any individual message is important. The rule is clear ownership: if Ted already handled it, let Ted handle it. Manual overrides undermine the automation they\'re supposed to support.',
+        exp: 'Light engagement means Ted focuses his messages on participants who are falling behind, rather than messaging everyone. It sends fewer messages than the Typical setting (which sends up to one message per day) and more than None (which sends only critical messages like phase changes).',
       },
       {
         q: 'An executive asks "how do I know if the program is working right now?" The single best answer in Centercode is:',
-        opts: ['Export the feedback CSV and summarize it in a presentation','Show the project Dashboard—Delta Health, feedback velocity, and top-scored items update in real time','Run a weekly community email with participation stats','Ask the test manager for a verbal update'],
+        opts: ['Export the feedback CSV and summarize it in a presentation','Show the project Dashboard — Delta Health, feedback velocity, and top-scored items update in real time','Run a weekly community email with participation stats','Ask the test manager for a verbal update'],
         a: 1,
         exp: 'The project Dashboard is designed exactly for this: real-time program health across the metrics that matter. Delta Health surfaces engagement trends. Feedback velocity shows whether signal is flowing. Top-scored items show what needs attention. No export required.',
       },
       {
-        q: 'A new test manager joins mid-program and can\'t find documentation explaining why certain team access rules are configured the way they are. According to the platform\'s design intent, this knowledge should be:',
-        opts: ['Stored in a shared folder outside Centercode','Memorized by whoever runs the program','Encoded in platform templates and configurations so it survives personnel changes','Documented in meeting notes from the initial setup session'],
+        q: 'A Delta Success score of exactly 50 indicates:',
+        opts: ['The program is halfway through its scheduled duration','Exactly half of participants have completed their required activities','Issues and positive signals are in perfect balance — the product is neither trending toward failure nor toward strong health','The scoring system has insufficient data to produce a precise result'],
         a: 2,
-        exp: 'When access rules, template logic, and configuration decisions live only in someone\'s memory, the program is fragile. Centercode\'s design intent is to encode decisions into the platform structure itself (templates, access layers, notices) so the program runs correctly regardless of who\'s managing it.',
+        exp: 'Delta Success measures product health as a ratio of issues to praise and resolved feedback. A score of exactly 50 means the positive and negative signals are in perfect balance. Scores above 50 lean toward health; scores below 50 lean toward concern.',
       },
       {
         q: 'Which combination best describes a healthy Centercode program?',
@@ -364,7 +383,7 @@ const MODULES = {
   testers: {
     id: 'testers',
     title: 'Recruiting and Managing Participants',
-    icon: '👥',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
     duration: '35 min',
     difficulty: 'Intermediate',
     description: 'Build a quality participant community, run campaigns that attract the right members, and sustain engagement over time without burning your community.',
@@ -386,16 +405,16 @@ const MODULES = {
   <li><strong>Engagement potential</strong>: Do they have the time and motivation to participate consistently?</li>
 </ul>
 
-<div class="callout callout-info"><div class="callout-head">The tester energy pool</div><div class="callout-text">Every participant has a limited pool of attention and goodwill. Each ask you make (activity, survey, reminder) draws from it. The job of good program design is to spend that pool on the asks that matter most, not to exhaust it on overhead.</div></div>
+<div class="callout callout-info"><div class="callout-head">The participant energy pool</div><div class="callout-text">Every participant has a limited pool of attention and goodwill. Each ask you make (activity, survey, reminder) draws from it. The job of good program design is to spend that pool on the asks that matter most, not to exhaust it on overhead.</div></div>
 
-<h3>Betabound and the Tester Network</h3>
-<p>If you don't have an existing community, Centercode's Betabound network gives you access to around 300,000 deeply profiled, opt-in members. You can filter by dozens of technographic, demographic, and behavioral attributes to find exactly the profile you need, without building that audience from scratch.</p>
+<h3>Test Platform Forms</h3>
+<p>Before participants submit feedback, you need to know what hardware and software they're testing on. Test Platform Forms are a dedicated form type for capturing this — device model, OS version, app version, enterprise software in use, or any other environment details that matter for your program.</p>
+<p>You can require participants to complete a Test Platform Form during onboarding (via a Notice Chain) or attach it to individual feedback forms so participants specify their environment at the point of submission. The data populates their technographic profile and is available as a filter when reviewing feedback — so you can instantly see whether an issue is isolated to one OS version or affects everyone.</p>
 
 <div class="key-box"><div class="key-box-title">Key Takeaways</div><ul>
   <li>Low signal is almost always a fit problem, not a volume problem</li>
   <li>Define your ideal participant profile before recruiting anyone</li>
   <li>Centercode's technographic profiles capture device and software environments</li>
-  <li>Betabound provides 300,000+ profiled members for programs that need external participants</li>
 </ul></div>`,
       },
       {
@@ -435,7 +454,7 @@ const MODULES = {
         title: 'NDAs, Profiles, and Long-Term Engagement',
         content: `
 <h3>Agreement Management Without the Overhead</h3>
-<p>Most programs for pre-release products require participants to sign an NDA before accessing anything. Centercode handles this through <em>Notice Chains</em>: controlled sequences of pages and agreements that participants must complete before accessing program resources.</p>
+<p>Most programs for pre-release products require participants to sign an agreement before accessing anything. The most common types are an <strong>NDA</strong> (Non-Disclosure Agreement, prohibiting participants from sharing what they've seen) and a <strong>TPA</strong> (Tester Participation Agreement, defining the rules and expectations of the program itself). Many programs use both. Centercode handles either through <em>Notice Chains</em>: controlled sequences of pages and agreements participants must complete before accessing program resources.</p>
 <p>You upload the agreement, require digital signature, and the platform gates access until it's signed. Centercode logs the timestamp and agreement version automatically. You get a compliance audit trail without manually chasing signatures or tracking spreadsheets.</p>
 
 <h3>Participant Profiles Build Over Time</h3>
@@ -447,7 +466,7 @@ const MODULES = {
   <li>Target a follow-up survey only at participants who submitted issues about a specific feature</li>
 </ul>
 
-<div class="callout callout-success"><div class="callout-head">Incentives without payment</div><div class="callout-text">Centercode's approach is deliberate: don't pay participants directly. Direct payment attracts people motivated by money, not by the product. That produces biased, lower-quality feedback. Instead, distribute product keys, gift codes, hardware, or early access through Centercode's Distributed Values feature. It rewards participation without buying it.</div></div>
+<div class="callout callout-success"><div class="callout-head">Distributed Values: incentives without payment</div><div class="callout-text">Don't pay participants directly — it attracts people motivated by money, not the product, and produces biased feedback. Use Distributed Values instead. You bulk-load a list of items — product keys, gift codes, serial numbers, access codes — into a content item and set per-participant quotas. The platform assigns items automatically as participants qualify, or you assign them manually. Participants receive their value through the content item in the platform. No spreadsheet tracking, no manual fulfillment emails.</div></div>
 
 <h3>Tester Ranking</h3>
 <p>Centercode automatically ranks participants by engagement and feedback quality across programs. Those rankings help you identify your best members for priority invitations, recognize contributions, and build the kind of advisory relationship that produces exceptional signal over time.</p>
@@ -463,33 +482,33 @@ const MODULES = {
     quiz: [
       {
         q: 'Seventeen percent of invited members responded to your last recruitment campaign. The most useful diagnostic question is:',
-        opts: ['How do we write a more compelling recruitment email?','What happened to the other 83%—and which of the five root causes explains their non-response?','How many more people do we need to invite next time?','Should we lower the screening requirements to increase the response rate?'],
+        opts: ['How do we write a more compelling recruitment email?','What happened to the other 83% — and which of the five root causes explains their non-response?','How many more people do we need to invite next time?','Should we lower the screening requirements to increase the response rate?'],
         a: 1,
         exp: 'Low response rate is a diagnostic signal. Before optimizing the email or expanding the invite list, diagnose the actual cause: relevance, value, timing, stability, or trust. Each one requires a different fix. Adding more invites to an unfixed problem just gets you more non-responses.',
       },
       {
         q: 'You need 60 active participants for your program. How many should you recruit?',
-        opts: ['Exactly 60—over-recruiting creates unnecessary overhead','45—screen more carefully to reduce drop-off','75–78—accounting for 20–30% drop-off between acceptance and active participation','120—double the target to guarantee coverage'],
+        opts: ['Exactly 60 — over-recruiting creates unnecessary overhead','45 — screen more carefully to reduce drop-off','75–78 — accounting for 20–30% drop-off between acceptance and active participation','120 — double the target to guarantee coverage'],
         a: 2,
         exp: 'Expect 20–30% drop-off between acceptance and active participation. For 60 active participants, recruit 75–78. Centercode\'s waitlist feature lets you activate additional members mid-program if early enrollees don\'t engage, so the buffer doesn\'t go to waste.',
       },
       {
-        q: 'Why does Centercode recommend against paying participants directly?',
-        opts: ['It\'s legally complicated in most jurisdictions','Direct payment attracts people motivated by money rather than the product, producing biased and lower-quality feedback','It creates tax liability for participants','It reduces community retention across programs'],
+        q: 'A participant wants to report a bug but isn\'t sure which device OS version they\'re running. The Centercode feature specifically designed to capture this environment data is:',
+        opts: ['A custom feedback type configured for device details','Test Platform Forms — a dedicated form type for capturing device model, OS version, app version, and other environment details','A survey sent to all participants at onboarding asking for their hardware specs','The technographic profile, which participants fill in manually after joining the community'],
         a: 1,
-        exp: 'Direct payment changes who shows up. Participants motivated by compensation give you what they think you want to hear, not what they actually experience. Centercode\'s approach uses Distributed Values (product access, gift codes, hardware) to reward participation without buying false positives.',
+        exp: 'Test Platform Forms are a dedicated form type for capturing hardware and software environment details. You can require participants to complete one during onboarding via a Notice Chain, or attach it to individual feedback forms so participants specify their environment at the point of submission.',
       },
       {
-        q: 'A participant in your community accepted a program invitation 10 days ago but hasn\'t signed the NDA or accessed the program. In Centercode, access is:',
-        opts: ['Granted automatically after 7 days regardless of NDA status','Blocked by the Notice Chain until the agreement is signed, and the platform logs the gap automatically','Granted for read-only access until the NDA is completed','Dependent on whether the admin manually reviews the case'],
+        q: 'A participant in your community accepted a program invitation 10 days ago but hasn\'t signed the agreement or accessed the program. In Centercode, access is:',
+        opts: ['Granted automatically after 7 days regardless of agreement status','Blocked by the Notice Chain until the agreement is signed, and the platform logs the gap automatically','Granted for read-only access until the agreement is completed','Dependent on whether the admin manually reviews the case'],
         a: 1,
         exp: 'Notice Chains gate program access behind agreement completion. Participants can\'t proceed without signing. Centercode logs timestamps and agreement versions automatically, creating the compliance record you need without manual tracking.',
       },
       {
-        q: 'You want to target a follow-up survey only at participants who reported issues with a specific feature last week. The Centercode feature that enables this is:',
-        opts: ['A new recruitment campaign filtered by response history','Community segmentation using behavioral and feedback data stored in member profiles','A project email sent manually to the full participant list','A notice chain that shows the survey only to participants in a specific team'],
+        q: 'You want to distribute product keys to qualified participants without paying them directly or tracking assignments in a spreadsheet. The Centercode feature for this is:',
+        opts: ['Notice Chains, which can include a product key delivery page as one step','Distributed Values — you bulk-load a list of items, set per-participant quotas, and the platform assigns them automatically or manually as participants qualify','A custom feedback type that delivers the key as a form element response','A Macro triggered on enrollment that emails each participant their product key individually'],
         a: 1,
-        exp: 'Member profiles accumulate behavioral and feedback data over time. Community segmentation uses that data to target specific subgroups (like participants who submitted issues about a feature) without creating a new program or broadcasting to everyone.',
+        exp: 'Distributed Values let you bulk-load a list of items — product keys, gift codes, serial numbers — and set per-participant quotas. The platform assigns items automatically as participants qualify, or you assign them manually. No spreadsheet tracking, no manual fulfillment emails.',
       },
     ],
     testOut: [
@@ -500,26 +519,26 @@ const MODULES = {
         exp: 'Declining response rates across programs indicate accumulating recruiting debt. The causes are usually behavioral: over-asking, poor targeting, or closing loops poorly. Adding more people to a fatigued community worsens the problem. Diagnose first.',
       },
       {
-        q: 'You\'re building a community for a new enterprise SaaS product. You need participants who use Salesforce daily, run Windows 11, and work in financial services. The fastest path to 50 qualified participants is:',
-        opts: ['Post to LinkedIn and accept the first 50 people who respond','Use Betabound to filter for members matching the technographic and demographic profile you need','Run an internal employee pilot first, then expand externally','Ask your sales team for a list of existing customers who fit the profile'],
+        q: 'You\'re building a community for a new enterprise SaaS product. You need participants who use Salesforce daily, run Windows 11, and work in financial services. Before inviting anyone, you configure Centercode to capture this environment data. The feature for this is:',
+        opts: ['Custom feedback types configured to ask about environment at submission time','Technographic Profiles — captured via Test Platform Forms during onboarding so every participant\'s device, OS, and software environment is on record before they submit any feedback','A community survey sent to all members asking about their work environment','The participant profile form, which automatically detects software and hardware from the participant\'s browser'],
         a: 1,
-        exp: 'Betabound\'s 300,000+ profiled members can be filtered by technographic (software in use, hardware), demographic, and behavioral attributes. For a specific enterprise profile, Betabound delivers pre-qualified participants faster than any list-building campaign.',
+        exp: 'Technographic Profiles capture hardware and software environment details via Test Platform Forms. You can require participants to complete one during onboarding, populating their profile with exactly the data you need to segment feedback by environment.',
       },
       {
-        q: 'Six months into a continuous program, your Delta Health has dropped from B+ to C despite no changes to activities or participant count. The most likely explanation is:',
-        opts: ['The product got worse and participants are disengaging because of quality issues','Participant energy pools are depleted—they\'ve been over-asked across too many programs','The Delta Health calculation methodology changed in a platform update','Your Jira integration isn\'t syncing status updates back to participants'],
-        a: 1,
-        exp: 'In a continuous program, gradual Delta Health decline without structural changes almost always signals participant fatigue. Every ask draws from a finite energy pool. If the program is making too many requests without delivering visible value back, engagement erodes across the full community.',
+        q: 'Your program tests a physical device. You want to prevent participants from submitting hardware-specific feedback before they\'ve confirmed receipt of the device. The right configuration in Centercode is:',
+        opts: ['Use a Notice Chain to delay program access for 72 hours after enrollment','Use a Test Platform Form required at onboarding to confirm the device is in hand before any feedback types open','Attach hardware feedback types to a product verification step — participants can\'t access those forms until they confirm receipt','Set an activity prerequisite so hardware feedback only unlocks after the first activity is completed'],
+        a: 2,
+        exp: 'Product verification tracks device delivery per participant. Participants confirm receipt, which opens hardware-specific feedback types that only make sense once the hardware is in hand. This prevents feedback about a product the participant hasn\'t actually received, keeping your signal clean.',
       },
       {
-        q: 'A team member suggests: "Let\'s just invite everyone in the community to every program—that way we don\'t miss anyone." The correct response is:',
-        opts: ['Agree—broad invites maximize potential participation','Agree, but limit it to members who haven\'t participated recently','Decline—untargeted invites exhaust community trust, drive down response rates, and make future recruiting harder','Decline only if the community has fewer than 500 members'],
+        q: 'A team member suggests: "Let\'s just invite everyone in the community to every program — that way we don\'t miss anyone." The correct response is:',
+        opts: ['Agree — broad invites maximize potential participation','Agree, but limit it to members who haven\'t participated recently','Decline — untargeted invites exhaust community trust, drive down response rates, and make future recruiting harder','Decline only if the community has fewer than 500 members'],
         a: 2,
         exp: 'Untargeted invites spend community trust without delivering value. Members who receive irrelevant invites become less likely to respond to relevant ones. Recruiting as a system means matching participants to programs where they\'ll produce useful signal, not maximizing invitation volume.',
       },
       {
         q: 'A participant with a high tester ranking hasn\'t been invited to a program in eight months. The risk is:',
-        opts: ['Their profile data will expire and need to be re-collected','They\'re no longer counted in your community size metrics','Without engagement, they may disengage from the community entirely—losing one of your highest-signal participants','Their NDA may have lapsed and need to be re-signed'],
+        opts: ['Their profile data will expire and need to be re-collected','They\'re no longer counted in your community size metrics','Without engagement, they may disengage from the community entirely — losing one of your highest-signal participants','Their agreement may have lapsed and need to be re-signed'],
         a: 2,
         exp: 'High-ranking participants are community assets. Long gaps without engagement signal to them that they\'re not valued. Centercode\'s ranking and engagement history makes it easy to identify these members proactively and keep them active before they go quiet permanently.',
       },
@@ -532,7 +551,7 @@ const MODULES = {
   feedback: {
     id: 'feedback',
     title: 'Feedback Collection and Analysis',
-    icon: '💬',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>',
     duration: '40 min',
     difficulty: 'Intermediate',
     description: 'Collect the right types of feedback, understand how the impact score actually works, and keep your feedback data clean enough to be trustworthy.',
@@ -542,13 +561,13 @@ const MODULES = {
         title: 'What to Collect and Why',
         content: `
 <h3>The FIPs Framework in Practice</h3>
-<p>Every piece of feedback in a Centercode program falls into one of three types: FIPs (fixes, improvements, and promotions), represented as Issues, Ideas, and Praise. Most programs over-index on Issues and ignore the other two. That's a mistake.</p>
+<p>Every piece of feedback in a Centercode program falls into one of three types. Most programs over-index on Issues and ignore the rest. That's a mistake.</p>
 <ul>
-  <li><strong>Issues</strong>: Problems with the product. Bugs, crashes, broken flows. These drive engineering decisions and signal what must be fixed before release.</li>
-  <li><strong>Ideas</strong>: Opportunities to improve. Missing features, workflow gaps, usability friction. These inform the roadmap.</li>
-  <li><strong>Praise</strong>: What works. What participants value, what delights them. This tells you what to protect when you're under pressure to ship.</li>
+  <li><strong>Issues:</strong> Problems with the product. Crashes, broken flows, incorrect behavior. These drive engineering decisions and signal what must be fixed before release.</li>
+  <li><strong>Ideas:</strong> Opportunities to improve. Missing capabilities, workflow gaps, usability friction. These inform the roadmap.</li>
+  <li><strong>Praise:</strong> What works. What participants value, what delights them. This tells you what to protect when you're under pressure to ship.</li>
 </ul>
-<p>You can also create custom feedback types for specific data you need: journal entries, compatibility reports, hardware feedback. The default FIPs types handle most programs. Custom types handle edge cases.</p>
+<p>You can also create custom feedback types for specific data you need: journal entries, compatibility reports, hardware feedback. Custom types handle edge cases beyond the three core types.</p>
 
 <h3>Structured vs. Organic</h3>
 <p>Activities drive structured feedback: participants respond to specific prompts tied to features you've defined. Organic feedback is what participants submit on their own, outside any assigned activity.</p>
@@ -556,21 +575,97 @@ const MODULES = {
 
 <div class="callout callout-info"><div class="callout-head">Surveys vs. feedback forms</div><div class="callout-text">Surveys and feedback forms are not the same thing. Feedback forms capture participant-initiated input anytime. Surveys are structured questionnaires you send to collect specific data at a defined point in time. Use the right tool for the job.</div></div>
 
+<h3>Form Element Types</h3>
+<p>Feedback forms and surveys support 32 element types. Beyond basic text fields, the ones most useful for capturing rich signal are:</p>
+<ul>
+  <li><strong>Rating scale:</strong> Numeric ratings with configurable left, middle, and right anchor labels. Optional N/A response. Good for measuring severity, satisfaction, or ease of use.</li>
+  <li><strong>Matrix:</strong> A row-by-column grid where participants rate multiple items on the same scale in one question. Efficient for comparing features or scenarios side by side.</li>
+  <li><strong>Stack rank:</strong> Drag-and-drop ordering of a list of items. Useful for priority questions — "rank these features by importance to you."</li>
+  <li><strong>Feature selector:</strong> Lets participants pick which product feature their submission relates to, linking feedback directly to your feature structure.</li>
+</ul>
+
+<h3>Conditional Visibility</h3>
+<p>Form elements can be shown or hidden based on a participant's answer to a previous element. If someone rates severity as "Critical," a follow-up field can appear asking for reproduction steps. If they rate it "Low," that field stays hidden.</p>
+<p>Managers configure parent-child element relationships in the form builder. The logic is client-side — changes happen instantly as participants fill out the form. Conditions can chain: a child element can itself be a parent to a deeper element.</p>
+
+<h3>Element Level Access</h3>
+<p>When enabled on a form, individual elements can have per-role visibility and editability. A moderator and a participant can see different fields on the same form. A moderator can have some elements editable and others view-only — without needing separate form versions. This is useful for triage workflows where internal fields (priority, assignee, engineering notes) should be visible to admins but hidden from participants.</p>
+
+<h3>Feedback Checkout</h3>
+<p>When checkout is required on a feedback form, a moderator must check out an item before editing it. Only the current owner can edit while it's checked out. If someone else needs to make a change, they can force-checkout, which transfers ownership. Checkout prevents two people from editing the same submission simultaneously and overwriting each other's work.</p>
+
 <div class="key-box"><div class="key-box-title">Key Takeaways</div><ul>
-  <li>FIPs = Issues (fixes), Ideas (improvements), Praise (promotions)</li>
+  <li>The three feedback types are Issues, Ideas, and Praise</li>
   <li>Praise tells you what to protect. It's not a vanity metric.</li>
   <li>Activities drive structured feedback; organic submissions surface what you didn't think to ask</li>
-  <li>Custom feedback types handle data needs beyond the default FIPs</li>
+  <li>32 element types are available — rating scales, matrix grids, and stack rank all capture signal text fields can't</li>
+  <li>Conditional visibility, Element Level Access, and feedback checkout give you fine-grained control over what participants and moderators see and do</li>
+</ul></div>`,
+      },
+      {
+        id: 'fb-config',
+        title: 'Configuring Your Feedback Types',
+        content: `
+<h3>Where to Start</h3>
+<p>Feedback types are configured at the project level. Navigate to <em>Management → Project Configuration → Feedback Types</em>. You'll see the three default types — Issues, Ideas, and Praise — already set up. You can modify any of them or create additional custom types from this screen.</p>
+<p>Select a type to open its configuration. Each type has four main areas: the form, the status workflow, collaboration settings, and integrations.</p>
+
+<h3>Building the Form</h3>
+<p>The form is what participants fill out when they submit feedback of that type. Inside a feedback type, go to the <em>Form</em> tab. From there you can add, reorder, and configure elements.</p>
+<p>For each element you add, you set its label, any placeholder text, whether it's required, and which element type it uses — text field, rating scale, matrix, dropdown, file upload, and so on. The order you set here is the order participants see.</p>
+<p>Two configuration options that are easy to miss:</p>
+<ul>
+  <li><strong>Conditional visibility:</strong> On any element, you can set a parent-child relationship — "only show this field if the answer to [parent element] is [value]." Configure this on the child element by selecting its parent and the trigger value. Conditions chain: a child can itself be a parent to a deeper element.</li>
+  <li><strong>Element Level Access:</strong> On any element, you can set per-role visibility and editability. This is how you add internal triage fields (priority, assignee, engineering notes) that participants never see. Set this on the element and choose which teams can view or edit it.</li>
+</ul>
+<p>Also on the form settings: enable or disable <strong>draft saving</strong> (lets participants save incomplete submissions), and enable or disable <strong>feedback checkout</strong> (requires moderators to check out an item before editing).</p>
+
+<div class="callout callout-info"><div class="callout-head">Impact weight is set on form elements</div><div class="callout-text">Single-choice elements (dropdowns, radio buttons) can contribute to the Weight component of the impact score. When you add a single-choice element, enable "Use this element for impact analysis" and assign a weight value to each answer option. A "Severity" element where "Critical" carries high weight and "Low" carries minimal weight is a common example. Set this up before feedback starts coming in — retroactive weight changes rescore all existing submissions immediately.</div></div>
+
+<h3>Configuring the Status Workflow</h3>
+<p>Every feedback type has its own status workflow — the sequence of states a submission moves through from open to resolved. Go to the <em>Workflow</em> tab inside a feedback type to configure it.</p>
+<p>For each status you create, you set:</p>
+<ul>
+  <li><strong>Name:</strong> What participants and moderators see (e.g., "Under Review," "In Progress," "Resolved")</li>
+  <li><strong>Intent:</strong> The underlying category the status maps to. This is what Centercode uses to calculate Delta Impact — feedback only counts as "addressed" when its status Intent is set to one of the Resolved options: <em>Resolved - Verified</em>, <em>Resolved - Other</em>, or <em>Resolved - Exclude</em>. Intents also drive automation: macros and integrations can trigger on intent categories rather than specific status names, which keeps them stable if you rename a status later.</li>
+  <li><strong>Allowed transitions:</strong> Which statuses this status can move to. This prevents participants from closing their own issues or skipping review steps.</li>
+</ul>
+<p>Set the <strong>default status</strong> — the state all new submissions enter — at the top of the workflow tab. Most programs use something like "New" or "Open" as the default.</p>
+
+<h3>Collaboration Settings</h3>
+<p>Go to the <em>Collaboration</em> tab to control how participants interact with each other's feedback and how the popularity component of the impact score is calculated.</p>
+<ul>
+  <li><strong>Public feedback:</strong> Whether participants can see other participants' submissions. Turn this on to enable voting, predictive duplicate matching, and community discussion. Turn it off for programs where you need submissions to stay private between participant and moderator.</li>
+  <li><strong>Voting:</strong> Whether participants can vote on existing items. When enabled, you can customize the vote and unvote button labels. Votes contribute to the Popularity score.</li>
+  <li><strong>Predictive match sensitivity:</strong> How aggressively the platform surfaces potential duplicates as participants type. Higher sensitivity = more suggestions, more false positives. Start at the default and adjust based on how your participants respond.</li>
+  <li><strong>Popularity factor weights:</strong> The six engagement signals (occurrence count, duplicate links, predictive matches, votes, comments, views) each have a configurable weight. These are the multipliers that determine how much each signal contributes to Popularity. The defaults work for most programs — adjust these only if you have a specific reason to de-emphasize or amplify a particular signal.</li>
+</ul>
+
+<h3>Integrations</h3>
+<p>The <em>Integrations</em> tab is where you connect this feedback type to external systems. Two common configurations:</p>
+<ul>
+  <li><strong>Jira integration:</strong> Add Jira as an external destination. When a feedback item reaches a status that matches a configured trigger, the platform creates a ticket using the field mappings you configure here. Only the parent issue is pushed to Jira. Duplicates stay in Centercode.</li>
+  <li><strong>Slack notifications:</strong> Add Slack as an external destination to post a message to a configured channel when feedback of this type is submitted or changes status. Set the trigger event and the channel here, or use the community-level Slack integration to route all feedback types to a global channel.</li>
+</ul>
+
+<div class="key-box"><div class="key-box-title">Key Takeaways</div><ul>
+  <li>Feedback type configuration lives at Management → Project Configuration → Feedback Types</li>
+  <li>Build your form first: elements, conditional visibility, Element Level Access, draft saving, checkout</li>
+  <li>Set impact weights on single-choice form elements before feedback arrives — changes rescore immediately</li>
+  <li>Status Intent determines whether feedback counts toward Delta Impact — use the Resolved intents for addressed items</li>
+  <li>Collaboration settings control voting, public visibility, predictive match sensitivity, and popularity weights</li>
+  <li>Jira and Slack integrations are configured per feedback type under the Integrations tab</li>
 </ul></div>`,
       },
       {
         id: 'fb-2',
         title: 'How the Impact Score Works',
         content: `
-<h3>Weight and Popularity Are Different Signals</h3>
-<p>The impact score is built from two components that measure different things. Mixing them up leads to bad prioritization decisions.</p>
-<p><strong>Weight</strong> reflects importance: how your team has configured feedback forms, feature priorities, team importance ratings, and whether something is marked as a blocking issue. Weight encodes strategy. It answers: how much does this kind of feedback matter to us?</p>
-<p><strong>Popularity</strong> reflects prevalence: how many participants submitted the same issue, how many upvotes it has, how many comments and discussion threads it generated. Popularity answers: how widespread is this?</p>
+<h3>Weight, Popularity, and Velocity</h3>
+<p>The impact score on each feedback item is built from three components that measure different things. Mixing them up leads to bad prioritization decisions.</p>
+<p><strong>Weight</strong> reflects strategic importance. It's shaped by how you've configured the feedback form (element choices), whether the item is marked as a blocking issue, the importance rating of the feature it's linked to, and per-team weighting factors. Feature value weighting uses specific multipliers: None=0x, Very Low=0.5x, Low=0.75x, Neutral=1x, High=1.5x, Very High=2x. A blocking issue or a feature marked Very High carries significantly more weight than an uncategorized submission. Weight encodes strategy: how much does this kind of feedback matter to us, independent of how many people reported it?</p>
+<p><strong>Popularity</strong> reflects prevalence. It's calculated from six engagement signals: occurrence count, duplicate links, predictive duplicate matches, upvotes, comments, and views. Each signal has a configurable weighting factor per feedback type. Popularity answers: how widespread and resonant is this item across the participant community?</p>
+<p><strong>Velocity</strong> is a 7-day change indicator — how quickly the item's score is moving. A high-velocity item is gaining traction fast. Velocity helps surface emerging issues before they accumulate a large score over time.</p>
 <p>Centercode separates these intentionally. A single critical issue from one participant might have high weight but low popularity. A minor annoyance reported by 80 participants might have low weight but very high popularity. Both matter. Neither tells the full story alone.</p>
 
 <h3>The Score Is a Signal, Not a Verdict</h3>
@@ -599,7 +694,7 @@ const MODULES = {
 <p>Strong programs encourage collaboration and review it alongside scores. Weak programs ignore it entirely or dismiss it as informal. Don't dismiss it.</p>
 
 <h3>The Jira Bridge</h3>
-<p>When you escalate a feedback item to engineering, Centercode's Jira integration creates a corresponding ticket automatically. Status updates in Jira sync back to Centercode, and participants see when their reported issue is being worked on, without the test manager manually updating anything.</p>
+<p>When a feedback item reaches a status that matches a configured trigger in your Jira integration settings, Centercode creates a corresponding ticket automatically. Status updates in Jira sync back to Centercode, and participants see when their reported issue is being worked on, without the test manager manually updating anything.</p>
 <p>One important rule: only the parent issue goes to Jira, not all duplicates. Jira is for execution, not discovery. The full context (duplicates, votes, discussion) stays in Centercode, which is the system of record for testing data.</p>
 
 <h3>Survey Discipline</h3>
@@ -615,37 +710,77 @@ const MODULES = {
   <li>A focused five-question survey beats a 20-question omnibus every time</li>
 </ul></div>`,
       },
+      {
+        id: 'fb-4',
+        title: 'What Participants Experience When Submitting Feedback',
+        content: `
+<h3>Why This Matters to You as an Admin</h3>
+<p>Everything covered so far — feedback types, impact scoring, form element types, conditional visibility — is configuration. But configuration only has value if participants use it correctly. Understanding what participants actually see and do when they submit feedback helps you design better forms, set accurate expectations, and diagnose problems when signal quality drops.</p>
+
+<h3>The Submission Flow</h3>
+<p>When a participant is ready to submit feedback, they navigate to the relevant feature activity or the general feedback area and select a feedback type — Issue, Idea, or Praise. They then see the form you've configured for that type: your element layout, any conditional fields, placeholder text, and guidance copy.</p>
+<p>Before they hit submit, two things happen that directly affect your data quality:</p>
+
+<h3>Predictive Duplicate Detection</h3>
+<p>As a participant types their submission title, Centercode searches existing feedback in real time and surfaces items that look similar. The participant sees a list of potential matches and can either confirm that their issue is already reported (linking their submission as a duplicate) or continue submitting as a new item.</p>
+<p>This matters for your impact scores because the platform tracks both outcomes separately. Confirmed duplicates increase the original item's popularity score by a larger factor than an unconfirmed predictive match. If participants routinely dismiss the duplicate suggestions without reading them, you end up with inflated item counts and diluted popularity scores. If the suggestions are good and participants engage with them, your duplicate density goes up — which is a signal that your program is capturing widespread issues accurately.</p>
+<p>You control how aggressively the platform surfaces matches by configuring the predictive match sensitivity on each feedback type. Higher sensitivity surfaces more suggestions but risks false positives that participants ignore. You can tune this as you learn how your participant group behaves.</p>
+
+<div class="callout callout-info"><div class="callout-head">Predictive match only works if feedback is collaborative</div><div class="callout-text">Predictive duplicate search requires participants to be able to see other participants' feedback — it compares against the visible item pool. If your feedback type is configured as private (only the submitter sees their own items), predictive matching has nothing to search against and won't surface suggestions. Check your feedback type's collaboration settings before expecting this feature to work.</div></div>
+
+<h3>Draft Saving</h3>
+<p>When draft saving is enabled on a feedback form, a Save Draft button appears alongside Submit. Participants can save an incomplete submission and return to it later. Drafts are scoped per participant, per form — each person has their own draft state and can't see another participant's draft.</p>
+<p>From your perspective as an admin, draft saving is most useful for long or complex feedback forms where you're asking participants to provide detailed reproduction steps, attach files, or answer multiple element types. Without draft saving, a participant who gets interrupted mid-submission loses everything they've written. With it, they come back and finish — which improves your completion rates on high-value feedback.</p>
+
+<h3>What Participants See After Submitting</h3>
+<p>After a participant submits feedback, they can see their own submissions in their personal feedback view. If your feedback type is configured as collaborative (public), they also see other participants' submissions, can vote on items they've experienced too, and can follow items to receive notifications when the status changes.</p>
+<p>Voting is the participant-side action that drives the popularity component of your impact score. A participant who has experienced the same issue clicks Vote. That vote counts toward popularity. Participants cannot vote on their own submissions — the platform prevents this.</p>
+<p>Following is separate from voting. A participant who follows an item receives a notification when its status changes. This is how participants stay in the loop on the feedback they submitted without you having to send manual update emails.</p>
+
+<h3>The Moderator View vs. the Participant View</h3>
+<p>When a moderator opens a feedback item, they see a different view than the participant who submitted it. Moderators see all fields (including any hidden from participants via Element Level Access), a tabbed summary that includes external data, occurrence history, and linked items, and the Quick Update panel for inline status changes and macro execution. Participants see the submission as they filed it, the current status, and any public comments.</p>
+<p>This split is by design. You're building one form that serves two distinct workflows simultaneously — the participant submission workflow and the internal triage workflow. Understanding which elements are visible to whom, and what actions each role can take, is what lets you design forms that work for both without maintaining two separate versions.</p>
+
+<div class="key-box"><div class="key-box-title">Key Takeaways</div><ul>
+  <li>Predictive match surfaces similar existing items as participants type — configure sensitivity per feedback type</li>
+  <li>Confirmed duplicates score higher in popularity than unconfirmed predictive matches</li>
+  <li>Predictive match requires collaborative feedback — private feedback types have no visible pool to search</li>
+  <li>Draft saving improves completion rates on complex forms</li>
+  <li>Participants vote on others' items; votes drive popularity scores; participants can't vote on their own submissions</li>
+  <li>Moderators and participants see different views of the same submission by design</li>
+</ul></div>`,
+      },
     ],
     quiz: [
       {
-        q: 'A participant submits: "The new onboarding flow was the clearest I\'ve ever seen—I didn\'t get confused once." In the FIPs framework, this is:',
-        opts: ['An Idea—the participant is suggesting the flow should always be this clear','Not useful feedback—positive submissions don\'t require action','Praise—it promotes a strength that should be protected when shipping decisions create pressure','An Issue—it implies previous flows were confusing'],
-        a: 2,
-        exp: 'Praise maps to the P in FIPs (promotions). It tells you what\'s working and what to protect. When the team is under pressure to cut scope, praise data is what keeps strong experiences from being accidentally broken in the next release.',
+        q: 'You notice that your program has very few duplicate links on feedback items despite participants clearly experiencing the same issues. The most likely cause is:',
+        opts: ['Participants are submitting too many items — you need stricter form validation','Your feedback type is configured as private, so participants can\'t see each other\'s submissions and predictive match has nothing to search against','The predictive match sensitivity is too low and not surfacing suggestions','Participants are voting instead of linking duplicates'],
+        a: 1,
+        exp: 'Predictive duplicate search compares against the visible item pool. If your feedback type is configured as private, participants can\'t see other submissions — predictive match has nothing to search against and won\'t surface suggestions. Check the collaboration settings on your feedback type.',
       },
       {
-        q: 'Thirty-two participants independently submit issues about the same login flow problem, worded differently. After processing in Centercode, this should appear as:',
-        opts: ['32 separate items to triage individually','One consolidated item with 32 popularity votes and a high impact score','32 items automatically moved to Jira for engineering to prioritize','The issue archived as a duplicate to keep the feedback list manageable'],
+        q: 'You need certain internal triage fields — priority, assignee, engineering notes — to be visible to moderators but completely hidden from participants on the same feedback form. The correct Centercode feature is:',
+        opts: ['Creating separate form versions for moderators and participants','Element Level Access — it lets you set per-role visibility and editability on individual form elements without needing separate forms','Conditional visibility — hiding fields based on the participant\'s role selection answer','Feedback checkout — which restricts who can edit a submission while it\'s checked out'],
         a: 1,
-        exp: 'Duplicates measure popularity. They stay in Centercode as separate submissions, each contributing to the popularity component of the impact score. The result is one high-signal item that accurately represents how widespread the problem is, not 32 buried tickets.',
+        exp: 'Element Level Access controls per-role visibility and editability at the individual element level on a single form. A moderator and a participant can see different fields on the same submission. This handles triage workflows where internal fields must stay hidden from participants without maintaining two separate form versions.',
       },
       {
         q: 'Your product team lead disagrees with the impact score ranking on a particular issue. The correct response is:',
-        opts: ['Adjust the weight configuration until the ranking matches their expectation','Accept their assessment—business context overrides platform data','Use the disagreement to surface missing context: why does the score differ from their expectation? Then decide','Escalate to a community admin to reconfigure the scoring algorithm'],
+        opts: ['Adjust the weight configuration until the ranking matches their expectation','Accept their assessment — business context overrides platform data','Use the disagreement to surface missing context: why does the score differ from their expectation? Then decide.','Escalate to a community admin to reconfigure the scoring algorithm'],
         a: 2,
         exp: 'Disagreement between impact score and business judgment is a signal that context is missing, not that the data is wrong. The right workflow is to review why the item ranked where it did, surface the business context the team has that the platform doesn\'t, and make a decision that incorporates both. Never tune weights to match a predetermined outcome.',
       },
       {
-        q: 'When should feedback weights be configured in Centercode?',
-        opts: ['After reviewing initial feedback results to ensure the weights reflect actual participant priorities','During program setup, before any feedback is submitted, to encode strategy rather than react to data','Halfway through the program, when you have enough data to calibrate accurately','In response to stakeholder feedback about which issues should be prioritized'],
+        q: 'What are the three components of a feedback item\'s impact score?',
+        opts: ['Priority, Severity, and Frequency','Weight, Popularity, and Velocity','Occurrence count, Vote count, and Comment count','Feature value, Blocking flag, and Team factor'],
         a: 1,
-        exp: 'Weights encode strategy before data arrives. Setting them retroactively, or adjusting them in response to results, defeats the purpose. Reactive weight changes signal to everyone that the system can be tuned to produce desired outputs, which destroys trust in the prioritization process.',
+        exp: 'Impact score = Weight + Popularity + Velocity. Weight reflects strategic importance. Popularity reflects prevalence across the participant community. Velocity is the 7-day change indicator showing how fast the item\'s score is moving. Centercode separates these intentionally because high weight with few reports and low weight with 80 reports both tell you something different.',
       },
       {
-        q: 'What happens to duplicate issues when a parent issue is escalated to Jira?',
-        opts: ['All duplicates are automatically pushed to Jira as child tickets','Only the parent issue is pushed to Jira—duplicates stay in Centercode, which remains the system of record','Duplicates are archived in Centercode and removed from the impact score calculation','All duplicates must be manually reviewed before the parent can be escalated'],
+        q: 'When checkout is required on a feedback form and two moderators need to edit the same submission, the correct process is:',
+        opts: ['Both moderators can edit simultaneously — the platform merges their changes','The first moderator checks out the item; the second must wait or use force-checkout to transfer ownership','Checkout is automatically released after 30 minutes so the second moderator can proceed','The community admin must manually resolve the conflict from the audit log'],
         a: 1,
-        exp: 'Jira is for execution, not discovery. Only the parent issue moves to Jira. All duplicates, votes, comments, and discussion threads stay in Centercode, the system of record for your testing data. If all the nuance still matters, the decision hasn\'t been made yet.',
+        exp: 'Feedback checkout means only the current owner can edit a checked-out item. If another moderator needs to make a change, they can force-checkout the item, which transfers ownership to them. This prevents two people from overwriting each other\'s work on the same submission.',
       },
     ],
     testOut: [
@@ -656,26 +791,26 @@ const MODULES = {
         exp: 'Impact score + context is the defensible answer. Sort by impact score to get the statistically strongest signal. Add popularity data to show prevalence. Include supporting comments to show why. This is a prioritization argument, not a list, and it\'s one you can defend to anyone who asks.',
       },
       {
-        q: 'A single issue has a very high weight score but only two duplicate submissions. A different issue has low weight but 94 duplicates. Which should get addressed first?',
-        opts: ['The high-weight issue—importance matters more than prevalence','The high-popularity issue—more participants affected means higher real-world impact','It depends: high-weight issues signal strategic importance; high-popularity issues signal widespread experience. Review both with business context before deciding.','Neither—both need more signal before a decision is warranted'],
-        a: 2,
-        exp: 'This is exactly the conversation the impact score is designed to start. Weight signals strategic importance; popularity signals how widespread the experience is. A high-weight issue with two reports might be a critical edge case. A low-weight issue with 94 reports might be a usability problem that will show up in app store reviews. Apply business context before deciding.',
-      },
-      {
-        q: 'Feedback volume is high but your product team says they still don\'t know what to prioritize. This signals:',
-        opts: ['More feedback types should be added to the program','The team needs more training on reading Centercode dashboards','The feedback is activity-compliant but not decision-aligned—activities may not be focused on the right questions','The impact score algorithm needs to be reconfigured for this product type'],
-        a: 2,
-        exp: 'When teams are still uncertain after collecting lots of feedback, the problem is usually that the activities were optimized for completion, not for resolving specific uncertainties. Every activity should support a decision. If data isn\'t reducing uncertainty, it\'s not the right data.',
-      },
-      {
-        q: 'A participant\'s survey response says: "I give the onboarding a 3/5—it was fine but felt slow in spots." You want to understand where specifically. The right next step is:',
-        opts: ['Send a 15-question follow-up survey covering every step of the onboarding flow','Look at the participant\'s existing feedback submissions—they may have already filed an issue or idea with specifics','Ask all participants the same follow-up question to get a representative sample','Escalate the survey result to Jira as a low-priority issue'],
+        q: 'A feedback form has a "Severity" rating element. When a participant rates it Critical, a "Reproduction Steps" text field should appear. When they rate it Low, that field stays hidden. The Centercode feature that enables this is:',
+        opts: ['Element Level Access — configured to show the field only to participants with a Critical severity role','Conditional visibility — parent-child element relationships configured in the form builder that show or hide elements based on prior answers','Feedback checkout — which locks the form until the moderator reviews the severity selection','A Macro that adds the reproduction steps field when a Critical item is submitted'],
         a: 1,
-        exp: 'Before creating a new survey, check what the platform already has. Participants often file detailed feedback organically. A 3/5 rating with a vague comment frequently accompanies a specific issue or idea submission with full reproduction steps. Check the existing signal before spending more participant trust on another ask.',
+        exp: 'Conditional visibility lets you configure parent-child element relationships so fields show or hide based on a participant\'s answer to a prior element. The logic is client-side — changes happen instantly as the participant fills out the form. Conditions can chain, so a child element can itself be a parent to a deeper element.',
+      },
+      {
+        q: 'A single issue has a very high weight score but only two duplicate submissions. A different issue has low weight but 94 duplicates. Which should get addressed first?',
+        opts: ['The high-weight issue — importance matters more than prevalence','The high-popularity issue — more participants affected means higher real-world impact','It depends: high-weight issues signal strategic importance; high-popularity issues signal widespread experience. Review both with business context before deciding.','Neither — both need more signal before a decision is warranted'],
+        a: 2,
+        exp: 'This is exactly the conversation the impact score is designed to start. Weight signals strategic importance; popularity signals how widespread the experience is. A high-weight issue with two reports might be a critical edge case. A low-weight issue with 94 reports might be a usability problem that will show up in reviews. Apply business context before deciding.',
+      },
+      {
+        q: 'What happens to duplicate issues when a parent issue is escalated to Jira?',
+        opts: ['All duplicates are automatically pushed to Jira as child tickets','Only the parent issue is pushed to Jira — duplicates stay in Centercode, which remains the system of record','Duplicates are archived in Centercode and removed from the impact score calculation','All duplicates must be manually reviewed before the parent can be escalated'],
+        a: 1,
+        exp: 'Jira is for execution, not discovery. Only the parent issue moves to Jira. All duplicates, votes, comments, and discussion threads stay in Centercode, the system of record for your testing data. The full context stays where it belongs.',
       },
       {
         q: 'Leadership asks why the top-ranked feedback item isn\'t on the roadmap. The correct response is:',
-        opts: ['Apologize and add it to the next sprint','Explain that the impact score is just one input—business context, feasibility, and timing all factor into roadmap decisions, and you can walk through the reasoning','Re-run the scoring to see if the ranking still holds before committing to a position','Reduce the item\'s weight so it no longer appears in the top 10'],
+        opts: ['Apologize and add it to the next sprint','Explain that the impact score is just one input — business context, feasibility, and timing all factor into roadmap decisions, and you can walk through the reasoning','Re-run the scoring to see if the ranking still holds before committing to a position','Reduce the item\'s weight so it no longer appears in the top 10'],
         a: 1,
         exp: 'This is the core principle: impact score starts conversations, it doesn\'t end them. Leadership context, technical feasibility, timing, and strategy all factor into the final decision. The answer is transparent reasoning, not score manipulation or defensive justification.',
       },
@@ -688,7 +823,7 @@ const MODULES = {
   reporting: {
     id: 'reporting',
     title: 'Reporting and Insights',
-    icon: '📊',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>',
     duration: '30 min',
     difficulty: 'Intermediate',
     description: 'Build reports that drive decisions, speak to three different audiences from one platform, and prove program ROI without relying on vanity metrics.',
@@ -698,7 +833,7 @@ const MODULES = {
         title: 'Reports That Drive Decisions',
         content: `
 <h3>Why Reports Fail</h3>
-<p>Reports fail socially before they fail analytically. The data is usually accurate. The problem is that it doesn't tell anyone what to do next. A report full of charts and statistics that leaves stakeholders asking "so what?" isn't a report. It's a document.</p>
+<p>Reports fail socially before they fail analytically. The data is accurate. The problem is that it doesn't tell anyone what to do next. A report full of charts and statistics that leaves stakeholders asking "so what?" isn't a report. It's a document.</p>
 <p>Decision-first reporting starts with the question: what decision is this report trying to influence? Three types of decisions drive most program reporting:</p>
 <ul>
   <li><strong>Do we act?</strong>: Is something important enough to fix, address, or escalate?</li>
@@ -729,11 +864,16 @@ const MODULES = {
 <h3>Built-In Dashboards</h3>
 <p>Centercode includes purpose-built dashboards that update in real time as participants submit feedback and complete activities. You don't have to build these from scratch:</p>
 <ul>
+  <li><strong>Project Kickoff</strong>: Setup checklist and readiness view for programs about to launch.</li>
   <li><strong>Delta Huddle</strong>: Phase-by-phase review showing current, prior, and next-phase data. Built for team meetings.</li>
-  <li><strong>Project Overview Dashboard</strong>: Comprehensive project health summary for the test manager's daily view.</li>
-  <li><strong>Feedback Impact Dashboard</strong>: Feedback broken down by phase and feature with impact scores.</li>
-  <li><strong>Product Success Analysis Dashboard</strong>: A Pareto-style breakdown showing which issues drive the most impact.</li>
-  <li><strong>Top Testers Dashboard</strong>: Participant contribution rankings for recognizing high-engagement members.</li>
+  <li><strong>Project Overview</strong>: Comprehensive project health summary for the test manager's daily view.</li>
+  <li><strong>Personal</strong>: Each participant's own activity and submission history.</li>
+  <li><strong>Feedback Impact</strong>: Feedback broken down by phase and feature with impact scores.</li>
+  <li><strong>Activity Engagement</strong>: Activity completion rates and engagement trends across the participant group.</li>
+  <li><strong>Product Success Analysis</strong>: A breakdown showing which issues drive the most impact on the Success score.</li>
+  <li><strong>Top Feedback</strong>: Highest-impact feedback items across the program.</li>
+  <li><strong>Top Testers</strong>: Participant contribution rankings for recognizing high-engagement members.</li>
+  <li><strong>User Dashboard</strong>: Community-level view of member activity and engagement history.</li>
 </ul>
 
 <h3>What Health Metrics Actually Matter</h3>
@@ -775,7 +915,7 @@ const MODULES = {
 <ul>
   <li><strong>CSV/Excel export</strong>: Any feedback set, member list, or report can be exported for external use</li>
   <li><strong>Jira</strong>: Escalated issues appear in your engineering backlog with bidirectional status sync</li>
-  <li><strong>API</strong>: Enterprise teams can query Centercode data programmatically for BI tools, Tableau, or Power BI integrations</li>
+  <li><strong>API</strong>: Query Centercode data programmatically for BI tools like Tableau</li>
   <li><strong>Embed</strong>: Charts and dashboards can be embedded in Confluence or external tools</li>
 </ul>
 
@@ -789,15 +929,15 @@ const MODULES = {
     quiz: [
       {
         q: 'A report contains 12 charts covering every metric from the program. Stakeholders walk away saying "interesting" but don\'t make any decisions. The report failed because:',
-        opts: ['The data wasn\'t accurate enough to drive decisions','It lacked a clear decision orientation—it was informational, not operational','The charts were too complex for the audience','The program didn\'t produce enough signal to make a case'],
+        opts: ['The data wasn\'t accurate enough to drive decisions','It lacked a clear decision orientation — it was informational, not operational','The charts were too complex for the audience','The program didn\'t produce enough signal to make a case'],
         a: 1,
         exp: 'Reports that don\'t answer "do we act, where do we act, or when?" leave stakeholders with information but no direction. Decision-first reporting identifies the decision first, then builds the report around it. Accuracy is table stakes. Interpretation is the value.',
       },
       {
-        q: 'An executive asks "Is our program healthy?" The best Centercode answer is:',
-        opts: ['Export the full feedback dataset and walk through it item by item','Reference the Delta Health trend over the past four weeks—stability and direction matter more to an executive than single-week numbers','Show the total number of feedback submissions as evidence of active participation','Send a detailed report covering every activity completion rate and feedback category'],
+        q: 'Which of these built-in dashboards is specifically designed for team meetings, showing current, prior, and next-phase data side by side?',
+        opts: ['Project Overview','Delta Huddle','Feedback Impact','Product Success Analysis'],
         a: 1,
-        exp: 'Executives care about trends, progress, and risk, not raw counts or operational detail. Delta Health trend over time tells a story: is engagement stable, improving, or declining? That\'s the health answer an executive can act on. A single-week screenshot misses the trend.',
+        exp: 'The Delta Huddle dashboard is built for phase-by-phase review in team meetings. It surfaces current, prior, and next-phase data in one view. The Project Overview is the test manager\'s daily summary; Feedback Impact breaks down items by phase and feature; Product Success Analysis shows which issues drive the most impact on the Success score.',
       },
       {
         q: 'Which of these is a leading indicator (one that tells you where the program is heading while you can still act)?',
@@ -807,33 +947,33 @@ const MODULES = {
       },
       {
         q: 'Your product team argues that showing individual issue fixes to executive leadership isn\'t worth the meeting time. The right framing for that audience is:',
-        opts: ['Push back—executives should know what specific issues were fixed','Present a trend view: Delta Success change over the program, features redirected based on data, and issues resolved before release with estimated post-launch fix cost','Send them the same detailed report the product team received','Schedule a separate meeting specifically to walk through the issue list'],
+        opts: ['Push back — executives should know what specific issues were fixed','Present a trend view: Delta Success change over the program, features redirected based on data, and issues resolved before release with estimated post-launch fix cost','Send them the same detailed report the product team received','Schedule a separate meeting specifically to walk through the issue list'],
         a: 1,
         exp: 'Executives need confidence, not detail. Delta Success movement tells them whether the product improved. Features redirected based on data shows decision quality. Issues resolved pre-release with cost context gives them the ROI argument. None of that requires a line-item walkthrough.',
       },
       {
         q: 'A participant notices that an issue they reported three weeks ago still shows "Open" with no comment. What is the most likely effect?',
-        opts: ['No effect—participants don\'t typically track the status of their own submissions','Reduced trust in the program, which will lower engagement in this and future programs','Increased urgency—they\'ll submit more feedback to escalate the issue','They\'ll contact support directly, bypassing the feedback workflow'],
+        opts: ['No effect — participants don\'t typically track the status of their own submissions','Reduced trust in the program, which will lower engagement in this and future programs','Increased urgency — they\'ll submit more feedback to escalate the issue','They\'ll contact support directly, bypassing the feedback workflow'],
         a: 1,
-        exp: 'When participants don\'t see their feedback acknowledged (even with a "not now" status) they stop believing it matters. Trust erodes quietly. Closing the loop with brief status updates, even for items that won\'t be addressed, is what keeps participants engaged across multiple programs.',
+        exp: 'When participants don\'t see their feedback acknowledged — even with a "not now" status — they stop believing it matters. Trust erodes quietly. Closing the loop with brief status updates, even for items that won\'t be addressed, is what keeps participants engaged across multiple programs.',
       },
     ],
     testOut: [
       {
         q: 'Your program ran for eight weeks and produced 1,200 feedback items. You have 30 minutes with leadership. What do you present?',
-        opts: ['Walk through the top 20 issues by impact score, one by one','A synthesis: Delta Success trajectory, top five resolved issues with pre/post comparison, three features the team redirected based on data, and a confidence statement about launch readiness—all in under 10 slides','Export the full feedback dataset and let leadership ask questions','Show participation rates and activity completion across all eight weeks'],
+        opts: ['Walk through the top 20 issues by impact score, one by one','A synthesis: Delta Success trajectory, top five resolved issues with pre/post comparison, three features the team redirected based on data, and a confidence statement about launch readiness — all in under 10 slides','Export the full feedback dataset and let leadership ask questions','Show participation rates and activity completion across all eight weeks'],
         a: 1,
-        exp: 'Year-end and program-close reports are synthesis, not accumulation. Leadership needs to know what changed, whether the program worked, and whether they should feel confident. Delta Success trajectory + resolved issues + feature redirects + launch confidence statement = a 30-minute conversation that ends with a decision, not more questions.',
+        exp: 'Program-close reports are synthesis, not accumulation. Leadership needs to know what changed, whether the program worked, and whether they should feel confident. Delta Success trajectory + resolved issues + feature redirects + launch confidence statement = a 30-minute conversation that ends with a decision, not more questions.',
       },
       {
         q: 'Your Delta Success score dropped from 72 to 58 in week five. Before acting, you should:',
-        opts: ['Immediately escalate the top 10 issues to Jira','Check whether the drop correlates with a new phase that introduced untested, harder features—a drop during a challenging phase can be expected','Add more participants to generate more positive feedback and recover the score','Report the drop to leadership immediately and suspend the program'],
+        opts: ['Immediately escalate the top 10 issues to Jira','Check whether the drop correlates with a new phase that introduced untested, harder features — a drop during a challenging phase can be expected','Add more participants to generate more positive feedback and recover the score','Report the drop to leadership immediately and suspend the program'],
         a: 1,
-        exp: 'Delta Success scores drop when new features with known rough edges are introduced. A drop during a phase testing pre-release functionality is expected and healthy. It signals the testing is working. The right response is context: why did it drop, is the direction of change consistent with the testing scope, and what\'s the plan?',
+        exp: 'Delta Success scores drop when new features with known rough edges are introduced. A drop during a phase testing pre-release functionality is expected and healthy — it signals the testing is working. The right response is context: why did it drop, is the direction consistent with the testing scope, and what\'s the plan?',
       },
       {
         q: 'Engineering asks for a report showing which issues to fix this sprint. The support team asks for a report showing which issues are generating repeat participant contacts. Which is correct?',
-        opts: ['Both teams should receive the same report—one source of truth prevents conflicting narratives','Build one shared report and let each team filter it themselves','Engineering gets an impact-score-ranked feature view; support gets a frequency and pattern view—same underlying data, different lenses','Engineering\'s request takes priority; support can review the engineering report for relevant information'],
+        opts: ['Both teams should receive the same report — one source of truth prevents conflicting narratives','Build one shared report and let each team filter it themselves','Engineering gets an impact-score-ranked feature view; support gets a frequency and pattern view — same underlying data, different lenses','Engineering\'s request takes priority; support can review the engineering report for relevant information'],
         a: 2,
         exp: 'One source, two lenses. Engineering needs impact-ranked, actionable items tied to features. Support needs frequency patterns and escalation signals. The underlying data is identical. The framing and grouping are different. Building separate exports introduces drift and conflicting versions of the truth.',
       },
@@ -845,9 +985,9 @@ const MODULES = {
       },
       {
         q: 'You want to show the CFO the financial ROI of last quarter\'s delta testing program. The most credible single data point is:',
-        opts: ['Total feedback submissions: 847 items across 12 weeks','The number of participants who completed all assigned activities','High-severity issues resolved pre-release multiplied by your organization\'s average post-launch fix cost—typically 4–100x the pre-launch cost','Program utilization: percentage of available features covered by testing activities'],
+        opts: ['Total feedback submissions: 847 items across 12 weeks','The number of participants who completed all assigned activities','High-severity issues resolved pre-release multiplied by your organization\'s average post-launch fix cost — typically 4–100x the pre-launch cost','Program utilization: percentage of available features covered by testing activities'],
         a: 2,
-        exp: 'CFOs respond to numbers with financial meaning. Issues resolved pre-release × average post-launch fix cost is a concrete, defensible ROI argument. It connects your program directly to cost avoidance. It\'s the language budget decisions are made in.',
+        exp: 'CFOs respond to numbers with financial meaning. Issues resolved pre-release multiplied by average post-launch fix cost is a concrete, defensible ROI argument. It connects your program directly to cost avoidance. It\'s the language budget decisions are made in.',
       },
     ],
   },
@@ -858,7 +998,7 @@ const MODULES = {
   governance: {
     id: 'governance',
     title: 'Platform Governance and Operations',
-    icon: '⚙️',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>',
     duration: '35 min',
     difficulty: 'Intermediate',
     description: 'Build a platform that runs correctly without you: clear ownership models, templates that survive org changes, and a diagnostic eye for programs that look healthy but aren\'t.',
@@ -880,6 +1020,10 @@ const MODULES = {
 <p>Problems surface when project managers edit infrastructure, or when admins micromanage execution. Neither works well for long.</p>
 
 <div class="callout callout-info"><div class="callout-head">The right guardrails question</div><div class="callout-text">If a project manager needs admin help to do normal project work, the guardrails are wrong. Guardrails should prevent catastrophic mistakes without creating a bottleneck. If admins are approving routine changes, something in the access model needs adjustment.</div></div>
+
+<h3>Trade Compliance</h3>
+<p>For programs with legal or export control requirements, Centercode includes trade compliance controls. Community admins can block access by country (using GeoIP) or by specific IP ranges, with optional whitelist exceptions for known-safe IPs within blocked regions. Project-level rules can add additional restrictions on top of community-level rules, but they can't remove them. Blocked users see a configurable message or get redirected before they ever reach a login screen.</p>
+<p>Trade Compliance is configured by community admins under Community Configuration → Trade Compliance.</p>
 
 <h3>Designing Access That Doesn't Break Later</h3>
 <p>Access configurations that work fine for one team of three become brittle when the organization grows, roles change, or people leave. The questions to ask when designing access:</p>
@@ -915,6 +1059,14 @@ const MODULES = {
 <p>Structural debt is expensive because it compounds: new admins inherit it, build on top of it, and eventually can't explain why anything is configured the way it is.</p>
 
 <div class="callout callout-warn"><div class="callout-head">The question that surfaces debt</div><div class="callout-text">"What only works because you remember why it exists?" If the answer is more than one or two things, your program has structural debt that will cost more to carry forward than to clean up now.</div></div>
+
+<h3>Visual Themes and Branding</h3>
+<p>Community admins control how the platform looks for participants. Under Visual Themes, you configure a 5-tier color palette (menu bar, submenus, page backgrounds, login page), upload logos, set a favicon, and optionally add a background image or video to the login screen. Custom CSS is also available for deeper customization. Projects can inherit the community default theme or have their own.</p>
+<p>Advanced Branding expands this to multiple themes per community, six custom palette colors usable in CSS and reports, and additional logo options including report PDF headers.</p>
+
+<h3>UI String Customization</h3>
+<p>Every label, button, and message in the platform is editable. Community managers search for any string in the platform text and override it at either the community-wide level or per project. This is how you rename things to match your organization's vocabulary: "Issues" to "Defects," "Ideas" to "Enhancements," or any other substitution that makes the platform feel native to your team.</p>
+<p>Bulk changes work via CSV export: download the current strings, edit in a spreadsheet, and re-import. To revert a customized string, delete the override and the default returns.</p>
 
 <h3>Scaling Without Burning Out Admins</h3>
 <p>The common failure mode at scale: admins become the bottleneck for everything because no one else knows how anything works. Every routine task requires escalation. Every new team member needs a walkthrough. The program works, but only because of heroics.</p>
@@ -959,63 +1111,63 @@ const MODULES = {
     quiz: [
       {
         q: 'A project manager edits a team configuration that\'s also used by four other active projects. Two hours later, three programs have broken access. This happened because:',
-        opts: ['The platform has a bug in team inheritance logic','The project manager had permissions they shouldn\'t have had—but also had no clear ownership of the downstream effects of changing shared infrastructure','The community admin should have been monitoring changes in real time','The team configuration was too complex and needed to be simplified'],
+        opts: ['The platform has a bug in team inheritance logic','The project manager had permissions they shouldn\'t have had — but also had no clear ownership of the downstream effects of changing shared infrastructure','The community admin should have been monitoring changes in real time','The team configuration was too complex and needed to be simplified'],
         a: 1,
-        exp: 'This is the ownership-vs.-permission failure mode. The PM had the permission to make the change. But shared team configurations are community-level infrastructure: the community admin\'s ownership domain. The fix is not just removing the permission; it\'s clarifying the ownership model so everyone understands what\'s shared and what\'s project-specific.',
+        exp: 'This is the ownership-vs.-permission failure mode. The PM had the permission to make the change, but shared team configurations are community-level infrastructure: the community admin\'s ownership domain. The fix is not just removing the permission; it\'s clarifying the ownership model so everyone understands what\'s shared and what\'s project-specific.',
       },
       {
-        q: '"What only works because you remember why it exists?" is a diagnostic question that surfaces:',
-        opts: ['Gaps in participant onboarding documentation','Structural debt: configurations and exceptions that require individual memory rather than platform structure to function','Underperforming participants who need additional engagement','Reports that need to be redesigned for clarity'],
+        q: 'You want to rename "Issues" to "Defects" and "Ideas" to "Enhancements" across your entire community to match your organization\'s vocabulary. The Centercode feature for this is:',
+        opts: ['Rebuilding each feedback type from scratch with the new names','UI String Customization — search for any label or message in the platform and override it at the community or project level; bulk changes work via CSV export and re-import','Visual Themes — the branding settings include a label configuration panel','Macros — a bulk action that updates all string references across the platform'],
         a: 1,
-        exp: 'Structural debt is the cost of decisions that were never cleaned up. Teams that answer this question honestly typically discover multiple configurations (access rules, templates, reporting setups) that would break if the person who set them up left tomorrow. That\'s the debt worth addressing.',
+        exp: 'UI String Customization lets you override any label, button, or message in the platform at the community or project level. You search for the string, set your override, and it takes effect immediately. Bulk changes work via CSV: download the current strings, edit in a spreadsheet, and re-import.',
       },
       {
         q: 'Your program has 85% activity completion but stakeholders are still unclear on what to prioritize after reviewing results. The most likely diagnosis is:',
-        opts: ['The impact score algorithm needs to be recalibrated for your product type','Activities were optimized for completion, not for resolving specific decisions—the data collected doesn\'t reduce uncertainty','Not enough feedback was collected; 85% completion should have generated more actionable signal','The reporting format doesn\'t display activity data clearly enough for stakeholders'],
+        opts: ['The impact score algorithm needs to be recalibrated for your product type','Activities were optimized for completion, not for resolving specific decisions — the data collected doesn\'t reduce uncertainty','Not enough feedback was collected; 85% completion should have generated more actionable signal','The reporting format doesn\'t display activity data clearly enough for stakeholders'],
         a: 1,
-        exp: 'This is the "compliance without insight" warning sign. High completion rates feel like success. But if data doesn\'t help teams make decisions, the activities were measuring the wrong things. Every activity should be tied to a decision: what uncertainty does this resolve? If you can\'t answer that, cut the activity.',
+        exp: 'This is the compliance without insight warning sign. High completion rates feel like success, but if data doesn\'t help teams make decisions, the activities were measuring the wrong things. Every activity should be tied to a decision: what uncertainty does this resolve? If you can\'t answer that, cut the activity.',
       },
       {
-        q: 'An admin sends a manual reminder email to all participants two days after Ted sent an automated engagement nudge to the same group. The expected effect is:',
-        opts: ['Higher completion rates—two reminders reinforce urgency','No change—participants don\'t distinguish between manual and automated messages','Eroded message authority—when everything is urgent, participants start ignoring all communication','Participants feel supported and are more likely to engage with future programs'],
-        a: 2,
-        exp: 'Every extra message weakens the authority of the next one. When Ted and the admin are both sending messages to the same audience at the same time, participants stop treating either as authoritative. Let Ted do his job. Manual overrides should be reserved for situational context Ted can\'t infer, not as a backup to automation.',
+        q: 'Your organization\'s testing programs operate across regions with export control requirements. Centercode\'s Trade Compliance feature handles this by:',
+        opts: ['Automatically translating platform content into the local language of blocked regions','Blocking access by country via GeoIP and by specific IP ranges, with optional whitelist exceptions for known-safe IPs','Limiting participant count per country to comply with regional data privacy laws','Routing all feedback from restricted regions to a separate moderation queue'],
+        a: 1,
+        exp: 'Trade Compliance lets community admins block access by country using GeoIP or by specific IP ranges, with whitelist exceptions for known-safe IPs within blocked regions. Project-level rules can add restrictions on top of community-level rules but can\'t remove them. Configure it under Community Configuration → Trade Compliance.',
       },
       {
         q: 'Which of these is a sign of a mature, durable Centercode program, not just one that\'s currently running well?',
-        opts: ['One dedicated test manager who knows the platform deeply and handles all configurations','A new team member can set up a standard project in under two hours using templates, without needing to ask anyone how things are configured','Very low admin turnover—the same person has managed the program for three-plus years','A complete library of reports that covers every stakeholder request that has ever come up'],
+        opts: ['One dedicated test manager who knows the platform deeply and handles all configurations','A new team member can set up a standard project in under two hours using templates, without needing to ask anyone how things are configured','Very low admin turnover — the same person has managed the program for three-plus years','A complete library of reports that covers every stakeholder request that has ever come up'],
         a: 1,
-        exp: 'Durability is the test. If a new team member can orient themselves using templates and platform structure alone (without tribal knowledge or a 90-minute onboarding call) the program is mature. If they can\'t, there\'s structural work still to do.',
+        exp: 'Durability is the test. If a new team member can orient themselves using templates and platform structure alone — without tribal knowledge or a 90-minute onboarding call — the program is mature. If they can\'t, there\'s structural work still to do.',
       },
     ],
     testOut: [
       {
         q: 'You\'re told: "Our delta testing program works great, but when Sarah is out it always falls apart." The correct first action is:',
-        opts: ['Hire a backup to cover Sarah\'s responsibilities during absences','Document Sarah\'s processes in a shared folder so others can reference them','Audit what lives in Sarah\'s head vs. what\'s encoded in the platform—templates, access rules, automated workflows—and move the former into the latter','Train other team members to handle Sarah\'s tasks so the dependency is distributed'],
+        opts: ['Hire a backup to cover Sarah\'s responsibilities during absences','Document Sarah\'s processes in a shared folder so others can reference them','Audit what lives in Sarah\'s head vs. what\'s encoded in the platform — templates, access rules, automated workflows — and move the former into the latter','Train other team members to handle Sarah\'s tasks so the dependency is distributed'],
         a: 2,
         exp: 'Documentation helps, but it doesn\'t solve the problem. The fix is moving knowledge from heads into platform structure: templates that encode process, access rules that don\'t need explanation, automated workflows that run without intervention. That\'s the difference between a program that survives a personnel change and one that stalls.',
       },
       {
         q: 'During an annual audit, you find eight teams created two years ago for a program that no longer runs. They still grant access to 23 people. The correct action is:',
-        opts: ['Leave them—removing old teams might break something unexpected','Archive them after confirming no active projects depend on them, and revoke access for the 23 members who no longer need it','Ask each of the 23 members individually whether they still need access','Leave them until the next major platform update, when a clean slate is easier'],
+        opts: ['Leave them — removing old teams might break something unexpected','Archive them after confirming no active projects depend on them, and revoke access for the 23 members who no longer need it','Ask each of the 23 members individually whether they still need access','Leave them until the next major platform update, when a clean slate is easier'],
         a: 1,
         exp: 'Structural debt cleanup is program leadership work, not admin maintenance. Confirming dependencies, archiving unused teams, and revoking unneeded access removes debt that would otherwise confuse new admins and create security exposure. Do it now. It gets more expensive to carry forward, not less.',
       },
       {
         q: 'A project manager asks you to give them admin-level access "just to move faster." The correct response is:',
-        opts: ['Grant it—speed matters more than structural purity','Grant it temporarily, with a review date to reassess','Ask what they can\'t currently do with project-level permissions. If the guardrails are blocking normal work, adjust the guardrails—don\'t escalate to admin access','Decline—admin access is never appropriate for project managers'],
+        opts: ['Grant it — speed matters more than structural purity','Grant it temporarily, with a review date to reassess','Ask what they can\'t currently do with project-level permissions. If the guardrails are blocking normal work, adjust the guardrails — don\'t escalate to admin access.','Decline — admin access is never appropriate for project managers'],
         a: 2,
         exp: 'If a PM can\'t do normal project work without admin access, the access model is misconfigured. The right fix is adjusting the guardrails to allow what they legitimately need, not elevating them to admin status, which gives them infrastructure-level permissions that affect every project, not just theirs.',
       },
       {
-        q: 'You discover that your program\'s high engagement rates for the past six months have been driven primarily by weekly manual reminders from the test manager, not by Ted\'s automated engagement. The risk this creates is:',
-        opts: ['None—high engagement is the goal regardless of how it\'s achieved','The engagement is fragile: remove the manual reminders and rates will drop significantly. The program depends on heroics, not structure','The test manager is duplicating Ted\'s work, which will eventually cause message conflicts','Ted\'s behavioral profiles are being overridden, which reduces his long-term effectiveness'],
+        q: 'You want to give your community a branded experience: a custom color palette, your company logo, and a login background. You also need six custom palette colors usable across reports and CSS. Which feature and license does this require?',
+        opts: ['Visual Themes only — you can set a color palette, upload a logo, and customize the login background','Visual Themes for base branding plus Advanced Branding for multiple themes, six custom palette colors, and expanded logo options','UI String Customization — the same tool handles both text and visual branding','Visual Themes are only available on Enterprise'],
         a: 1,
-        exp: 'Engagement driven by pressure isn\'t stable engagement. When the test manager goes on vacation, takes a new role, or simply burns out, the rates collapse, and the program was never actually healthy. The fix is diagnosing why Ted\'s automation wasn\'t sufficient and building the missing structure, not adding more manual effort.',
+        exp: 'Visual Themes handle base branding: a 5-tier color palette, logo upload, favicon, and optional login background. Advanced Branding expands this to multiple themes per community, six custom palette colors usable in CSS and reports, and additional logo options. Both are configured in community admin settings.',
       },
       {
         q: 'A team is preparing to scale their Centercode program from two projects per year to eight. The first thing to address before scaling is:',
-        opts: ['Recruiting additional test managers for each new project','Increasing the community size to match the higher program volume','Ensuring templates, access models, and reporting standards are documented and consistent before the first new project launches—scaling inconsistent programs produces consistent chaos','Upgrading to the Team Edition to support the higher participant volume'],
+        opts: ['Recruiting additional test managers for each new project','Increasing the community size to match the higher program volume','Ensuring templates, access models, and reporting standards are documented and consistent before the first new project launches — scaling inconsistent programs produces consistent chaos','Adding more participants to the existing community before launching new projects'],
         a: 2,
         exp: 'Scaling a broken or inconsistent program just produces more of the same problems at higher volume and cost. Before adding projects, make sure the infrastructure scales: templates are current, access models are documented, and reporting follows consistent standards. That groundwork is what lets eight projects run as efficiently as two.',
       },
@@ -1028,39 +1180,42 @@ const MODULES = {
   'advanced-tools': {
     id: 'advanced-tools',
     title: 'Ted AI and Advanced Automation',
-    icon: '🤖',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg>',
     duration: '35 min',
     difficulty: 'Intermediate',
-    description: 'Go beyond Ted\'s engagement engine: AI-generated test plans, surveys, and feedback analysis. Then add Macro Actions, Dynamic Tags, and Regression Testing to your toolkit.',
+    description: 'Understand the difference between Ted (the intelligent bot) and Ted AI (the LLM-powered layer). Then add Macro Actions, Dynamic Tags, and Regression Testing to your toolkit.',
     lessons: [
       {
         id: 'at-1',
-        title: 'What Ted Actually Does',
+        title: 'Ted and Ted AI',
         content: `
-<h3>Ted Is Not Just a Reminder System</h3>
-<p>Most teams use Ted for one thing: sending automated nudges to participants who haven't completed activities. That's the least of what he does.</p>
-<p>Ted is Centercode's AI engagement engine, but "engagement" covers a lot of ground. He builds behavioral profiles per participant, optimizes communication timing and channel, and surfaces patterns across the program that no individual reviewer would catch manually.</p>
+<h3>Two Different Things, Both Named Ted</h3>
+<p>Ted and Ted AI are frequently confused. They're not the same thing. Understanding the difference helps you use both correctly.</p>
+<p><strong>Ted</strong> is Centercode's intelligent bot. He builds a behavioral profile for each participant, learning their preferred communication timing and channel, then uses that profile to automate nudges, reminders, and follow-ups. Ted's job is keeping participants engaged across the program lifecycle. His name shows up throughout the platform's communication settings, dashboard panels, and automation configuration.</p>
+<p><strong>Ted AI</strong> is a separate LLM-powered layer that handles content generation and feedback assistance. Same name family, different capability entirely.</p>
 
-<h3>Ted's AI Capabilities</h3>
-<p>Beyond communication, Ted brings AI to four areas of program work:</p>
+<h3>What Ted AI Does</h3>
+<p>Ted AI's capabilities span four areas:</p>
 <ul>
-  <li><strong>Test plan generation:</strong> Based on your product type, phase goals, and feature set, Ted generates a structured test plan with activities and acceptance criteria as a starting point. You refine; Ted drafts.</li>
-  <li><strong>Survey generation:</strong> Describe what decision the survey needs to support and Ted builds the question set. Questions are worded to avoid leading phrasing and optimized for completion rates.</li>
-  <li><strong>Feedback analysis and summarization:</strong> Ted reads across hundreds of feedback items and surfaces patterns: recurring themes, clusters of related issues, unusually high-signal items that might be buried by volume. The summary is a starting point for human review, not a replacement for it.</li>
-  <li><strong>Engagement recommendations:</strong> When Delta Health trends down, Ted identifies which participants are at risk and why, and recommends specific intervention types based on their behavioral profiles.</li>
+  <li><strong>Test plan generation:</strong> From your product details and phase goals, Ted AI produces a structured test plan with phases, features, and activities. You review and adjust; Ted AI drafts the starting point.</li>
+  <li><strong>Survey generation:</strong> Describe the decision the survey needs to support and Ted AI builds the question set, worded to avoid leading phrasing and optimized for completion.</li>
+  <li><strong>Feedback summaries:</strong> When you open a feedback submission, Ted AI generates a bullet-point summary of the submission and its comment thread. Summaries update automatically when new comments arrive.</li>
+  <li><strong>AI-assisted submission:</strong> Participants can submit free-text feedback in a single input. Ted AI categorizes it into the correct feedback type, detects potential duplicates, and maps values to the right form fields.</li>
+  <li><strong>Reply drafting:</strong> When a program manager changes a feedback item's status in Quick Update, Ted AI drafts a reply explaining the status change. The PM reviews and edits before sending.</li>
+  <li><strong>Report insights:</strong> Ted AI analyzes survey results and generates written summaries and insights as a report element type, alongside charts and data tables.</li>
+  <li><strong>Form element enhancement:</strong> Individual form elements can have Ted AI improve the participant's submitted answer for grammar and clarity. The original answer is preserved. Participants see a toggle to switch between their original text and the AI-enhanced version. Managers enable this per element in the form builder.</li>
 </ul>
 
-<div class="callout callout-info"><div class="callout-head">Ted branding</div><div class="callout-text">Ted can be white-labeled for corporate identity alignment. If your organization's testing program has its own name and brand, Ted's communications can carry that identity instead of the Centercode defaults. Participants interact with your brand, not Centercode's.</div></div>
+<div class="callout callout-info"><div class="callout-head">Ted and Ted AI require explicit activation</div><div class="callout-text">Ted does not activate automatically. You turn him on from Management → Tester engagement bot settings. Ted AI features (test plans, surveys, feedback summaries) are activated separately in your community settings.</div></div>
 
-<h3>What Ted Doesn't Replace</h3>
-<p>Ted's AI outputs are starting points. A generated test plan needs a human to validate it against actual product strategy. A generated survey needs someone who knows what decision they're actually trying to make. AI-summarized feedback needs a reviewer who has context the platform doesn't.</p>
-<p>The right mental model: Ted eliminates the blank page problem and cuts setup time. You still own the judgment calls.</p>
+<h3>What Ted AI Doesn't Replace</h3>
+<p>Every Ted AI output is a starting point. A generated test plan needs review against your actual product strategy. A summarized feedback thread still needs a human to decide what to do with it. Ted AI reduces the blank-page problem and cuts setup time. You still own the judgment calls.</p>
 
 <div class="key-box"><div class="key-box-title">Key Takeaways</div><ul>
-  <li>Ted generates test plans, surveys, and feedback summaries, not just reminders</li>
-  <li>AI outputs are starting points for human review, not finished work</li>
-  <li>Ted can be white-labeled to match your organization's program branding</li>
-  <li>Engagement recommendations identify at-risk participants before they go quiet</li>
+  <li>Ted is the intelligent bot: behavioral profiles, communication timing, automated nudges</li>
+  <li>Ted AI is the LLM-powered layer: test plans, surveys, feedback summaries, AI submission, reply drafting, report insights</li>
+  <li>Ted AI features are license-gated and may not be active on every account</li>
+  <li>Ted AI outputs are starting points for human review, not finished decisions</li>
 </ul></div>`,
       },
       {
@@ -1069,6 +1224,11 @@ const MODULES = {
         content: `
 <h3>Macros: Automation at Scale</h3>
 <p>A Macro is a saved set of actions that can be triggered manually or on a schedule to update feedback, send communications, adjust user data, or execute multiple steps in sequence. Think of it as a script that runs inside Centercode without any coding required.</p>
+<p>You create Macros in two places depending on what they act on:</p>
+<ul>
+  <li><strong>Feedback Macros:</strong> Management → Project Configuration → Feedback Types → select a type → Resources → Add Macro</li>
+  <li><strong>User Macros:</strong> Management → Users → User Resources → Add Macro</li>
+</ul>
 <p>Common Macro use cases:</p>
 <ul>
   <li><strong>Bulk feedback updates:</strong> Close all open issues marked as "won't fix" at phase end with a single trigger</li>
@@ -1079,12 +1239,13 @@ const MODULES = {
 <p>Macros run on a schedule or on demand. They reduce repetitive admin work without requiring anyone to remember to do it manually. That's a meaningful difference from heroics: the action runs whether or not anyone remembers it exists.</p>
 
 <h3>Dynamic Tags: Personalized Content Without Manual Work</h3>
-<p>A Dynamic Tag is a placeholder that pulls live data into text content: emails, reports, activity instructions, or dashboard elements. When the communication goes out, the tag resolves to the actual value for that specific participant, feedback item, or project.</p>
+<p>A Dynamic Tag is a placeholder that pulls live data into text content: email templates, webhook payloads, and AI prompt templates. When the communication goes out, the tag resolves to the actual value for that specific participant, feedback item, or project.</p>
+<p>Dynamic Tags use a <code>[[Tag Name]]</code> style format and are inserted by picking from a tag picker in the template editor — you don't type them manually. The platform shows the human-readable label while the tag resolves the correct value at send time.</p>
 <p>Examples of Dynamic Tags in practice:</p>
 <ul>
-  <li>An activity instruction that says "You're currently ranked {{participant.rank}} in this program" — each participant sees their actual rank</li>
-  <li>A feedback status email that includes "{{issue.title}} was updated to {{issue.status}} by {{issue.assignee}}" — no manual drafting per item</li>
-  <li>A report header that populates "{{project.name}}: Week {{project.week}} of {{project.duration}}" automatically</li>
+  <li>A feedback status email that includes the participant's name, the feedback title, and the new status — all resolved from the record, no manual drafting per item</li>
+  <li>An email template that addresses each participant by their first name, pulling from their profile automatically</li>
+  <li>A webhook payload that passes the feedback ID, feature name, and assigned team member to an external system on status change</li>
 </ul>
 <p>Dynamic Tags let you write one template that feels like a custom message to every recipient. At scale, that's the difference between communication that feels personal and communication that feels broadcast.</p>
 
@@ -1109,7 +1270,7 @@ const MODULES = {
 <p>Build tracking connects every piece of feedback to the exact build version the participant was running when they submitted it. This answers a question that gets asked on every program: "Is this issue still present in the latest build?"</p>
 <p>Without build tracking, that question requires manual follow-up with the participant. With it, you can filter the feedback list by build version and immediately see which issues were reported before the fix and which were reported after.</p>
 
-<div class="callout callout-info"><div class="callout-head">Release API</div><div class="callout-text">The Release API automates build distribution. When your CI/CD pipeline produces a new build, it triggers Centercode to notify participants, update the active build version, and route version-specific activities automatically. No one has to manually announce a new build to the testing community.</div></div>
+<div class="callout callout-info"><div class="callout-head">Release API and App Store polling</div><div class="callout-text">For non-app-store programs, the Release API lets your CI/CD pipeline push a new build directly to Centercode. Centercode then notifies participants, updates the active build version, and routes activities automatically. For iOS and Android programs using TestFlight or Google Play, the flow is reversed: Centercode polls Apple and Google every five minutes for new builds and creates releases automatically when it detects them. Either way, no one has to manually announce a new build.</div></div>
 
 <h3>Product Verification as a Gate</h3>
 <p>For hardware programs, product verification tracks delivery per participant. Participants confirm receipt of a physical device, which opens specific feedback types that only make sense once the hardware is in hand. Centercode logs each confirmation, tracks outstanding deliveries, and can trigger follow-ups to participants whose hardware hasn't been acknowledged.</p>
@@ -1131,10 +1292,10 @@ const MODULES = {
         exp: 'Macros are designed for exactly this: bulk conditional actions across feedback items, with optional communication triggers. Doing it manually at 400 items introduces errors and consumes hours. A Macro runs in seconds and creates an auditable record of what changed.',
       },
       {
-        q: 'A participant in your hardware beta receives an email: "Your {{device.model}} was shipped via {{shipment.carrier}} on {{shipment.date}}." This email uses:',
-        opts: ['Custom HTML templates written by the admin for each participant','Dynamic Tags that pull live shipment data into the template at send time','A Macro triggered when the shipping label is generated','A custom feedback type linked to the logistics workflow'],
+        q: 'A participant submits free-text feedback in a single input field. Ted AI categorizes it into the correct feedback type, detects a potential duplicate, and maps values to the right form fields. This is:',
+        opts: ['Ted\'s behavioral profile at work — he learns each participant\'s submission patterns over time','Ted AI\'s AI-assisted submission feature — it handles categorization, duplicate detection, and field mapping from unstructured text','A Macro triggered on feedback submission that applies category rules','Conditional visibility logic in the feedback form redirecting to the right fields based on keywords'],
         a: 1,
-        exp: 'Dynamic Tags resolve to actual values (device model, carrier, shipping date) at the moment the email sends, without the admin writing a separate email for each participant. One template delivers personalized content to everyone.',
+        exp: 'Ted AI\'s AI-assisted submission feature lets participants submit free-text in a single input. Ted AI categorizes the feedback into the correct type, detects potential duplicates, and maps values to the right form fields. This is distinct from Ted the bot, who handles behavioral engagement, not content generation.',
       },
       {
         q: 'Your engineering team ships a new build that fixes the top three issues from last week. Before participants test the new build, you want them to re-validate those specific features. This is:',
@@ -1143,10 +1304,10 @@ const MODULES = {
         exp: 'Regression testing targets previously tested features to confirm they still work after changes. Routing it to participants who tested those features before gives you reviewers who know the baseline, which makes regressions much easier to catch.',
       },
       {
-        q: 'Six months into a program, no one can explain why a participant received a certain communication last month. The likely explanation is:',
-        opts: ['Ted\'s behavioral profile sent it based on inactivity detection','A Macro triggered on a schedule that no one currently remembers setting up','The participant sent a direct request through the feedback form','A Dynamic Tag resolved incorrectly due to missing data'],
+        q: 'A form element has Ted AI\'s form element enhancement enabled. A participant submits an answer with grammar errors. What happens?',
+        opts: ['Ted AI rewrites the answer and replaces the original text before it\'s saved','Ted AI improves the answer for grammar and clarity; the original is preserved and participants see a toggle to switch between their original text and the AI-enhanced version','A moderator receives an alert to manually fix the grammar before the submission is processed','The submission is flagged and held in moderation until the grammar issue is resolved'],
         a: 1,
-        exp: 'Scheduled Macros run whether or not anyone remembers them. This is a governance concern: Macros should be documented alongside the rationale for their configuration, reviewed during annual audits, and owned by a named person. A Macro that runs without anyone knowing why is structural debt.',
+        exp: 'Form element enhancement lets Ted AI improve a participant\'s submitted answer for grammar and clarity without replacing the original. The original answer is preserved. Participants see a toggle to switch between their original text and the enhanced version. Managers enable this per element in the form builder.',
       },
       {
         q: 'A PM asks: "Was this issue present in build 4.2, or did it show up in 4.3?" Without build tracking, the answer requires:',
@@ -1157,22 +1318,22 @@ const MODULES = {
     ],
     testOut: [
       {
-        q: 'Ted generates a test plan for your program. You review it and find 80% of the activities are well-suited to your goals but 20% are off-target. The correct response is:',
-        opts: ['Accept the full plan: Ted\'s AI has context you don\'t','Reject the full plan: if 20% is wrong, the whole thing is unreliable','Use the 80% as a foundation, revise the 20%, and treat the output as a starting point, not a finished deliverable','Re-run Ted\'s generation with a more detailed prompt until the full plan is right'],
+        q: 'Ted AI generates a test plan for your program. You review it and find 80% of the activities are well-suited to your goals but 20% are off-target. The correct response is:',
+        opts: ['Accept the full plan: Ted AI has context you don\'t','Reject the full plan: if 20% is wrong, the whole thing is unreliable','Use the 80% as a foundation, revise the 20%, and treat the output as a starting point, not a finished deliverable','Re-run Ted AI\'s generation with a more detailed prompt until the full plan is right'],
         a: 2,
-        exp: 'Ted\'s AI outputs eliminate the blank page problem. They\'re designed to accelerate human judgment, not replace it. An 80% useful draft is a valuable head start. The 20% revision is where your program-specific knowledge adds value that the AI can\'t infer.',
+        exp: 'Ted AI outputs eliminate the blank-page problem. They\'re designed to accelerate human judgment, not replace it. An 80% useful draft is a valuable head start. The 20% revision is where your program-specific knowledge adds value that the AI can\'t infer.',
       },
       {
         q: 'You want to send a weekly engagement summary to each participant showing their personal stats: feedback submitted, activities completed, and current rank. The correct approach is:',
         opts: ['Export participant data weekly and send manual emails','Build a Dynamic Tag template that pulls each participant\'s live stats and schedule it as a recurring communication','Create a survey that asks participants to self-report their own stats','Use project email to broadcast aggregate stats to the full group'],
         a: 1,
-        exp: 'Dynamic Tags resolve per recipient at send time. One template with {{participant.feedbackCount}}, {{participant.activitiesCompleted}}, and {{participant.rank}} produces a personalized summary for every participant in a single scheduled send. Manual exports create lag and introduce errors.',
+        exp: 'Dynamic Tags resolve per recipient at send time. One template with tags for feedback count, activities completed, and participant rank produces a personalized summary for every participant in a single scheduled send. Manual exports create lag and introduce errors.',
       },
       {
-        q: 'Your Release API triggers when a new build is published to TestFlight. What does Centercode do automatically as a result?',
-        opts: ['Creates a new project phase and migrates all open feedback forward','Notifies participants of the new build, updates the active build version, and routes version-specific activities, without anyone manually announcing the build','Archives all feedback from the previous build and resets participant activity counts','Runs Ted\'s feedback analysis across the prior build\'s submissions and surfaces a summary'],
+        q: 'Your CI/CD pipeline publishes a new build for a non-app-store web program. You want Centercode to notify participants, update the active build version, and route version-specific activities automatically. The correct integration is:',
+        opts: ['Configure TestFlight polling — Centercode checks for new builds every five minutes','Use the Release API so CI/CD pushes the new build directly to Centercode, triggering automatic participant notification, version tracking, and activity routing','Set up a Macro scheduled to check for new builds and send an announcement email','Use a Webhook from Centercode to your CI/CD pipeline to trigger the release process'],
         a: 1,
-        exp: 'The Release API closes the gap between your build pipeline and your testing program. When CI/CD publishes, Centercode responds: participants are notified, the version context is updated, and the right activities activate. The test manager doesn\'t have to manually bridge engineering and testing.',
+        exp: 'For non-app-store programs, the Release API lets your CI/CD pipeline push a new build directly to Centercode. Centercode then notifies participants, updates the active build version, and routes activities automatically. TestFlight and Google Play programs use a different flow: Centercode polls those stores every five minutes for new builds.',
       },
       {
         q: 'An admin sets up a Macro to archive all participants inactive for 60+ days. It runs on a Sunday night schedule. On Monday morning, the test manager discovers 40 participants were archived, including several who had been intentionally inactive during a device replacement period. The problem is:',
@@ -1181,10 +1342,10 @@ const MODULES = {
         exp: 'Macros execute exactly what they\'re configured to do, on every record that matches the filter, without judgment. If there are exceptions (participants on hold, hardware replacement periods, onboarding delays), those exceptions need to be encoded as filter conditions before the Macro runs. Broad automation without guardrails produces broad mistakes.',
       },
       {
-        q: 'Ted\'s feedback summary for a 300-item phase flags a cluster of issues around onboarding that don\'t appear in the top 10 by impact score. You should:',
-        opts: ['Trust the impact score: if it\'s not in the top 10, it doesn\'t warrant attention','Dismiss the cluster: AI summaries sometimes surface noise that scored items filter out correctly','Investigate the cluster: Ted may have identified a pattern that impact scoring (which weights individual items) doesn\'t surface well at the aggregate level','Re-configure the impact score weighting to make the cluster rank higher'],
+        q: 'Ted AI\'s feedback summary for a 300-item phase flags a cluster of issues around onboarding that don\'t appear in the top 10 by impact score. You should:',
+        opts: ['Trust the impact score: if it\'s not in the top 10, it doesn\'t warrant attention','Dismiss the cluster: AI summaries sometimes surface noise that scored items filter out correctly','Investigate the cluster: Ted AI may have identified a pattern that impact scoring (which weights individual items) doesn\'t surface well at the aggregate level','Re-configure the impact score weighting to make the cluster rank higher'],
         a: 2,
-        exp: 'Ted\'s feedback analysis and the impact score measure different things. Impact score ranks individual items by importance and prevalence. Ted\'s summary looks for patterns across items. A cluster of related low-weight issues might indicate a systemic problem that no single submission captures well. Both signals are worth reading.',
+        exp: 'Ted AI\'s feedback analysis and the impact score measure different things. Impact score ranks individual items by importance and prevalence. Ted AI\'s summary looks for patterns across items. A cluster of related low-weight issues might indicate a systemic problem that no single submission captures well. Both signals are worth reading.',
       },
     ],
   },
@@ -1195,7 +1356,7 @@ const MODULES = {
   integrations: {
     id: 'integrations',
     title: 'Integrations and Data Flow',
-    icon: '🔗',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>',
     duration: '30 min',
     difficulty: 'Intermediate',
     description: 'Map the full Centercode integration ecosystem, learn which data belongs in which system, and understand how build distribution connects your release pipeline to your testing program.',
@@ -1213,14 +1374,15 @@ const MODULES = {
   <li><strong>Jira:</strong> Escalated feedback items appear in your engineering backlog. Status changes in Jira sync back to Centercode. Module 4 covers the mechanics. The key rule: Centercode is the system of record for testing data. Jira is the system of record for engineering execution.</li>
   <li><strong>Slack:</strong> Bidirectional notifications. New high-priority feedback can post to a designated channel. Triage decisions made in Slack can trigger status updates in Centercode. Stakeholders who won\'t open a dashboard will read a Slack notification.</li>
   <li><strong>TestFlight and Google Play:</strong> When you publish a new build, Centercode automatically notifies enrolled participants and updates the active build version. Participants join TestFlight or Google Play groups through Centercode enrollment, not separately.</li>
-  <li><strong>Salesforce and HubSpot:</strong> Link tester activity and feedback to customer records. Feedback from a strategic account carries different weight when the reviewer can see it came from that account.</li>
-  <li><strong>Tableau and Power BI:</strong> Export Centercode data into your existing BI infrastructure for cross-program analysis, longitudinal reporting, and custom executive visualizations that go beyond built-in dashboards.</li>
+  <li><strong>Salesforce:</strong> Salesforce can receive webhook data from Centercode when feedback events occur. There's no native CRM sync. Salesforce is one of the supported webhook endpoint targets.</li>
+  <li><strong>Tableau and Domo:</strong> Export Centercode data via Data Packages for consumption by BI tools. Data Packages provide structured JSON on demand or on a schedule.</li>
   <li><strong>Webhooks:</strong> Send event-driven data to any external system when something happens in Centercode: new feedback submitted, status changed, participant enrolled. The receiving system decides what to do with it.</li>
-  <li><strong>Nutanix Frame:</strong> Embed software access inside Centercode so participants can test without installing anything locally. Useful for enterprise software with complex setup requirements.</li>
+  <li><strong>External Listeners:</strong> Inbound data ingestion from external systems. Three listener types: <strong>External data</strong> (stores field values on user or feedback records), <strong>Add a comment</strong> (posts a comment on a feedback item from an external author), and <strong>Run a macro</strong> (triggers a Centercode macro). Each listener generates a unique API endpoint URL after setup.</li>
+  <li><strong>Zapier, Aha!, Discord, TestFairy:</strong> Configured as third-party connectors through webhook macros or external destinations. Operate via the Integration Center hub.</li>
 </ul>
 
 <div class="key-box"><div class="key-box-title">Key Takeaways</div><ul>
-  <li>Centercode integrates with Jira, Slack, TestFlight, Google Play, Salesforce, HubSpot, Tableau, Power BI, and Webhooks</li>
+  <li>Centercode integrates with Jira, Slack, TestFlight, Google Play, Salesforce, Tableau, and Webhooks</li>
   <li>Jira is for engineering execution; Centercode is the system of record for testing data</li>
   <li>TestFlight and Google Play enrollment flows through Centercode, keeping participant management in one place</li>
   <li>Webhooks enable event-driven data flow to any external system</li>
@@ -1247,9 +1409,9 @@ const MODULES = {
 <h3>Data Packages, External Listeners, and Record Lookups</h3>
 <p>For teams with more complex needs:</p>
 <ul>
-  <li><strong>Data Packages:</strong> Custom datasets built from Centercode data, made available for third-party consumption on a schedule or on demand</li>
-  <li><strong>External Listeners:</strong> Allow external systems to trigger Centercode automation or store data in Centercode from outside</li>
-  <li><strong>Record Lookups:</strong> Authorized external systems can query Centercode for specific records without needing full platform access</li>
+  <li><strong>Data Packages:</strong> Custom datasets built from Centercode data, made available for BI tools and third-party systems on a schedule or on demand. </li>
+  <li><strong>External Listeners:</strong> Allow external systems to send data into Centercode. Three types: <em>External data</em> (writes field values to user or feedback records), <em>Add a comment</em> (posts a comment on a feedback item from an external author), and <em>Run a macro</em> (triggers a Centercode macro).</li>
+  <li><strong>API Keys:</strong> Community-scoped credentials for authenticating Weblistener and webhook endpoints from authorized external systems.</li>
 </ul>
 
 <div class="key-box"><div class="key-box-title">Key Takeaways</div><ul>
@@ -1299,16 +1461,16 @@ const MODULES = {
         exp: 'Conflicting counts between systems are an integration strategy failure, not a sync failure. When two systems both track the same data type without a designated source of truth, they diverge. The fix isn\'t a better sync. It\'s deciding which system owns issue tracking and making the other one read from it.',
       },
       {
-        q: 'A participant enrolls in your iOS beta program through Centercode. Where should they expect to receive the build?',
-        opts: ['Directly through Centercode\'s mobile app','Via TestFlight, with Centercode managing the enrollment and build update notifications','Through a direct download link emailed by the test manager after enrollment','Through Apple\'s standard App Store review process'],
+        q: 'A participant enrolls in your iOS testing program through Centercode. Where should they expect to receive the build?',
+        opts: ['Directly through Centercode\'s mobile app','Via TestFlight, with Centercode managing enrollment; Centercode polls Apple every five minutes for new builds and notifies participants when one is detected','Through a direct download link emailed by the test manager after enrollment','Through Apple\'s standard App Store review process'],
         a: 1,
-        exp: 'TestFlight integration routes participants from Centercode enrollment to the correct TestFlight group. When a new build publishes, Centercode notifies participants and directs them to TestFlight. Participant management stays in Centercode; build delivery happens through TestFlight.',
+        exp: 'TestFlight integration routes participants from Centercode enrollment to the correct TestFlight group. Centercode polls Apple every five minutes for new builds and notifies participants automatically when one is detected. Participant management stays in Centercode; build delivery happens through TestFlight.',
       },
       {
-        q: 'Engineering wants to see a summary of tester feedback in Jira without logging into Centercode. The correct approach is:',
-        opts: ['Give engineering team members read-only Centercode access','Set up a Webhook that posts a feedback digest to Jira daily','Export feedback manually each morning and paste it into Jira comments','Use a Data Package to make a curated feedback dataset available for Jira to consume on a schedule'],
-        a: 3,
-        exp: 'Data Packages make Centercode data available for external consumption without giving third parties full platform access. Engineering gets the data in the format they need, on the schedule you set, without creating new Centercode accounts or disrupting your access model.',
+        q: 'An external system needs to post a comment on a Centercode feedback item from an external author when a related ticket is updated. Which External Listener type handles this?',
+        opts: ['External data — stores field values on user or feedback records','Add a comment — posts a comment on a feedback item from an external author','Run a macro — triggers a Centercode macro','This isn\'t possible with External Listeners — it requires a Webhook instead'],
+        a: 1,
+        exp: 'External Listeners have three types: External data (store field values on user or feedback records), Add a comment (post a comment on a feedback item from an external author), and Run a macro (trigger a Centercode macro). Each listener generates a unique API endpoint URL after setup. Posting an externally-authored comment onto a Centercode item uses the Add a comment listener.',
       },
       {
         q: 'Your team wants to be notified in Slack whenever a participant submits feedback rated 4 or 5 stars on the overall product experience question. The right integration for this is:',
@@ -1317,10 +1479,10 @@ const MODULES = {
         exp: 'Webhooks are event-driven: something happens in Centercode, a payload goes to an external system, and that system acts on it. A Webhook listening for high-rated feedback submissions and posting to Slack is exactly the use case they\'re built for. No manual exports, no delays.',
       },
       {
-        q: 'A hardware participant confirms receipt of their device on Tuesday. On Wednesday, they try to submit hardware-specific feedback but the form isn\'t available. This is most likely:',
-        opts: ['A platform bug that should be reported to Centercode support','Product verification working correctly: the feedback gate hadn\'t updated yet after Tuesday\'s confirmation','An access layer issue unrelated to product verification','A notice chain blocking access until a second confirmation is required'],
+        q: 'When setting up the Centercode Slack integration, you want some feedback types to post to dedicated channels while others go to a general channel. Is this possible?',
+        opts: ['No — Slack notifications go to a single global channel only','Yes — you can configure a global default channel and override it per feedback type','Yes — but only if you have a separate Zapier connection for each feedback type','No — Slack integration sends all events to whichever channel is configured in Jira'],
         a: 1,
-        exp: 'Product verification gates hardware-specific feedback until receipt is confirmed. If the gate is still blocking after confirmation, the most likely explanation is that confirmation happened but the gate update is still processing. Check whether the product verification record shows "confirmed" status in the participant\'s profile.',
+        exp: 'The Slack integration supports both a global channel (for all feedback events) and per-feedback-type channel routing. Set it up under Community Settings → Integrations → Slack. After OAuth authentication, you choose how to route notifications.',
       },
     ],
     testOut: [
@@ -1332,27 +1494,27 @@ const MODULES = {
       },
       {
         q: 'Your CI/CD pipeline publishes a new iOS build to TestFlight every two weeks. Currently, the test manager manually emails participants after each build. What should replace this?',
-        opts: ['A Dynamic Tag template that updates automatically when a new build is detected','A Macro scheduled to run every two weeks with build announcement content','The Release API, which triggers Centercode to notify participants, update the active build version, and route version-specific activities automatically when a build publishes','A Webhook that posts the TestFlight link to Slack, where participants are expected to see it'],
+        opts: ['A Dynamic Tag template that updates automatically when a new build is detected','A Macro scheduled to run every two weeks with build announcement content','Configure the TestFlight integration — Centercode polls TestFlight every five minutes for new builds and automatically notifies participants, updates the active build version, and routes version-specific activities when a new one is detected','A Webhook that posts the TestFlight link to Slack, where participants are expected to see it'],
         a: 2,
-        exp: 'The Release API is built for exactly this: CI/CD publishes, Centercode responds. Participants are notified, build versions are updated, activities are routed. The test manager doesn\'t need to manually bridge engineering and testing for every two-week cycle. Manual announcement is heroics that the API eliminates.',
+        exp: 'For iOS programs using TestFlight, Centercode polls Apple every five minutes for new builds. When a new build is detected, participants are notified, build versions are updated, and activities are routed automatically. Manual announcement is heroics that the integration eliminates.',
       },
       {
         q: 'Six months into a program, a stakeholder reports that the feedback count in the BI dashboard is 847 but Centercode shows 903. The most defensible first response is:',
         opts: ['Correct the BI dashboard to match Centercode','Correct Centercode to match the BI dashboard','Declare Centercode the source of truth for feedback data, identify when the BI export last ran, and reconcile the delta to understand whether the gap is a sync lag or a structural integration problem','Ask both teams to stop reporting feedback volume until the discrepancy is resolved'],
         a: 2,
-        exp: 'Before fixing the number, establish which system is authoritative. Centercode is the system of record for testing data, so its count is the baseline. Then diagnose the gap: is it a sync lag (last export ran before recent submissions), a filter difference (the BI dashboard excludes a feedback type), or a structural mismatch (different definitions of "feedback")? Fix the integration, not just the number.',
+        exp: 'Before fixing the number, establish which system is authoritative. Centercode is the system of record for testing data, so its count is the baseline. Then diagnose the gap: is it a sync lag, a filter difference, or a structural mismatch in how "feedback" is defined? Fix the integration, not just the number.',
       },
       {
-        q: 'An engineering lead asks: "Can I see tester feedback directly in Jira without logging into Centercode?" You want to give them access without granting full platform permissions. The right solution is:',
-        opts: ['Create a read-only Centercode account with project-level access for the engineering lead','Set up a Record Lookup that lets Jira query Centercode for specific feedback data on demand','Build a Webhook that mirrors all feedback to a Jira custom field in real time','Export feedback as a CSV weekly and attach it to the relevant Jira epic'],
+        q: 'An external system needs to write a custom field value onto a Centercode feedback record when a status change happens in that external system. Which integration type is designed for this inbound data flow?',
+        opts: ['A Webhook — configured to send from Centercode to the external system on status change','An External data listener — configured to receive field values from an external system and store them on user or feedback records','A Data Package — configured to pull data from both systems on a shared schedule','A Macro — triggered by the external system to update the feedback record'],
         a: 1,
-        exp: 'Record Lookups allow authorized external systems to query Centercode for specific records without requiring a Centercode account. The engineering lead can pull feedback data into Jira through an authorized query, accessing exactly what they need without being added to the platform as a user.',
+        exp: 'External Listeners handle inbound data from external systems into Centercode. The External data listener type specifically stores field values against user or feedback records. Each listener generates a unique API endpoint URL after setup. Webhooks go the other direction — outbound from Centercode to external systems.',
       },
       {
-        q: 'You\'re setting up Centercode for a physical hardware beta. When should product-verification-gated feedback types become visible to participants?',
+        q: 'You\'re setting up Centercode for a physical hardware testing program. When should product-verification-gated feedback types become visible to participants?',
         opts: ['Immediately upon enrollment, so participants can submit pre-receipt expectations','After the participant completes their first activity','Only after the participant confirms receipt of the physical device in Centercode','After a set number of days following the expected delivery date'],
         a: 2,
-        exp: 'Product verification gates feedback types to the moment of confirmed receipt. Pre-receipt hardware feedback isn\'t trustworthy: the participant may be speculating based on documentation, not actual experience. Gating those feedback types until receipt is confirmed keeps the signal clean.',
+        exp: 'Product verification gates feedback types to the moment of confirmed receipt. Pre-receipt hardware feedback isn\'t trustworthy — the participant may be speculating based on documentation, not actual experience. Gating those feedback types until receipt is confirmed keeps the signal clean.',
       },
     ],
   },
@@ -1363,7 +1525,7 @@ const MODULES = {
   maturity: {
     id: 'maturity',
     title: 'Program Maturity and Recovery',
-    icon: '📈',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>',
     duration: '40 min',
     difficulty: 'Advanced',
     description: 'Design programs that scale across multiple teams, diagnose and recover programs that are underperforming, and build the executive alignment that keeps programs funded and trusted.',
@@ -1388,7 +1550,7 @@ const MODULES = {
 <div class="callout callout-warn"><div class="callout-head">Template drift is a multi-team hazard</div><div class="callout-text">When multiple teams share templates, one team\'s "quick fix" to a shared template affects every project that inherits from it. Templates used by more than one team should be owned by the community admin and versioned intentionally. Project-specific variations should fork into project-level templates, not modify the shared baseline.</div></div>
 
 <h3>Access Conflict Resolution</h3>
-<p>Four conflict patterns appear most often when multiple teams share a Centercode community:</p>
+<p>Four conflict patterns surface when multiple teams share a Centercode community:</p>
 <ul>
   <li><strong>Permission inflation:</strong> A PM gets elevated access to fix one problem and keeps it, creating a growing set of users with more access than their role requires</li>
   <li><strong>Team membership conflict:</strong> A participant is on two teams with contradictory permissions, and the platform resolves to the more permissive one</li>
@@ -1419,7 +1581,7 @@ const MODULES = {
 
 <p><strong>Structural failure:</strong> The program runs only because one or two people hold everything together. Replace those people and the program stalls. This is the heroics problem from Module 1, but at a more advanced diagnosis level.</p>
 
-<div class="callout callout-info"><div class="callout-head">Staged recovery vs. restart</div><div class="callout-text">Before ending a program and starting fresh, ask whether staged recovery is possible. A signal failure can often be recovered mid-program by restructuring the remaining activities. An engagement failure may recover with a community re-engagement campaign and revised ask volume. Full restarts discard participant trust and historical data. Recover when you can.</div></div>
+<div class="callout callout-info"><div class="callout-head">Staged recovery vs. restart</div><div class="callout-text">Before ending a program and starting fresh, ask whether staged recovery is possible. A signal failure can be recovered mid-program by restructuring the remaining activities. An engagement failure may recover with a community re-engagement campaign and revised ask volume. Full restarts discard participant trust and historical data. Recover when you can.</div></div>
 
 <h3>The Recovery Sequence</h3>
 <p>Before any recovery action, diagnose which failure type you\'re actually dealing with. The four types require different interventions:</p>
@@ -1459,6 +1621,10 @@ const MODULES = {
 <p>Program storytelling builds longitudinal arguments: engagement has grown because the community trusts the loop-closing process. Product quality has improved because the program surfaces issues that internal QA misses consistently. The investment is justified because the cost of pre-release issue resolution is measurably lower than post-launch fixes.</p>
 <p>These arguments protect budget, build internal credibility, and make the program harder to cut when priorities shift. A project summary doesn\'t do any of that.</p>
 
+<h3>Building the Story from Centercode Data</h3>
+<p>The data for a longitudinal program story lives across several dashboards. The <strong>Product Success Analysis</strong> dashboard shows how Delta Success has trended across phases. The <strong>Feedback Impact</strong> dashboard shows which issues were resolved and what that did to the Success score. The <strong>Top Testers</strong> dashboard shows whether community engagement has grown or declined over time.</p>
+<p>For cross-program reporting, export comparable metrics from each program cycle and track them over time. Delta Success at wrap-up, participation rate at peak, and issues resolved pre-release are the three numbers worth tracking longitudinally. Together, they build the case that the program compounds value over time — which is the argument that protects budget.</p>
+
 <div class="key-box"><div class="key-box-title">Key Takeaways</div><ul>
   <li>Executive alignment is continuous: proactive framing before decisions, not reactive reporting after them</li>
   <li>Translate operational data into executive language: risk, confidence, and momentum</li>
@@ -1481,7 +1647,7 @@ const MODULES = {
         exp: 'High completion with low decision-making clarity is the signal failure pattern. The activities produced data, but the data doesn\'t answer the questions leadership needs answered. The fix: audit what decision each activity was meant to support, cut activities that don\'t map to a decision, and add targeted follow-ups that do.',
       },
       {
-        q: 'A participant with high tester ranking submits a Slack message to your program\'s support channel saying "my feedback never seems to matter." The most important next step is:',
+        q: 'A participant with high tester ranking sends a message saying "my feedback never seems to matter." The most important next step is:',
         opts: ['Send them a personal apology and summary of what was done with their submissions','Check whether the loop-closing process has been working: have their submissions received status updates? Have they seen their feedback acknowledged?','Invite them to a higher-tier advisory cohort to increase their sense of contribution','Escalate their feedback items to Jira immediately to show responsiveness'],
         a: 1,
         exp: 'The "my feedback doesn\'t matter" signal is almost always a loop-closing failure. Before drafting a response, check the record: have their submissions moved through the workflow? Have they received status notifications? If the loop hasn\'t been closed for this participant, the response needs to address that gap specifically, not just reassure them.',
@@ -1490,7 +1656,7 @@ const MODULES = {
         q: 'Delta Health drops from B to C- in week five of an eight-week program. A PM suggests restarting with a fresh recruiting campaign. The right response is:',
         opts: ['Agree: a fresh start with better participants will produce better results','Agree, but only if the drop exceeds two full letter grades','Diagnose the failure type first. A drop at week five may indicate engagement fatigue, poor ask volume, or a loop-closing gap. Staged recovery has a better success rate than restart and doesn\'t discard five weeks of participant trust.','Decline: restarting is never appropriate mid-program'],
         a: 2,
-        exp: 'Restarting is the most expensive option and discards the trust you\'ve built with participants over five weeks. Diagnose which failure type you\'re dealing with before acting. An engagement failure at week five often recovers with reduced ask volume and a targeted re-engagement campaign. Reserve restart for programs where the structure is fundamentally broken and unrecoverable.',
+        exp: 'Restarting is the most expensive option and discards the trust you\'ve built with participants over five weeks. Diagnose which failure type you\'re dealing with before acting. An engagement failure at week five often recovers with reduced ask volume and a targeted re-engagement campaign.',
       },
       {
         q: 'You\'re preparing a quarterly program review for the CMO. Which of these best reflects executive-appropriate framing?',
@@ -1516,13 +1682,13 @@ const MODULES = {
         q: 'Leadership is debating whether to reduce the testing program budget by 40% for next fiscal year. What type of argument is most likely to protect the program?',
         opts: ['A detailed project summary of the last three tests, showing activity completion rates and feedback volumes','A cost-per-issue report showing how much each feedback item cost to collect','A longitudinal program story: engagement has grown because participants trust the loop-closing process, product quality has improved measurably across multiple releases, and the cost of pre-release issue resolution is a fraction of post-launch fix costs. Frame this in terms of risk if the program is reduced.','An executive testimonial from the most senior stakeholder who participated in the last test'],
         a: 2,
-        exp: 'Budget decisions are made on risk and return arguments, not on operational summaries. A longitudinal program story builds the case that the program\'s value compounds over time, that the cost of not testing is higher than the cost of testing, and that reducing the program creates specific, quantifiable risks. A project summary doesn\'t make that argument.',
+        exp: 'Budget decisions are made on risk and return arguments, not operational summaries. A longitudinal program story builds the case that the program\'s value compounds over time, that the cost of not testing is higher than the cost of testing, and that reducing the program creates specific, quantifiable risks. A project summary doesn\'t make that argument.',
       },
       {
         q: 'Your program\'s response rate has dropped from 61% in Q1 to 38% in Q3. You\'ve been running the same participant community with the same recruiting approach across all three quarters. The most likely root cause is:',
         opts: ['The product being tested is less interesting to participants than earlier versions','Seasonal variation: summer months always show lower engagement','Accumulating recruiting debt from Q1 and Q2: over-asking, poor targeting, or not closing the loop adequately has eroded community trust across multiple programs','The platform\'s notification system has a delivery problem that should be escalated to support'],
         a: 2,
-        exp: 'Gradual response rate decline across a consistent community is almost always recruiting debt accumulation. Each program that over-asks, targets poorly, or fails to close the loop makes the next one harder. Three quarters of decline with no change in recruiting approach suggests the debt has been building since Q1. The fix requires diagnosing which debt type is driving the decline before adding more programs to the queue.',
+        exp: 'Gradual response rate decline across a consistent community is almost always recruiting debt accumulation. Each program that over-asks, targets poorly, or fails to close the loop makes the next one harder. Three quarters of decline with no change in recruiting approach suggests the debt has been building since Q1. Diagnose which debt type is driving it before adding more programs.',
       },
       {
         q: 'You want to prepare your executive sponsor for a presentation about next quarter\'s testing roadmap. When is the right time to involve them?',
@@ -1538,105 +1704,28 @@ const MODULES = {
      ===================================================== */
   ecosystem: {
     id: 'ecosystem',
-    title: 'The Centercode Ecosystem',
-    icon: '🌐',
+    title: 'Delta Testing Context and Use Cases',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
     duration: '30 min',
     difficulty: 'Beginner',
-    description: 'Understand how Centercode is structured as a product and a company: platform editions, Builder seats, managed services, Betabound\'s full capabilities, and where Centercode fits in the market.',
+    description: 'Understand the four types of delta testing programs and where Centercode fits relative to other tools.',
     lessons: [
       {
         id: 'e-1',
-        title: 'Platform Editions and Builder Seats',
+        title: 'Program Types and Where Centercode Fits',
         content: `
-<h3>Not Every Team Has the Same Platform</h3>
-<p>Centercode is sold in four editions. The edition determines which features are available and how many people can use the platform as internal administrators or test managers. Understanding the editions matters because it tells you what\'s available to your organization right now and what would require an upgrade.</p>
-
-<h3>The Four Editions</h3>
+<h3>Four Program Types</h3>
+<p>Centercode supports four program types, each built for a different testing goal:</p>
 <ul>
-  <li><strong>Starter:</strong> Free, up to 20 participants. Self-serve, designed as an upgrade from spreadsheets and email. Good for teams running their first test and evaluating the platform.</li>
-  <li><strong>Pro:</strong> Up to 5,000 participants. Adds Survey Designer, Custom Feedback Types, Feedback Automation, Release Distribution, Reporting Engine, Continuous Onboarding, Regression Testing, Custom Templates, Jira integration, Advanced Branding, and API access.</li>
-  <li><strong>Team:</strong> Up to 20,000 participants. Adds Custom Segmentations, Granular Access Control, Advanced Recruiting, Technographic Profiles, Workflow Automation, Community Surveys, and the Tester Referral System. Built for organizations running multiple programs across teams.</li>
-  <li><strong>Enterprise:</strong> No participant cap. Dedicated infrastructure, custom SSO, and an included Onboarding Program. For organizations where testing is a core function, not an occasional activity.</li>
-</ul>
-
-<h3>Builder Seats: The Internal User Unit</h3>
-<p>A Builder is anyone on your internal team who actively configures, manages, or reports within Centercode. Test managers, community admins, program managers, analysts. Participants are not Builders.</p>
-<p>Builder seats are the unit of internal user pricing across all paid editions. You get a base allocation of Builders with each edition. Additional Builders are purchased in packs. This distinction matters when you\'re planning a team expansion: adding participants is priced separately from adding internal users.</p>
-
-<div class="callout callout-info"><div class="callout-head">Pilots before annual contracts</div><div class="callout-text">Centercode offers pilots: 30–90 day trial contracts structured as a fraction of the annual cost. Pilots give teams a real test of the platform with their actual participants before committing to a full contract. They\'re structured as 12-month contracts with an opt-out provision at the pilot end date.</div></div>
-
-<div class="key-box"><div class="key-box-title">Key Takeaways</div><ul>
-  <li>Four editions: Starter (free), Pro, Team, Enterprise. Each adds features and participant capacity.</li>
-  <li>Builder seats are the unit of internal user pricing. Participants are not Builders.</li>
-  <li>Key features like Technographic Profiles and Community Surveys require Team or Enterprise edition</li>
-  <li>Pilots provide a structured 30–90 day evaluation with real programs before annual contract commitment</li>
-</ul></div>`,
-      },
-      {
-        id: 'e-2',
-        title: 'Centercode Services',
-        content: `
-<h3>Beyond the Platform</h3>
-<p>Centercode is a platform company that also offers services. For organizations that don\'t have the bandwidth to run tests themselves, or need to move faster than their current team can support, Centercode provides expert execution alongside the software.</p>
-
-<h3>Managed Tests</h3>
-<p>Two service models for organizations that want Centercode to run the test:</p>
-<ul>
-  <li><strong>Project CPM (P-CPM):</strong> Turn-key test management for a single project. Centercode provides a dedicated test manager, logistics support, and recruitment management from kickoff through final report. Starting around $20K per test for 3–12 week programs with 25–250 participants.</li>
-  <li><strong>Annual CPM (A-CPM):</strong> A fixed number of weekly service hours across the full year for ongoing program support. Starting around $100K/year. For organizations running continuous programs or multiple annual tests.</li>
-</ul>
-<p>In both cases, all data and platform structure remain in your Centercode environment. The transition from managed to self-service is clean: nothing gets rebuilt when you take over.</p>
-
-<h3>Test Logistics</h3>
-<p>For hardware programs, Centercode manages the physical side:</p>
-<ul>
-  <li>Bulk receipt, kitting, serialization, and firmware updates</li>
-  <li>Domestic and international shipping with customs expertise</li>
-  <li>End-to-end delivery tracking and proactive issue management</li>
-  <li>Product return management (99% return rate)</li>
-  <li>Each physical unit assigned to a specific participant in Centercode, with full delivery history</li>
-</ul>
-
-<h3>Centercode Admin Service and Enterprise Support</h3>
-<ul>
-  <li><strong>Centercode Admin (CCA):</strong> A dedicated Centercode community admin who configures and maintains your platform settings, builds reports, manages templates, optimizes onboarding workflows, and provides quarterly business reviews. For organizations that need expert administration without hiring for it internally.</li>
-  <li><strong>Enterprise Support:</strong> Priority direct escalation to a Field Solutions Consultant, on-demand Zoom/phone support, extended hours, and Betabound recruitment assistance included. Priced at 15% of total platform fee.</li>
-</ul>
-
-<div class="key-box"><div class="key-box-title">Key Takeaways</div><ul>
-  <li>Managed tests (P-CPM and A-CPM) provide full test management from kickoff to report</li>
-  <li>Test Logistics handles physical hardware receipt, kitting, shipping, and returns</li>
-  <li>Centercode Admin Service provides dedicated platform administration without an internal hire</li>
-  <li>All data remains in your environment whether Centercode or your team runs the program</li>
-</ul></div>`,
-      },
-      {
-        id: 'e-3',
-        title: 'Betabound, Program Types, and Market Context',
-        content: `
-<h3>Betabound: More Than a Tester Network</h3>
-<p>Module 3 covered Betabound\'s core function: 300,000+ profiled, opt-in members available for recruiting. The full picture is broader.</p>
-<ul>
-  <li><strong>Beta Blast Newsletter:</strong> Weekly outreach to around 100,000 subscribers. Used for hard-to-fill programs that need volume fast.</li>
-  <li><strong>Ambassador Program:</strong> 65,000 highly engaged members who actively refer others. Particularly useful for reaching demographics that don\'t respond to standard recruiting.</li>
-  <li><strong>Social outreach:</strong> Betabound community manager posts to X, Bluesky, and beta-focused Reddit communities for each program that opts in.</li>
-  <li><strong>Featured on Betabound:</strong> Badge program for developers to display on their own sites, driving awareness of the testing program to their existing audience.</li>
-  <li><strong>Market research panel:</strong> The Betabound community can be surveyed between tests for market trends, competitor product awareness, and feature preferences. Not just a recruiting resource: an ongoing panel for product intelligence.</li>
-</ul>
-
-<h3>Five Program Types</h3>
-<p>Centercode supports five structurally distinct program types. Each serves different questions:</p>
-<ul>
-  <li><strong>Product launch testing:</strong> Time-bounded test before a specific release. The standard beta use case.</li>
-  <li><strong>Continuous testing:</strong> Always-on programs running alongside regular release cycles. Built for SaaS products shipping frequently.</li>
-  <li><strong>Customer Zero / Dogfooding:</strong> Internal employees or strategic early customers test before external release. Useful for catching basics and validating internal confidence before going external.</li>
-  <li><strong>Competitive testing:</strong> Testing your product directly against a named competitor\'s product to identify differentiation gaps and strengths.</li>
-  <li><strong>Community market research:</strong> Surveying the tester community between tests for product intelligence, not just feedback collection.</li>
+  <li><strong>Product Launch Testing:</strong> Engage your target market to validate a new product or major release before it ships. The most common program type.</li>
+  <li><strong>Continuous User Testing:</strong> Run ongoing programs with existing customers to continuously improve live products. Built for SaaS products shipping frequently.</li>
+  <li><strong>Employee Testing:</strong> Gather internal employee feedback to catch issues early and build a product-focused culture before going external.</li>
+  <li><strong>Competitive Testing:</strong> Enlist a competitor\'s customers to gain direct, actionable intelligence about how your product compares to theirs.</li>
 </ul>
 
 <h3>Where Centercode Fits in the Market</h3>
-<p>Centercode\'s primary competition isn\'t other beta testing platforms. It\'s the status quo: spreadsheets, email, and point solutions cobbled together. That\'s what most teams are actually replacing.</p>
-<p>Adjacent tools that often come up in conversations:</p>
+<p>Centercode\'s primary competition isn\'t other testing platforms. It\'s the status quo: spreadsheets, email, and point solutions cobbled together. That\'s what most teams are actually replacing.</p>
+<p>Adjacent tools that come up in competitive discussions:</p>
 <ul>
   <li><strong>UserTesting.com:</strong> Video-based UX research interviews. Answers "do people understand this?" Centercode answers "does this work in real-world use?"</li>
   <li><strong>Applause:</strong> Crowdsourced QA with paid testers. Optimized for bug volume. Centercode optimizes for signal quality from motivated, profiled participants.</li>
@@ -1644,8 +1733,7 @@ const MODULES = {
 </ul>
 
 <div class="key-box"><div class="key-box-title">Key Takeaways</div><ul>
-  <li>Betabound includes a newsletter (100K), Ambassador Program (65K), social channels, and a market research panel</li>
-  <li>Five program types: launch, continuous, Customer Zero, competitive, and community research</li>
+  <li>Four program types: Product Launch, Continuous User Testing, Employee Testing, and Competitive Testing</li>
   <li>The primary competitor is the status quo: spreadsheets and email, not named software</li>
   <li>Centercode is distinct from UserTesting (UX research), Applause (paid bug QA), and roadmap tools (feedback organization)</li>
 </ul></div>`,
@@ -1653,66 +1741,72 @@ const MODULES = {
     ],
     quiz: [
       {
-        q: 'Your organization runs programs with 8,000 participants and needs Technographic Profiles for participant segmentation. Which edition is the minimum requirement?',
-        opts: ['Pro Edition — it supports up to 5,000 participants and includes advanced features','Team Edition — Technographic Profiles and the participant capacity for 8,000 participants both require Team or higher','Starter Edition — Technographic Profiles are available at all tiers','Enterprise Edition only — Technographic Profiles are an Enterprise-exclusive feature'],
+        q: 'Your organization wants to run a competitive testing program but your PM has never heard of Competitive Testing as a program type. Which description is correct?',
+        opts: ['Competitive Testing uses internal employees to compare your product against a competitor\'s','Competitive Testing enlists a competitor\'s customers to give you direct, actionable intelligence about how your product compares to theirs','Competitive Testing is a community survey sent to your existing participants about competitor products','Competitive Testing is another term for Employee Testing when applied to competing teams within the same company'],
         a: 1,
-        exp: 'Technographic Profiles are a Team Edition feature, and Team Edition supports up to 20,000 participants. Pro Edition maxes out at 5,000 participants and doesn\'t include Technographic Profiles. Both the capacity and the feature required here need Team Edition.',
+        exp: 'Competitive Testing puts your product in front of a competitor\'s actual customers, not your own. They evaluate both products and surface gaps and strengths you can\'t see from internal testing alone.',
       },
       {
-        q: 'Your organization wants to run a beta test but doesn\'t have an internal test manager available. Centercode offers which service to handle this?',
-        opts: ['Enterprise Support, which provides a dedicated Field Solutions Consultant for test execution','Centercode Admin Service, which configures the platform but doesn\'t manage the test','Managed Test (P-CPM), which provides a dedicated test manager from kickoff through final report','Beta Blast, which announces the program to Betabound\'s newsletter audience'],
-        a: 2,
-        exp: 'P-CPM is Centercode\'s managed test service: a dedicated test manager runs the program from kickoff to final report. Enterprise Support provides priority technical access and platform guidance. Centercode Admin Service handles platform configuration. Beta Blast is a Betabound recruiting channel.',
+        q: 'Which program type would you choose to understand how your product compares directly to a competitor\'s?',
+        opts: ['Product Launch Testing — run before your next release to validate readiness','Continuous User Testing — run ongoing programs with existing customers','Employee Testing — use internal employees to evaluate the comparison','Competitive Testing — enlist a competitor\'s customers to gain direct intelligence about how your product compares'],
+        a: 3,
+        exp: 'Competitive Testing puts your product in front of a competitor\'s actual customers. They evaluate both products and surface gaps and strengths you can\'t see from internal testing alone.',
       },
       {
-        q: 'A competitor\'s review on a tech blog claims their product\'s onboarding is faster than yours. You want to test whether that claim holds up with real users. This is a:',
-        opts: ['Product launch test — validate the onboarding before your next release','Continuous test — add onboarding to your ongoing program scope','Competitive test — directly compare your product against the named competitor with the same participant group','Customer Zero test — use internal employees to assess onboarding speed'],
-        a: 2,
-        exp: 'Competitive testing puts your product and a competitor\'s product in front of the same participant group to identify differentiation gaps and strengths. It directly answers the question the competitor claim raised: does the real-world experience support or refute their positioning?',
-      },
-      {
-        q: 'You\'re trying to recruit 50 enterprise participants who use Salesforce daily and work in healthcare. Betabound\'s standard profiled network hasn\'t produced enough matches. The next resource to try is:',
-        opts: ['The Beta Blast Newsletter, sent to 100,000 general subscribers','The Ambassador Program, whose 65,000 engaged members actively refer others and can help reach specific demographics','Posting a public job listing on LinkedIn targeting healthcare Salesforce users','Expanding the program criteria to include non-Salesforce users to fill the gap'],
+        q: 'Your company ships a SaaS product on a bi-weekly release cycle and wants to validate each release with real users. Which program type fits best?',
+        opts: ['Product Launch Testing — run a focused test before each major release','Continuous User Testing — run an always-on program that validates each release as it ships','Employee Testing — use internal users to validate each release before external customers see it','Competitive Testing — compare each release against the closest competitor\'s version'],
         a: 1,
-        exp: 'The Ambassador Program is specifically designed for demographics that don\'t respond well to standard recruiting. 65,000 actively engaged members who refer others are more likely to reach niche professional segments than a broad newsletter blast.',
+        exp: 'Continuous User Testing is built for products with frequent release cycles. The program runs alongside your release schedule, validating each update with real customers as it ships rather than running separate tests for every release.',
       },
       {
         q: 'A PM says "we should use UserTesting.com instead of Centercode to validate our new feature." The most accurate response is:',
-        opts: ['Agree: UserTesting is more cost-effective for feature validation','Disagree: Centercode does everything UserTesting does and more','They answer different questions. UserTesting captures UX research through moderated video sessions. Centercode validates real-world use over time through structured programs. Use UserTesting to answer "do people understand this?" Use Centercode to answer "does this work in real-world conditions?"','Disagree: Centercode\'s tester community is larger than UserTesting\'s'],
+        opts: ['Agree: UserTesting is more cost-effective for feature validation','Disagree: Centercode does everything UserTesting does and more','They answer different questions. UserTesting captures UX research through moderated video sessions. Centercode validates real-world use over time through structured programs.','Disagree: Centercode\'s participant community is larger than UserTesting\'s'],
         a: 2,
-        exp: 'UserTesting and Centercode are not competitors. They serve different research questions at different stages. UserTesting is optimal for early-stage UX research: "does this interface make sense?" Centercode is optimal for late-stage validation: "does this product work correctly in real-world use over time?" Many organizations use both.',
+        exp: 'UserTesting and Centercode are not competitors. UserTesting is optimal for early-stage UX research: "does this interface make sense?" Centercode is optimal for late-stage validation: "does this product work correctly in real-world conditions over time?" Many organizations use both at different stages.',
+      },
+      {
+        q: 'Your company is launching a new product and wants to validate it with real target-market customers before release. Which program type is this?',
+        opts: ['Employee Testing — gather internal feedback before going external','Continuous User Testing — build an always-on program and run the launch through it','Product Launch Testing — engage your target market to validate the product before it ships','Competitive Testing — test the new product against an existing competitor in the market'],
+        a: 2,
+        exp: 'Product Launch Testing is built for validating new products or major releases before they ship. It\'s time-bounded, focused on a specific release, and engages participants who match your target customer profile.',
+      },
+      {
+        q: 'Your leadership team wants to understand why Centercode is better than "just using a spreadsheet and email" for managing user testing. The core argument is:',
+        opts: ['Centercode is less expensive than spreadsheets at scale','Spreadsheets and email are the primary competitor — Centercode replaces that workflow with a purpose-built system for structured programs, automated engagement, and analyzable results','Centercode is the only tool that integrates with Jira, which is what engineering needs','Spreadsheets can\'t track feedback, but Centercode can'],
+        a: 1,
+        exp: 'The primary competition for Centercode isn\'t other testing platforms — it\'s the status quo of spreadsheets, email, and point solutions cobbled together. Centercode replaces that workflow with a system built specifically for user testing: structured programs, automated participant engagement via Ted, impact-scored feedback, and real-time dashboards.',
       },
     ],
     testOut: [
       {
-        q: 'Your organization has been on Pro Edition for two years. You now have three product teams wanting to share a Centercode community, and each needs granular team-level access control. You also need to run recruiting campaigns targeting specific enterprise segments with technographic filtering. What does this require?',
-        opts: ['No change: Pro Edition supports multiple teams and advanced recruiting with the right configuration','A Centercode Admin Service engagement to configure Pro Edition for multi-team use','An upgrade to Team Edition: granular access control and Technographic Profiles are Team Edition features. Multiple teams sharing a community also benefits from Team Edition\'s multi-program infrastructure.','An upgrade to Enterprise Edition: multi-team programs with granular access require dedicated infrastructure'],
-        a: 2,
-        exp: 'Both Granular Access Control and Technographic Profiles are Team Edition features. Pro Edition doesn\'t include either. Running multiple teams on a shared community is technically possible on Pro, but without granular access control, the ownership model becomes fragile as team count grows.',
-      },
-      {
-        q: 'Your VP asks: "What\'s the difference between what we pay for the platform and what Centercode\'s managed test service would cost?" The correct framing is:',
-        opts: ['They\'re the same cost packaged differently: managed tests are the platform fee plus a markup','They\'re completely separate: platform fees cover software access, managed tests (P-CPM/A-CPM) cover Centercode providing test management expertise and execution on top of the platform','Managed tests replace the platform fee: you pay for one or the other, not both','The costs can\'t be compared directly because managed tests use a different platform than self-service'],
+        q: 'You\'re running a continuous testing program for a SaaS product that ships bi-weekly. Each release needs participant validation. Manual announcement of builds is taking hours per cycle. What replaces this for a non-app-store web program?',
+        opts: ['Configure TestFlight polling so Centercode checks for new builds every five minutes','The Release API connected to your CI/CD pipeline, triggering Centercode to notify participants and update the active build version automatically with each publish','A Dynamic Tag template that updates build version references in all active communications when a new release is published','A community email sent manually to participants each time a new build is ready'],
         a: 1,
-        exp: 'Platform fees and managed test service fees are separate. You pay for platform access regardless of who runs the program. Managed tests add Centercode\'s expert execution layer on top: a dedicated test manager, logistics support, and recruitment management. If your team eventually takes over, you keep the platform; the service fee ends.',
+        exp: 'For non-app-store programs, the Release API lets CI/CD push new builds directly to Centercode. Centercode then notifies participants, updates build versions, and routes version-specific activities automatically. Two-week cycles become hands-off for the test manager.',
       },
       {
         q: 'A product director asks: "We\'re doing a major competitive repositioning next quarter. Can Centercode help us understand whether our product actually beats the competitor on the claims we\'re planning to make?" The right program type is:',
-        opts: ['A product launch test: time-bound, focused on your product\'s readiness before the repositioning announcement','A community survey: poll your existing tester base about their competitor product usage','A competitive test: the same participant group tests both products on the criteria that matter for the repositioning claims, producing real-world comparison data','A Customer Zero program: internal employees simulate the competitive evaluation process'],
+        opts: ['Product Launch Testing: time-bound, focused on your product\'s readiness before the repositioning announcement','A community survey: poll your existing participant base about their competitor product usage','Competitive Testing: the same participant group tests both products on the criteria that matter for the repositioning claims, producing real-world comparison data','Employee Testing: internal employees simulate the competitive evaluation process'],
         a: 2,
-        exp: 'Competitive testing was built for exactly this: testing your product against a named competitor with the same participants on specific criteria. It produces real-world data about differentiation rather than internal assumptions. The results either validate the repositioning claims or surface gaps to fix before making them publicly.',
+        exp: 'Competitive Testing puts your product and a competitor\'s product in front of the same participants on specific criteria. It produces real-world data about differentiation rather than internal assumptions. The results either validate the repositioning claims or surface gaps to fix before making them publicly.',
       },
       {
-        q: 'You\'re running a continuous testing program for a SaaS product that ships bi-weekly. Each release needs participant validation. Manual announcement of builds is taking hours per cycle. What replaces this?',
-        opts: ['A Macro scheduled to run every two weeks with build announcement content for participants','The Release API connected to your CI/CD pipeline, triggering Centercode to notify participants and update the active build version automatically with each publish','A Dynamic Tag template that updates build version references in all active communications when a new release is published','A Beta Blast to announce each new build to the Betabound newsletter audience'],
+        q: 'Your team has been running a product launch test for a mobile app. The test is wrapping up but engineering wants to keep validating each new release. How do you structure the next phase?',
+        opts: ['Run another Product Launch Test for each major release','Switch to Continuous User Testing — build an always-on program that runs alongside your release cycle and validates each update as it ships','Use Employee Testing to validate internal builds before external releases','Run a Competitive Test to benchmark the app against the top competitor before each release'],
         a: 1,
-        exp: 'The Release API is the right tool for continuous programs with frequent releases. CI/CD publishes, Centercode responds: participants are notified, build versions are updated, version-specific activities route automatically. Two-week cycles become hands-off for the test manager instead of a multi-hour manual process each time.',
+        exp: 'Once a product is live and shipping frequently, Product Launch Testing becomes impractical for each release. Continuous User Testing builds a persistent program that validates changes as they ship. Participants stay enrolled, feedback accumulates across releases, and you maintain a running signal on product quality.',
       },
       {
-        q: 'Betabound has 300,000 profiled members. A program manager says: "We should be using Betabound for market research between tests, not just recruiting." Is this accurate?',
-        opts: ['No: Betabound is a recruiting resource only. Market research requires a separate research panel.','Yes: Betabound functions as an on-demand market research panel that can be surveyed for product intelligence, competitor awareness, and feature preferences between testing programs.','Partially: Betabound can be surveyed, but only about Centercode-related topics, not general market research.','No: running surveys through Betabound requires upgrading to a separate market research contract with a different pricing model.'],
+        q: 'A PM at your company says: "We don\'t need Centercode. Our beta users just email us feedback." What\'s the strongest counter-argument?',
+        opts: ['Email feedback is untrackable — Centercode solves the storage problem','Email-based feedback gives you unstructured, unscored, and unanalyzable signal from self-selected responders. Centercode structures that feedback, tracks it against features, scores it by impact, and automates participant engagement — turning ad-hoc emails into a program.','Centercode is required for compliance with standard user testing practices','Email feedback is fine for small programs but Centercode is needed once you exceed 50 participants'],
         a: 1,
-        exp: 'Betabound is explicitly designed to serve as a market research panel between tests. The 300,000 profiled, opt-in members can be surveyed for product intelligence, competitor awareness, and feature preferences. Programs that use Betabound only for recruiting are leaving a significant research capability unused.',
+        exp: 'The problem with email feedback isn\'t volume — it\'s signal quality. Without structure, scoring, or engagement automation, email-based feedback is hard to act on and impossible to trend over time. Centercode converts that workflow into a program with measurable outcomes.',
+      },
+      {
+        q: 'Which of the four program types would you use to gather employee feedback on a new internal tool before rolling it out company-wide?',
+        opts: ['Product Launch Testing — treat the internal rollout like a product launch','Continuous User Testing — build a persistent program to track adoption over time','Employee Testing — gather internal employee feedback before rolling out more broadly','Competitive Testing — compare the new tool against the tool it\'s replacing'],
+        a: 2,
+        exp: 'Employee Testing is built for exactly this: gathering internal employee feedback before going external or company-wide. It catches issues early, builds a product-focused culture, and validates internal confidence before broader rollout.',
       },
     ],
   },
